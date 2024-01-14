@@ -1,9 +1,7 @@
 import { useState } from "react";
-// import { authContext } from "../components/providers/AuthProvider";
 
 const Login = () => {
   const [statusMessage, setStatusMessage] = useState("");
-  // const [, setToken] = useContext(authContext);
 
   const autenticarUsuario = async (e) => {
     e.preventDefault();
@@ -23,12 +21,11 @@ const Login = () => {
 
       if (res.ok) {
         const body = await res.json();
-        setStatusMessage(body.data.token);
-        // setToken(body.data.token);
+        setStatusMessage(`Token del servidor: ${body.data.token}`);
       } else {
         const body = await res.json();
         console.log("Error de datos", body);
-        setStatusMessage(body.message);
+        setStatusMessage(`Error: ${body.message}`);
       }
     } catch (error) {
       console.error("Error al acceder");
@@ -36,13 +33,11 @@ const Login = () => {
     }
   };
 
-  const mensajeParaElUsuario = `La respuesta del servidor es: ${statusMessage}`;
-
   return (
     <>
       <h1>Login</h1>
       {statusMessage ? (
-        <div>{mensajeParaElUsuario}</div>
+        <div>{statusMessage}</div>
       ) : (
         <div>Introduce los datos</div>
       )}
@@ -57,7 +52,7 @@ const Login = () => {
           <input type="password" name="password" id="password" />
         </div>
         <div>
-          <input type="submit" />
+          <input type="submit" value="Iniciar sesión" />
         </div>
       </form>
     </>
