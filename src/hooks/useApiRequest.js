@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const useApiRequest = () => {
   const fetchData = async (url, urlData = {}, onSuccess, onError) => {
     try {
@@ -9,6 +11,7 @@ const useApiRequest = () => {
         onError(body);
       }
     } catch (error) {
+      toast.error(error.message);
       onError(error);
     }
   };
