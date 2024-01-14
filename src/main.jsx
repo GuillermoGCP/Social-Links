@@ -7,8 +7,9 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import PageNotFound from "./components/PageNotFound";
+import PageNotFound from "./pages/PageNotFound";
 import "./index.css";
+import { TokenProvider } from "./contexs/tokenContext";
 
 const router = createBrowserRouter([
   { path: "", element: <Home /> },
@@ -32,6 +33,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       pauseOnHover
       theme="light"
     />
-    <RouterProvider router={router} />
+    <TokenProvider>
+      <RouterProvider router={router} />
+    </TokenProvider>
   </React.StrictMode>
 );

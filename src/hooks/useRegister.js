@@ -15,7 +15,7 @@ const useRegister = () => {
   };
 
   const onError = (error) => {
-    toast.error(error.message);
+    toast.error(error.error);
     setName("");
     setEmail("");
     setPassword("");
