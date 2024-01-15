@@ -1,6 +1,6 @@
-import EmailForm from "../components/EmailForm";
-import ButtonForm from "../components/ButtonForm";
-import PasswordForm from "../components/PasswordForm";
+import EmailInput from "../components/EmailInput";
+import Button from "../components/Button";
+import PasswordInput from "../components/PasswordInput";
 import useLogin from "../hooks/useLogin";
 import Navigation from "../components/Navigation";
 
@@ -10,9 +10,9 @@ const Login = () => {
   return (
     <>
       <Navigation />
-      <EmailForm email={email} setEmail={setEmail} />
-      <PasswordForm password={password} setPassword={setPassword} />
-      <ButtonForm handler={loginHandler}>Iniciar sesión</ButtonForm>
+      <EmailInput email={email} setEmail={setEmail} />
+      <PasswordInput password={password} setPassword={setPassword} />
+      <Button handler={loginHandler}>Iniciar sesión</Button>
     </>
   );
 };

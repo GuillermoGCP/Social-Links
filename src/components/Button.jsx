@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
-const ButtonForm = ({ handler, children }) => {
+const Button = ({ handler, children }) => {
   return <button onClick={handler}>{children}</button>;
 };
-ButtonForm.propTypes = {
+Button.propTypes = {
   handler: PropTypes.func,
   children: PropTypes.node,
 };
-export default ButtonForm;
+export default Button;

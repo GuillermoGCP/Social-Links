@@ -1,6 +1,6 @@
-import NameForm from "./NameForm";
-import InputUrl from "./InputUrl";
-import ButtonForm from "./ButtonForm";
+import TextInput from "./TextInput";
+import UrlInput from "../components/UrlInput";
+import Button from "./Button";
 import useCreateLink from "../hooks/useCreateLink";
 
 const PostLink = () => {
@@ -16,18 +16,16 @@ const PostLink = () => {
 
   return (
     <>
-      <InputUrl urlState={urlState} setUrlState={setUrlState}>
+      <UrlInput urlState={urlState} setUrlState={setUrlState}>
         Url
-      </InputUrl>
-      <NameForm titleState={titleState} setTitleState={setTitleState}>
+      </UrlInput>
+      <TextInput name={titleState} setName={setTitleState}>
         Title
-      </NameForm>
-      <NameForm>
-        {" "}
-        descriptionState ={descriptionState} setDescriptionState=
-        {setDescriptionState} Description
-      </NameForm>
-      <ButtonForm handler={linkHandler}>Crea tu link</ButtonForm>
+      </TextInput>
+      <TextInput name={descriptionState} setName={setDescriptionState}>
+        Description
+      </TextInput>
+      <Button handler={linkHandler}>Crea tu link</Button>
     </>
   );
 };

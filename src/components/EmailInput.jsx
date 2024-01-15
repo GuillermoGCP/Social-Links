@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-const EmailForm = ({ email, setEmail }) => {
+const EmailInput = ({ email, setEmail }) => {
   return (
     <>
       <label htmlFor="email">Email</label>
@@ -14,8 +14,8 @@ const EmailForm = ({ email, setEmail }) => {
     </>
   );
 };
-EmailForm.propTypes = {
+EmailInput.propTypes = {
   email: PropTypes.string,
   setEmail: PropTypes.func,
 };
-export default EmailForm;
+export default EmailInput;

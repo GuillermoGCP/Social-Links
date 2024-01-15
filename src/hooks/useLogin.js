@@ -18,8 +18,6 @@ const useLogin = () => {
 
   const onError = (error) => {
     toast.error(error.message);
-    setEmail("");
-    setPassword("");
   };
   const { fetchData } = useApiRequest();
   const loginHandler = () => {
