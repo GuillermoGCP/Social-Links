@@ -20,10 +20,12 @@ const Register = () => {
     <>
       <Navigation />
       <form>
-        <NameForm name={name} setName={setName} />
+        <NameForm name={name} setName={setName}>
+          Name
+        </NameForm>
         <EmailForm email={email} setEmail={setEmail} />
         <PasswordForm password={password} setPassword={setPassword} />
-        <ButtonForm handler={handleRegisterSubmit} />
+        <ButtonForm handler={handleRegisterSubmit}>Regístrate</ButtonForm>
       </form>
     </>
   );

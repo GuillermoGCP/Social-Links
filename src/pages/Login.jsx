@@ -12,7 +12,7 @@ const Login = () => {
       <Navigation />
       <EmailForm email={email} setEmail={setEmail} />
       <PasswordForm password={password} setPassword={setPassword} />
-      <ButtonForm handler={loginHandler} />
+      <ButtonForm handler={loginHandler}>Iniciar sesión</ButtonForm>
     </>
   );
 };
