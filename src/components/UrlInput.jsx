@@ -15,8 +15,8 @@ const InputUrl = ({ urlState, setUrlState, children }) => {
   );
 };
 InputUrl.propTypes = {
-  urlState: PropTypes.string,
-  setUrlState: PropTypes.func,
-  children: PropTypes.node,
+  urlState: PropTypes.string.isRequired,
+  setUrlState: PropTypes.func.isRequired,
+  children: PropTypes.string,
 };
 export default InputUrl;

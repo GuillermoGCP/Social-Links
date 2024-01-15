@@ -16,9 +16,6 @@ const useRegister = () => {
 
   const onError = (error) => {
     toast.error(error.error);
-    setName("");
-    setEmail("");
-    setPassword("");
   };
 
   const { fetchData } = useApiRequest();

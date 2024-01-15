@@ -1,8 +1,8 @@
 import useRegister from "../hooks/useRegister";
-import NameForm from "../components/NameForm";
-import EmailForm from "../components/EmailForm";
-import PasswordForm from "../components/PasswordForm";
-import ButtonForm from "../components/ButtonForm";
+import TextInput from "../components/TextInput";
+import EmailInput from "../components/EmailInput";
+import PasswordInput from "../components/PasswordInput";
+import Button from "../components/Button";
 import Navigation from "../components/Navigation";
 
 const Register = () => {
@@ -20,12 +20,12 @@ const Register = () => {
     <>
       <Navigation />
       <form>
-        <NameForm name={name} setName={setName}>
+        <TextInput name={name} setName={setName}>
           Name
-        </NameForm>
-        <EmailForm email={email} setEmail={setEmail} />
-        <PasswordForm password={password} setPassword={setPassword} />
-        <ButtonForm handler={handleRegisterSubmit}>Regístrate</ButtonForm>
+        </TextInput>
+        <EmailInput email={email} setEmail={setEmail} />
+        <PasswordInput password={password} setPassword={setPassword} />
+        <Button handler={handleRegisterSubmit}>Regístrate</Button>
       </form>
     </>
   );

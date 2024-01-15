@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import { toast } from "react-toastify";
 import useApiRequest from "../hooks/useApiRequest";
 import { tokenContext } from "../contexs/tokenContext";
 
 const useCreateLink = () => {
   const url = import.meta.env.VITE_SERVER_URL + "links";
+  const [tokenState] = React.useContext(tokenContext);
   const [urlState, setUrlState] = React.useState("");
   const [titleState, setTitleState] = React.useState("");
   const [descriptionState, setDescriptionState] = React.useState("");
+  const { fetchData } = useApiRequest();
+
   const onSuccess = (data) => {
-    toast.success(data.message);
+    toast.success(data.data.message);
     setUrlState("");
     setTitleState("");
     setDescriptionState("");
@@ -17,22 +20,24 @@ const useCreateLink = () => {
 
   const onError = (error) => {
     toast.error(error.error);
-    setUrlState("");
-    setTitleState("");
-    setDescriptionState("");
   };
-  const { fetchData } = useApiRequest();
-  const { tokenState } = useContext(tokenContext);
+
   const linkHandler = (e) => {
     e.preventDefault();
+    console.log(titleState, descriptionState, urlState);
     const urlData = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: tokenState,
+        authorization: `Bearer ${tokenState}`,
       },
-      body: JSON.stringify({ setUrlState, setTitleState, setDescriptionState }),
+      body: JSON.stringify({
+        url: urlState,
+        title: titleState,
+        description: descriptionState,
+      }),
     };
+    console.log(urlData);
     fetchData(url, urlData, onSuccess, onError);
   };
   return {
