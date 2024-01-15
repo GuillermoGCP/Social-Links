@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
-const NameForm = ({ name, setName }) => {
+const NameForm = ({ name, setName, children }) => {
   return (
     <>
       <label className="border-red-600" htmlFor="name">
-        Nombre
+        {children}
       </label>
       <input
         type="text"
@@ -19,5 +19,6 @@ const NameForm = ({ name, setName }) => {
 NameForm.propTypes = {
   name: PropTypes.string,
   setName: PropTypes.func,
+  children: PropTypes.node,
 };
 export default NameForm;
