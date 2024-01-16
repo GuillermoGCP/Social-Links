@@ -20,7 +20,8 @@ const useLogin = () => {
     toast.error(error.message);
   };
   const { fetchData } = useApiRequest();
-  const loginHandler = () => {
+  const loginHandler = (e) => {
+    e.preventDefault();
     const urlData = {
       method: "POST",
       headers: {
