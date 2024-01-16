@@ -37,7 +37,6 @@ const useCreateLink = () => {
         description: descriptionState,
       }),
     };
-    console.log(urlData);
     fetchData(url, urlData, onSuccess, onError);
   };
   return {
