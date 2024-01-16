@@ -10,9 +10,11 @@ const Login = () => {
   return (
     <>
       <Navigation />
-      <EmailInput email={email} setEmail={setEmail} />
-      <PasswordInput password={password} setPassword={setPassword} />
-      <Button handler={loginHandler}>Iniciar sesión</Button>
+      <form>
+        <EmailInput email={email} setEmail={setEmail} />
+        <PasswordInput password={password} setPassword={setPassword} />
+        <Button handler={loginHandler}>Iniciar sesión</Button>
+      </form>
     </>
   );
 };

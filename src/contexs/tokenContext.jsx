@@ -12,6 +12,6 @@ const TokenProvider = ({ children }) => {
   );
 };
 TokenProvider.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.node,
 };
 export { TokenProvider, tokenContext };
