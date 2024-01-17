@@ -17,17 +17,20 @@ const Register = () => {
   } = useRegister();
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <Navigation />
-      <form>
+      <form className="bg-gray-300 text-gray-800 w-full max-w-md p-4 rounded-md">
+        <h1 className="text-2xl font-bold mb-4">Regístrate</h1>
         <TextInput name={name} setName={setName}>
-          Name
+          Nombre
         </TextInput>
         <EmailInput email={email} setEmail={setEmail} />
         <PasswordInput password={password} setPassword={setPassword} />
-        <Button handler={handleRegisterSubmit}>Regístrate</Button>
+        <Button handler={handleRegisterSubmit} className="mt-4 bg-gray-800 text-white py-2 px-4">
+          Regístrate
+        </Button>
       </form>
-    </>
+    </div>
   );
 };
 

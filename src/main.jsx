@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import BaseComponent from "./components/BaseComponent";
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -14,7 +14,7 @@ import { TokenProvider } from "./contexs/tokenContext";
 
 const router = createBrowserRouter([
   { path: "", element: <BaseComponent /> },
-  // { path: "", element: <Home /> },
+  { path: "", element: <Home /> },
   { path: "register", element: <Register /> },
   { path: "login", element: <Login /> },
   { path: "dashboard", element: <Dashboard /> },
