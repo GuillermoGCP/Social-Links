@@ -5,8 +5,8 @@ import { tokenContext } from "../contexs/tokenContext";
 
 const useLogin = () => {
   const url = import.meta.env.VITE_SERVER_URL + "login";
-  const [email, setEmail] = React.useState();
-  const [password, setPassword] = React.useState();
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [, setTokenState] = React.useContext(tokenContext);
 
   const onSuccess = (data) => {
@@ -20,7 +20,8 @@ const useLogin = () => {
     toast.error(error.message);
   };
   const { fetchData } = useApiRequest();
-  const loginHandler = () => {
+  const loginHandler = (e) => {
+    e.preventDefault();
     const urlData = {
       method: "POST",
       headers: {

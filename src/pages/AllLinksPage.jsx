@@ -6,7 +6,9 @@ import OneLink from "../components/OneLink";
 
 const AllLinksPage = () => {
   const url = import.meta.env.VITE_SERVER_URL + "links";
+
   const [state, setState] = React.useState([]);
+
   const [tokenState] = React.useContext(tokenContext);
   console.log("state", state);
   const onSuccess = (data) => {
@@ -34,7 +36,9 @@ const AllLinksPage = () => {
       <div>
         <ul>
           {state.map((link) => {
+
             return <OneLink key={link.id} link={link} />;
+           
           })}
         </ul>
       </div>
