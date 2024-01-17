@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
+
 const TextInput = ({ name, setName, children }) => {
   return (
-    <>
+    <div className="mb-4">
       <label
-        className="block text-sm font-semibold leading-6 text-gray-900"
+        className="block text-sm font-semibold text-gray-700"
         htmlFor="name"
       >
         {children}
       </label>
       <input
-        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
         type="text"
         id="name"
         value={name}
@@ -17,12 +18,14 @@ const TextInput = ({ name, setName, children }) => {
           setName(e.target.value);
         }}
       />
-    </>
+    </div>
   );
 };
+
 TextInput.propTypes = {
   name: PropTypes.string,
   setName: PropTypes.func,
   children: PropTypes.node,
 };
+
 export default TextInput;
