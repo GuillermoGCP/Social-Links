@@ -5,7 +5,7 @@ import { tokenContext } from "../contexs/tokenContext";
 
 const AllLinksPage = () => {
   const url = import.meta.env.VITE_SERVER_URL + "links";
-  const [state, setState] = React.useState();
+  const [state, setState] = React.useState([]);
   const [tokenState] = React.useContext(tokenContext);
   console.log("state", state);
   const onSuccess = (data) => {
@@ -14,6 +14,7 @@ const AllLinksPage = () => {
   };
 
   const onError = (error) => {
+    console.log("Estoy en el error");
     toast.error(error.message);
   };
   const { fetchData } = useApiRequest();
