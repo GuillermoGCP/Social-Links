@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
 import "./index.css";
 import { TokenProvider } from "./contexs/tokenContext";
+import AllLinksPage from "./pages/AllLinksPage";
 
 const router = createBrowserRouter([
   { path: "", element: <BaseComponent /> },
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
   { path: "login", element: <Login /> },
   { path: "dashboard", element: <Dashboard /> },
   { path: "*", element: <PageNotFound /> },
+  { path: "links/all", element: <AllLinksPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
