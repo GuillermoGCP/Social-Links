@@ -11,8 +11,10 @@ import PageNotFound from "./pages/PageNotFound";
 import "./index.css";
 import { TokenProvider } from "./contexs/tokenContext";
 import MainPage from "./pages/MainPage";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
+  { path: "home", element: <Home /> },
   { path: "", element: <Login /> },
   { path: "register", element: <Register /> },
   {
