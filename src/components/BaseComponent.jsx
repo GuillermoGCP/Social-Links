@@ -1,36 +1,29 @@
-import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import Navigation from "./Navigation";
 
 const BaseComponent = () => {
-  const [dynamicContent, setDynamicContent] = useState("Contenido por defecto");
-
-  const handleContentChange = () => {
-    setDynamicContent("Nuevo contenido dinámico");
-  };
-
   return (
-    <div className="flex flex-col min-h-screen items-center">
-      <header className="bg-gray-800 text-white w-full">
-        <div className="p-4">
-          <h1 className="m-0 text-center">TryCaff</h1>
-        </div>
+    <>
+      <header className="bg-gray-100 p-4 text-center">
+        <h1 className="text-5xl font-extrabold text-indigo-700">Links World</h1>
+        <Navigation className="mt-2 text-sm" />
       </header>
-      <div className="flex-1 w-full bg-gray-100 min-h-full">
-        <div className="w-full p-4">
-          <p>{dynamicContent}</p>
-          <button
-            onClick={handleContentChange}
-            className="bg-blue-500 text-white py-2 px-4 mt-4"
-          >
-            Cambiar Contenido
-          </button>
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <div className="w-11/12 lg:w-3/5 mb-8 lg:mb-0 text-center">
+          <div className="bg-white p-8 lg:p-12 shadow-md rounded-md w-full">
+            <h2 className="text-3xl font-semibold mb-6 text-center"></h2>
+
+            <Outlet />
+          </div>
         </div>
       </div>
-      <footer className="bg-gray-800 text-white w-full">
-        <div className="p-2">
-          <p>Footer</p>
-        </div>
+      <footer className="mt-8 text-gray-600 text-sm text-center mb-8">
+        <p>
+          Creado y diseñado por Guillermo Cerviño Porto, Ruth Villa Valeiro,
+          Louis del Saz y Rosdany Guera &copy; 2024
+        </p>
       </footer>
-    </div>
+    </>
   );
 };
 

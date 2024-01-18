@@ -4,21 +4,18 @@ import { toast } from "react-toastify";
 import { tokenContext } from "../contexs/tokenContext";
 import OneLink from "../components/OneLink";
 
-const AllLinksPage = () => {
+const MainPage = () => {
   const url = import.meta.env.VITE_SERVER_URL + "links";
 
   const [state, setState] = React.useState([]);
 
   const [tokenState] = React.useContext(tokenContext);
-  console.log("state", state);
   const onSuccess = (data) => {
-    toast.success(data.data.message);
     setState(data.data.links);
   };
 
   const onError = (error) => {
-    console.log("Estoy en el error");
-    toast.error(error.message);
+    toast.error(error.error);
   };
   const { fetchData } = useApiRequest();
   React.useEffect(() => {
@@ -31,18 +28,24 @@ const AllLinksPage = () => {
     fetchData(url, urlData, onSuccess, onError);
   }, []);
 
-  return (
-    <>
-      <div>Links Publicados</div>
-      <div>
-        <ul>
-          {state.map((link) => {
-            return <OneLink key={link.id} link={link} />;
-          })}
-        </ul>
-      </div>
-    </>
-  );
+  {
+    if (!tokenState) {
+      toast.warning("Por favor, inicia sesión");
+    } else {
+      return (
+        <>
+          <div>Links Publicados</div>
+          <div>
+            <ul>
+              {state.map((link) => {
+                return <OneLink key={link.id} link={link} />;
+              })}
+            </ul>
+          </div>
+        </>
+      );
+    }
+  }
 };
 
-export default AllLinksPage;
+export default MainPage;

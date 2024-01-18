@@ -1,7 +1,9 @@
 import React from "react";
 import useApiRequest from "../hooks/useApiRequest";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const useRegister = () => {
+  let navigate = useNavigate();
   const url = import.meta.env.VITE_SERVER_URL + `register`;
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -9,6 +11,7 @@ const useRegister = () => {
 
   const onSuccess = (data) => {
     toast.success(data.message);
+    navigate("/");
     setName("");
     setEmail("");
     setPassword("");
