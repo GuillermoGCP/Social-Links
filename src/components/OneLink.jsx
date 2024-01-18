@@ -1,5 +1,4 @@
 const OneLink = (link) => {
-  console.log(link);
   return (
     <div>
       <p>{`Título: ${link.link.title}`}</p>

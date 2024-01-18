@@ -4,24 +4,26 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import BaseComponent from "./components/BaseComponent";
-// import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
 import "./index.css";
 import { TokenProvider } from "./contexs/tokenContext";
-import AllLinksPage from "./pages/AllLinksPage";
-
+import MainPage from "./pages/MainPage";
 
 const router = createBrowserRouter([
-  { path: "", element: <BaseComponent /> },
-  // { path: "", element: <Home /> },
+  { path: "", element: <Login /> },
   { path: "register", element: <Register /> },
-  { path: "login", element: <Login /> },
-  { path: "dashboard", element: <Dashboard /> },
-  { path: "*", element: <PageNotFound /> },
-  { path: "links/all", element: <AllLinksPage /> },
+  {
+    path: "",
+    element: <BaseComponent />,
+    children: [
+      { path: "dashboard", element: <Dashboard /> },
+      { path: "*", element: <PageNotFound /> },
+      { path: "main", element: <MainPage /> },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

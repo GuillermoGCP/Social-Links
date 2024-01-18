@@ -2,24 +2,20 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="flex items-center justify-between">
+    <nav className="bg-gray-200 p-4">
+      <div className="flex items-center justify-around">
         <Link
-          to="/"
-          className="text-white text-lg font-semibold hover:text-gray-300 mr-4"
+          to=""
+          className="text-gray-800 text-lg font-semibold hover:text-gray-600 mr-4"
+
         >
           Home
         </Link>
         <div className="flex items-center space-x-4">
           <Link
-            to="/login"
-            className="text-white hover:text-gray-300 transition duration-300"
-          >
-            Iniciar Sesión
-          </Link>
-          <Link
+
             to="/register"
-            className="text-white hover:text-gray-300 transition duration-300"
+            className="text-gray-800 hover:text-gray-600 transition duration-300"
           >
             Registrarse
           </Link>
