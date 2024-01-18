@@ -1,51 +1,32 @@
 import React from "react";
-import useApiRequest from "../hooks/useApiRequest";
-import { toast } from "react-toastify";
-import { tokenContext } from "../contexs/tokenContext";
+import useMainPage from "../hooks/useMainPage";
 import OneLink from "../components/OneLink";
+import { useNavigate } from "react-router-dom";
+import PostLink from "../components/PostLink";
 
 const MainPage = () => {
-  const url = import.meta.env.VITE_SERVER_URL + "links";
+  const { state, tokenState } = useMainPage();
+  const navigate = useNavigate();
 
-  const [state, setState] = React.useState([]);
-
-  const [tokenState] = React.useContext(tokenContext);
-  const onSuccess = (data) => {
-    setState(data.data.links);
-  };
-
-  const onError = (error) => {
-    toast.error(error.error);
-  };
-  const { fetchData } = useApiRequest();
   React.useEffect(() => {
-    const urlData = {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${tokenState}`,
-      },
-    };
-    fetchData(url, urlData, onSuccess, onError);
-  }, []);
-
-  {
     if (!tokenState) {
-      toast.warning("Por favor, inicia sesión");
-    } else {
-      return (
-        <>
-          <div>Links Publicados</div>
-          <div>
-            <ul>
-              {state.map((link) => {
-                return <OneLink key={link.id} link={link} />;
-              })}
-            </ul>
-          </div>
-        </>
-      );
+      navigate("/");
     }
-  }
+  }, [tokenState, navigate]);
+
+  return (
+    <article className="max-w-2xl mx-auto mt-8 p-4">
+      <PostLink />
+
+      <h2 className="text-2xl font-bold mt-8 mb-4">Links Publicados</h2>
+
+      <ul>
+        {state.map((link) => (
+          <OneLink key={link.id} link={link} />
+        ))}
+      </ul>
+    </article>
+  );
 };
 
 export default MainPage;

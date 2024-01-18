@@ -1,12 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Navigation from "./Navigation";
 
 const BaseComponent = () => {
   return (
     <>
       <header className="bg-gray-100 p-4 text-center">
         <h1 className="text-5xl font-extrabold text-indigo-700">Links World</h1>
-        <Navigation className="mt-2 text-sm" />
       </header>
       <div className="min-h-screen flex flex-col items-center justify-center">
         <div className="w-11/12 lg:w-3/5 mb-8 lg:mb-0 text-center">

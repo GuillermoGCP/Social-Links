@@ -16,7 +16,7 @@ const Register = () => {
     handleRegisterSubmit,
   } = useRegister();
 
- return (
+  return (
     <article
       className="bg-cover bg-center min-h-screen flex flex-col items-center justify-center bg-gray-100 relative"
       style={{
