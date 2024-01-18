@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 
+
 const TextInput = ({ name, setName, children, placeholder }) => {
+
+
   return (
     <div className="mb-4">
       <label
@@ -10,7 +13,10 @@ const TextInput = ({ name, setName, children, placeholder }) => {
         {children}
       </label>
       <input
+
         placeholder={placeholder}
+
+
         className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
         type="text"
         id="name"

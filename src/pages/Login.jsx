@@ -9,7 +9,9 @@ const Login = () => {
 
   return (
     <>
+
       <article className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gray-100">
+
         <div className="lg:w-1/2 mb-8 lg:mb-0 text-center">
           <h1 className="text-5xl font-extrabold mb-2 mt-4 text-indigo-700">
             Links World
@@ -42,7 +44,9 @@ const Login = () => {
             </Link>
           </form>
         </div>
+
       </article>
+
       <footer className="mt-8 text-gray-600 text-sm text-center mb-8">
         <p>
           Creado y diseñado por Guillermo Cerviño Porto, Ruth Villa Valeiro,
