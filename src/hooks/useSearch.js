@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 const useSearch = (state) => {
   let [searchParams, setSearchParams] = useSearchParams();
-  const q = searchParams.get("q");
+  const q = searchParams.get("q") ?? "";
 
   const searchHandler = (e) => {
     e.preventDefault();

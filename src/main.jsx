@@ -11,6 +11,7 @@ import PageNotFound from "./pages/PageNotFound";
 import "./index.css";
 import { TokenProvider } from "./contexs/tokenContext";
 import MainPage from "./pages/MainPage";
+import LinkDetailsPage from "./pages/LinkDetailsPage";
 
 const router = createBrowserRouter([
   { path: "", element: <Login /> },
@@ -20,8 +21,9 @@ const router = createBrowserRouter([
     element: <BaseComponent />,
     children: [
       { path: "dashboard", element: <Dashboard /> },
-      { path: "*", element: <PageNotFound /> },
       { path: "main", element: <MainPage /> },
+      { path: "/:id", element: <LinkDetailsPage /> },
+      { path: "*", element: <PageNotFound /> },
     ],
   },
 ]);
