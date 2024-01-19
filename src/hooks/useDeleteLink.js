@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import useApiRequest from "./useApiRequest";
 
 const useDeleteLink = (linkId) => {
-  const url = import.meta.env.VITE_SERVER_URL + `links/${linkId}`;
+  const url = import.meta.env.VITE_SERVER_URL + `/links/${linkId}`;
   const [tokenState] = React.useContext(tokenContext);
   const { fetchData } = useApiRequest();
 

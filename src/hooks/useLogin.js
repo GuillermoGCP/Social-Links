@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const useLogin = () => {
   let navigate = useNavigate();
-  const url = import.meta.env.VITE_SERVER_URL + "login";
+  const url = import.meta.env.VITE_SERVER_URL + "/login";
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [, setTokenState] = React.useContext(tokenContext);

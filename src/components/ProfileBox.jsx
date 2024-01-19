@@ -3,7 +3,6 @@ import { tokenContext } from "../contexs/tokenContext";
 
 const ProfileBox = () => {
   const [, , profileInfo] = useContext(tokenContext);
-  console.log(profileInfo);
   return (
     <header>
       {Object.values(profileInfo).length > 0 && (

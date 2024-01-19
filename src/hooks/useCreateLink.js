@@ -4,7 +4,7 @@ import useApiRequest from "../hooks/useApiRequest";
 import { tokenContext } from "../contexs/tokenContext";
 
 const useCreateLink = () => {
-  const url = import.meta.env.VITE_SERVER_URL + "links";
+  const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [tokenState] = React.useContext(tokenContext);
   const [urlState, setUrlState] = React.useState("");
   const [titleState, setTitleState] = React.useState("");

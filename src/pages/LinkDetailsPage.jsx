@@ -1,7 +1,7 @@
 import { useParams, useLocation } from "react-router-dom";
-import OneLink from "../components/OneLink";
 import PropTypes from "prop-types";
 import PageNotFound from "./PageNotFound";
+import LinkDetailPost from "../components/LinkDetailPost";
 
 const LinkDetailsPage = () => {
   const location = useLocation();
@@ -13,7 +13,7 @@ const LinkDetailsPage = () => {
 
   return (
     <section>
-      <OneLink key={link.id} link={link} />
+      <LinkDetailPost key={link.id} link={link} />
     </section>
   );
 };
