@@ -9,6 +9,7 @@ const InputUrl = ({ urlState, setUrlState, children, placeholder }) => {
         {children}
       </label>
       <input
+        required
         placeholder={placeholder}
         className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
         type="url"

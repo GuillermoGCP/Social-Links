@@ -3,9 +3,12 @@ import useMainPage from "../hooks/useMainPage";
 import OneLink from "../components/OneLink";
 import { useNavigate } from "react-router-dom";
 import PostLink from "../components/PostLink";
+import useSearch from "../hooks/useSearch";
+import Search from "../components/Search";
 
 const MainPage = () => {
   const { state, tokenState } = useMainPage();
+  const { filteredState, searchHandler } = useSearch(state);
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -15,17 +18,16 @@ const MainPage = () => {
   }, [tokenState, navigate]);
 
   return (
-    <article className="max-w-2xl mx-auto mt-8 p-4">
+    <section className="max-w-2xl mx-auto mt-8 p-4">
       <PostLink />
-
-      <h2 className="text-2xl font-bold mt-8 mb-4">Links Publicados</h2>
+      <Search handler={searchHandler} placeholder="Buscador" />
 
       <ul>
-        {state.map((link) => (
+        {filteredState.map((link) => (
           <OneLink key={link.id} link={link} />
         ))}
       </ul>
-    </article>
+    </section>
   );
 };
 
