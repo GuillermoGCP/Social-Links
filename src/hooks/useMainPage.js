@@ -23,7 +23,7 @@ const useMainPage = () => {
       },
     };
     fetchData(url, urlData, onSuccess, onError);
-  }, [tokenState, fetchData, url]);
-  return { state, tokenState };
+  }, []);
+  return { state, tokenState, setState };
 };
 export default useMainPage;
