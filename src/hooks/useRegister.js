@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 const useRegister = () => {
   let navigate = useNavigate();
-  const url = import.meta.env.VITE_SERVER_URL + `register`;
+  const url = import.meta.env.VITE_SERVER_URL + `/register`;
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");

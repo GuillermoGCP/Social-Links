@@ -6,7 +6,7 @@ import { tokenContext } from "../contexs/tokenContext";
 const useVoteLink = (linkId) => {
   const [voteState, setVoteState] = React.useState("0");
   const { fetchData } = useApiRequest();
-  const url = import.meta.env.VITE_SERVER_URL + `links/${linkId}`;
+  const url = import.meta.env.VITE_SERVER_URL + `/links/${linkId}`;
   const [tokenState] = React.useContext(tokenContext);
 
   const onSuccess = (data) => {

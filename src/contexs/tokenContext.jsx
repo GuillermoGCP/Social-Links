@@ -21,11 +21,10 @@ const TokenProvider = ({ children }) => {
 
   React.useEffect(() => {
     if (!tokenState) return;
-    const url = import.meta.env.VITE_SERVER_URL + "profile";
+    const url = import.meta.env.VITE_SERVER_URL + "/profile";
     const urlData = {
       headers: { authorization: `Bearer ${tokenState}` },
     };
-
 
     fetchData(url, urlData, onSuccess, onError);
   }, [tokenState]);
