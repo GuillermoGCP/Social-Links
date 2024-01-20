@@ -32,7 +32,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ToastContainer
       position="top-center"
-      autoClose={5000}
+      autoClose={3000}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick
@@ -42,6 +42,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       pauseOnHover
       theme="light"
     />
+
     <TokenProvider>
       <RouterProvider router={router} />
     </TokenProvider>

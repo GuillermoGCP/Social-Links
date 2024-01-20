@@ -7,6 +7,7 @@ const tokenContext = React.createContext();
 
 const TokenProvider = ({ children }) => {
   const [tokenState, setTokenState] = useLocalStorage("tokenInLocalStorage");
+
   const [profileInfo, setProfileInfo] = React.useState({});
   const { fetchData } = useApiRequest();
 

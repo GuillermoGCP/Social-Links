@@ -13,6 +13,9 @@ const useCreateLink = () => {
 
   const onSuccess = (data) => {
     toast.success(data.data.message);
+    setInterval(() => {
+      location.reload();
+    }, 3200);
     setUrlState("");
     setTitleState("");
     setDescriptionState("");
@@ -24,7 +27,6 @@ const useCreateLink = () => {
 
   const linkHandler = (e) => {
     e.preventDefault();
-    console.log(titleState, descriptionState, urlState);
     const urlData = {
       method: "POST",
       headers: {
