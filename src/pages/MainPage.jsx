@@ -7,6 +7,7 @@ import PostLink from "../components/PostLink";
 import useSearch from "../hooks/useSearch";
 import Search from "../components/Search";
 import Button from "../components/Button";
+import Footer from "../components/Footer";
 
 const MainPage = () => {
   const { state, tokenState } = useMainPage();
@@ -45,6 +46,8 @@ const MainPage = () => {
           </div>
         ))}
       </ul>
+
+      <Footer />
     </section>
   );
 };
