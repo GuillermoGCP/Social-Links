@@ -1,5 +1,6 @@
 import React from "react";
 import useMainPage from "../hooks/useMainPage";
+import Header from "../components/Header";
 import OneLink from "../components/OneLink";
 import { useNavigate } from "react-router-dom";
 import PostLink from "../components/PostLink";
@@ -24,6 +25,7 @@ const MainPage = () => {
 
   return (
     <section className="max-w-2xl mx-auto mt-8 p-4">
+      <Header />
       <PostLink />
       <Search handler={searchHandler} placeholder="Buscador" />
 
