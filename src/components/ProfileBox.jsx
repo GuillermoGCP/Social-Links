@@ -17,7 +17,7 @@ const ProfileBox = () => {
     import.meta.env.VITE_SERVER_URL + (profileInfo?.profilePicture || "");
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-
+  console.log(profileInfo);
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
