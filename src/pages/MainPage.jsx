@@ -9,7 +9,7 @@ import Button from "../components/Button";
 
 const MainPage = () => {
   //Fetch para traer los links:
-  const { state, tokenState } = useMainPage();
+  const { state, tokenState, addNewLink } = useMainPage();
   //Se los paso al search y me los devuelve filtrados:
   const { filteredLinks, searchHandler } = useSearch(state);
 
@@ -28,10 +28,10 @@ const MainPage = () => {
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
     return b.id - a.id;
   });
-
+  console.log(orderFilteredLinks);
   return (
     <section className="max-w-2xl mx-auto mt-8 p-4">
-      <PostLink />
+      <PostLink addNewLink={addNewLink} />
       <Search handler={searchHandler} placeholder="Buscador" />
 
       <ul>
