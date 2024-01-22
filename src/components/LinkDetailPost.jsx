@@ -1,5 +1,6 @@
 const LinkDetailPost = (link) => {
-  const url = import.meta.env.VITE_SERVER_URL + link.link.profilePicture;
+  const url =
+    import.meta.env.VITE_SERVER_URL + `/uploads/${link.link.profilePicture}`;
 
   return (
     <>

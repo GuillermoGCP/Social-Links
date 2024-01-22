@@ -9,12 +9,14 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import useCloseSesion from "../hooks/useCloseSesion";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProfileBox = () => {
   const { closeSesionHandler } = useCloseSesion();
   const [, , profileInfo] = useContext(tokenContext);
   const urlImage =
-    import.meta.env.VITE_SERVER_URL + (profileInfo?.profilePicture || "");
+    import.meta.env.VITE_SERVER_URL + `/uploads/${profileInfo?.profilePicture}`;
+
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -98,7 +100,9 @@ const ProfileBox = () => {
                           aria-labelledby="composition-button"
                           onKeyDown={handleListKeyDown}
                         >
-                          <MenuItem onClick={handleClose}>Mi perfil</MenuItem>
+                          <Link to="/dashboard">
+                            <MenuItem onClick={handleClose}>Mi perfil</MenuItem>
+                          </Link>
                           <MenuItem onClick={handleClose}>
                             Editar mis datos
                           </MenuItem>

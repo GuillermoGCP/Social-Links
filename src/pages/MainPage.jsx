@@ -1,16 +1,14 @@
 import React from "react";
-import useMainPage from "../hooks/useMainPage";
-import Header from "../components/Header";
 import OneLink from "../components/OneLink";
 import { useNavigate } from "react-router-dom";
 import PostLink from "../components/PostLink";
 import useSearch from "../hooks/useSearch";
 import Search from "../components/Search";
 import Button from "../components/Button";
-import Footer from "../components/Footer";
+import useAllLinks from "../hooks/useAlllinks";
 
 const MainPage = () => {
-  const { state, tokenState } = useMainPage();
+  const { state, tokenState } = useAllLinks();
   const { filteredState, searchHandler } = useSearch(state);
   const navigate = useNavigate();
 

@@ -1,8 +1,8 @@
-import useApiRequest from "../hooks/useApiRequest";
+import useApiRequest from "./useApiRequest";
 import { tokenContext } from "../contexs/tokenContext";
 import React from "react";
 
-const useMainPage = () => {
+const useAllLinks = () => {
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [state, setState] = React.useState([]);
   const [tokenState] = React.useContext(tokenContext);
@@ -26,4 +26,4 @@ const useMainPage = () => {
   }, []);
   return { state, tokenState, setState };
 };
-export default useMainPage;
+export default useAllLinks;
