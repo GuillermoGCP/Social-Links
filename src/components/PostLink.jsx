@@ -3,7 +3,7 @@ import UrlInput from "./UrlInput";
 import Button from "./Button";
 import useCreateLink from "../hooks/useCreateLink";
 
-const PostLink = () => {
+const PostLink = ({ addNewLink }) => {
   const {
     linkHandler,
     urlState,
@@ -12,7 +12,7 @@ const PostLink = () => {
     setTitleState,
     setUrlState,
     setDescriptionState,
-  } = useCreateLink();
+  } = useCreateLink(addNewLink);
 
   return (
     <article className="max-w-xl mx-auto p-2 bg-white shadow-md rounded-md h-auto">

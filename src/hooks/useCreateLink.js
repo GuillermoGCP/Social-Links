@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import useApiRequest from "../hooks/useApiRequest";
 import { tokenContext } from "../contexs/tokenContext";
 
-const useCreateLink = () => {
+const useCreateLink = (addNewLink) => {
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [tokenState] = React.useContext(tokenContext);
   const [urlState, setUrlState] = React.useState("");
@@ -13,6 +13,7 @@ const useCreateLink = () => {
 
   const onSuccess = (data) => {
     toast.success(data.data.message);
+    addNewLink(data.data);
     setUrlState("");
     setTitleState("");
     setDescriptionState("");
@@ -24,7 +25,6 @@ const useCreateLink = () => {
 
   const linkHandler = (e) => {
     e.preventDefault();
-    console.log(titleState, descriptionState, urlState);
     const urlData = {
       method: "POST",
       headers: {

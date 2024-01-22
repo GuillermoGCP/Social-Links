@@ -10,10 +10,12 @@ import Button from "../components/Button";
 import Footer from "../components/Footer";
 
 const MainPage = () => {
-  const { state, tokenState } = useMainPage();
-  const { filteredState, searchHandler } = useSearch(state);
-  const navigate = useNavigate();
+  //Fetch para traer los links:
+  const { state, tokenState, addNewLink } = useMainPage();
+  //Se los paso al search y me los devuelve filtrados:
+  const { filteredLinks, searchHandler } = useSearch(state);
 
+  const navigate = useNavigate();
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");
@@ -24,13 +26,18 @@ const MainPage = () => {
     navigate(`/${id}`, { state: { mainPageState: state } });
   };
 
+  //Ordeno los id de mayor a menor para que aparezpan arriba los últimos creados
+  const orderFilteredLinks = filteredLinks.sort((a, b) => {
+    return b.id - a.id;
+  });
+  console.log(orderFilteredLinks);
   return (
     <section className="max-w-2xl mx-auto mt-8 p-4">
-      <PostLink />
+      <PostLink addNewLink={addNewLink} />
       <Search handler={searchHandler} placeholder="Buscador" />
 
       <ul>
-        {filteredState.map((link) => (
+        {orderFilteredLinks.map((link) => (
           <div key={link.id} className="p-4 border-2 border-x-slate-200">
             <OneLink key={link.id} link={link} />
             <div className="p-5 max-w-xs mx-auto">

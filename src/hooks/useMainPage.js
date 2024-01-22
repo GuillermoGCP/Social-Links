@@ -1,12 +1,16 @@
 import useApiRequest from "../hooks/useApiRequest";
 import { tokenContext } from "../contexs/tokenContext";
 import React from "react";
+import { useNavigate } from "react-router";
 
 const useMainPage = () => {
+  const navigate = useNavigate();
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [state, setState] = React.useState([]);
   const [tokenState] = React.useContext(tokenContext);
-
+  const addNewLink = (newLink) => {
+    setState([...state, newLink]);
+  };
   const onSuccess = (data) => {
     setState(data.data.links);
   };
@@ -16,6 +20,10 @@ const useMainPage = () => {
   };
   const { fetchData } = useApiRequest();
   React.useEffect(() => {
+    if (!tokenState) {
+      navigate("/");
+      return;
+    }
     const urlData = {
       method: "GET",
       headers: {
@@ -24,6 +32,6 @@ const useMainPage = () => {
     };
     fetchData(url, urlData, onSuccess, onError);
   }, []);
-  return { state, tokenState, setState };
+  return { state, tokenState, setState, addNewLink };
 };
 export default useMainPage;
