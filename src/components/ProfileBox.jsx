@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { tokenContext } from "../contexs/tokenContext";
 import Button from "@mui/material/Button";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -8,7 +9,6 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import useCloseSesion from "../hooks/useCloseSesion";
-import React from "react";
 
 const ProfileBox = () => {
   const { closeSesionHandler } = useCloseSesion();
@@ -47,7 +47,7 @@ const ProfileBox = () => {
   }, [open]);
 
   return (
-    <header className="bg-green-700 p-4 text-white mr-5 rounded-2xl">
+    <header className="bg-indigo-600 p-4 text-white mr-5 rounded-2xl">
       {profileInfo && Object.values(profileInfo).length > 0 && (
         <div className="flex items-center space-x-4">
           <img
@@ -99,8 +99,10 @@ const ProfileBox = () => {
                           onKeyDown={handleListKeyDown}
                         >
                           <MenuItem onClick={handleClose}>Mi perfil</MenuItem>
-                          <MenuItem onClick={handleClose}>
-                            Editar mis datos
+                          <MenuItem>
+                            <Link to="/dashboard/profileEdit">
+                              Editar perfil
+                            </Link>
                           </MenuItem>
                           <MenuItem onClick={(handleClose, closeSesionHandler)}>
                             Cerrar sesión
