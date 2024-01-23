@@ -5,6 +5,7 @@ import useAllLinks from "../hooks/useAlllinks";
 import DeleteButton from "../components/DeleteButton";
 import ProfileCard from "../components/ProfileCard";
 import AvatarComponent from "../components/AvatarComponent";
+import Navigation from "../components/Navigation";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -20,13 +21,14 @@ const Dashboard = () => {
 
   return (
     <>
+      <Navigation />
       <article className="max-w-3xl mx-auto my-8 p-6 bg-white shadow-md rounded-md display: flex space-between items-center justify-around">
         <AvatarComponent profileInfo={profileInfo} />
         <ProfileCard profileInfo={profileInfo} />
       </article>
-      <article>
+      <article className="max-w-3xl mx-auto my-8 p-6 bg-white shadow-md rounded-md text-center">
+        <h2 className="text-xl font-bold mb-4">Links que has compartido</h2>
         <div className="h-[50vh] overflow-y-auto mb-8">
-          <h2 className="text-xl font-bold mb-4">Links que has compartido</h2>
           <ul>
             {state
               .filter((id) => id.ownerId === profileInfo.id)

@@ -4,7 +4,7 @@ const AvatarComponent = ({ profileInfo }) => {
     import.meta.env.VITE_SERVER_URL + `/uploads/${profileInfo.profilePicture}`;
   return (
     <img
-      className="w-40 h-40 rounded-full"
+      className="w-40 h-40 rounded-full "
       src={urlImage}
       alt={profileInfo.user}
     />

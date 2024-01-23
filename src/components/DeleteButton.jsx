@@ -19,19 +19,24 @@ const DeleteButton = ({ linkId }) => {
 
   const deleteHandler = async (e) => {
     e.preventDefault();
-    const urlData = {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${tokenState}`,
-      },
-    };
-    fetchData(url, urlData, onSuccess, onError);
+    const confirmDelete = window.confirm(
+      "Estás seguro de que quieres eliminar el link?"
+    );
+    if (confirmDelete) {
+      const urlData = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokenState}`,
+        },
+      };
+      fetchData(url, urlData, onSuccess, onError);
+    }
   };
   return (
     <>
       <button
-        className="block w-2/3 mx-auto rounded-md bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring focus:border-indigo-500 focus:ring-indigo-200"
+        className="block w-1/3 mx-auto rounded-md bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring focus:border-indigo-500 focus:ring-indigo-200 "
         onClick={deleteHandler}
       >
         Eliminar link
