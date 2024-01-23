@@ -7,14 +7,19 @@ const useMainPage = () => {
   const navigate = useNavigate();
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [state, setState] = React.useState([]);
+  const [rating, setRating] = React.useState(0);
   const [tokenState] = React.useContext(tokenContext);
   const addNewLink = (newLink) => {
     setState([...state, newLink]);
   };
+  
+  const changeRating = (newRating) => {
+    setRating(newRating);
+    console.log(rating);
+  };
   const onSuccess = (data) => {
     setState(data.data.links);
   };
-
   const onError = (error) => {
     console.error(error.error);
   };
@@ -32,6 +37,6 @@ const useMainPage = () => {
     };
     fetchData(url, urlData, onSuccess, onError);
   }, []);
-  return { state, tokenState, setState, addNewLink };
+  return { state, tokenState, setState, addNewLink, changeRating };
 };
 export default useMainPage;

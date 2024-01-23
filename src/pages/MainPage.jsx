@@ -1,17 +1,16 @@
 import React from "react";
 import useMainPage from "../hooks/useMainPage";
-import Header from "../components/Header";
 import OneLink from "../components/OneLink";
 import { useNavigate } from "react-router-dom";
 import PostLink from "../components/PostLink";
 import useSearch from "../hooks/useSearch";
 import Search from "../components/Search";
 import Button from "../components/Button";
-import Footer from "../components/Footer";
 
 const MainPage = () => {
   //Fetch para traer los links:
-  const { state, tokenState, addNewLink } = useMainPage();
+  const { state, tokenState, addNewLink, changeRating } = useMainPage();
+
   //Se los paso al search y me los devuelve filtrados:
   const { filteredLinks, searchHandler } = useSearch(state);
 
@@ -30,7 +29,7 @@ const MainPage = () => {
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
     return b.id - a.id;
   });
-  console.log(orderFilteredLinks);
+
   return (
     <section className="max-w-2xl mx-auto mt-8 p-4">
       <PostLink addNewLink={addNewLink} />
@@ -39,14 +38,14 @@ const MainPage = () => {
       <ul>
         {orderFilteredLinks.map((link) => (
           <div key={link.id} className="p-4 border-2 border-x-slate-200">
-            <OneLink key={link.id} link={link} />
+            <OneLink key={link.id} link={link} chaingRating={changeRating} />
             <div className="p-5 max-w-xs mx-auto">
               <Button
                 handler={() => {
                   goToLinkDetails(link.id);
                 }}
               >
-                Ve al post
+                Ve al Post
               </Button>
             </div>
           </div>
