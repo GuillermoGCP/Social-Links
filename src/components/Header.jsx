@@ -11,7 +11,7 @@ const Header = () => {
             Links World
           </h1>
         </div>
-        <ProfileBox /> {/* Componente ProfileBox */}
+        <ProfileBox /> 
       </div>
     </header>
   );
