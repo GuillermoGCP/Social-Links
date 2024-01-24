@@ -13,7 +13,7 @@ const Dashboard = () => {
   const [tokenState, , profileInfo] = React.useContext(tokenContext);
 
   const { state } = useAllLinks();
-  const { filteredState, searchHandler } = useSearch(state);
+  const { filteredLinks, searchHandler } = useSearch(state);
 
   React.useEffect(() => {
     if (!tokenState) {
@@ -21,7 +21,7 @@ const Dashboard = () => {
     }
   }, [tokenState, navigate]);
 
-  const ownLinks = filteredState.filter((id) => id.ownerId === profileInfo.id);
+  const ownLinks = filteredLinks.filter((id) => id.ownerId === profileInfo.id);
 
   return (
     <>

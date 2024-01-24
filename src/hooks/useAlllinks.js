@@ -4,7 +4,6 @@ import React from "react";
 import { useNavigate } from "react-router";
 
 const useAllLinks = () => {
-const useAllLinks = () => {
   const navigate = useNavigate();
 
   const url = import.meta.env.VITE_SERVER_URL + "/links";
