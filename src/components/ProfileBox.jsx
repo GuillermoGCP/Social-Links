@@ -14,7 +14,8 @@ const ProfileBox = () => {
   const { closeSesionHandler } = useCloseSesion();
   const [, , profileInfo] = useContext(tokenContext);
   const urlImage =
-    import.meta.env.VITE_SERVER_URL + (profileInfo?.profilePicture || "");
+    import.meta.env.VITE_SERVER_URL + `/uploads/${profileInfo?.profilePicture}`;
+
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
