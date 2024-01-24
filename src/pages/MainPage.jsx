@@ -1,19 +1,22 @@
 import React from "react";
+<<<<<<<<< Temporary merge branch 1
+import useMainPage from "../hooks/useMainPage";
+=========
+>>>>>>>>> Temporary merge branch 2
 import OneLink from "../components/OneLink";
 import { useNavigate } from "react-router-dom";
 import PostLink from "../components/PostLink";
 import useSearch from "../hooks/useSearch";
 import Search from "../components/Search";
 import Button from "../components/Button";
+
 import useAllLinks from "../hooks/useAlllinks";
 
 const MainPage = () => {
-  //Fetch para traer los links:
   const { state, tokenState, addNewLink } = useAllLinks();
-  //Se los paso al search y me los devuelve filtrados:
-  const { filteredLinks, searchHandler } = useSearch(state);
-
+  const { filteredState, searchHandler } = useSearch(state);
   const navigate = useNavigate();
+
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");

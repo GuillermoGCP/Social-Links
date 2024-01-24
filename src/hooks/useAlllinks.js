@@ -4,7 +4,9 @@ import React from "react";
 import { useNavigate } from "react-router";
 
 const useAllLinks = () => {
+const useAllLinks = () => {
   const navigate = useNavigate();
+
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [state, setState] = React.useState([]);
   const [tokenState] = React.useContext(tokenContext);
