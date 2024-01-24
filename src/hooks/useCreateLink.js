@@ -12,7 +12,7 @@ const useCreateLink = () => {
   const { fetchData } = useApiRequest();
 
   const onSuccess = (data) => {
-    toast.success(data.data.message);
+    toast.success(data.message);
     setUrlState("");
     setTitleState("");
     setDescriptionState("");

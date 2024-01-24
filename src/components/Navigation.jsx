@@ -13,7 +13,7 @@ const Navigation = () => {
         <div className="flex items-center space-x-4">
           <Link
             to="/register"
-            className="text-gray-800 hover:text-gray-600 transition duration-300"
+            className="text-gray-800 text-lg font-semibold hover:text-gray-600 mr-4"
           >
             Registrarse
           </Link>
