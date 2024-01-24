@@ -99,7 +99,9 @@ const ProfileBox = () => {
                           aria-labelledby="composition-button"
                           onKeyDown={handleListKeyDown}
                         >
-                          <MenuItem onClick={handleClose}>Mi perfil</MenuItem>
+                          <MenuItem onClick={handleClose}>
+                            <Link to="/dashboard">Mi perfil</Link>
+                          </MenuItem>
                           <MenuItem>
                             <Link to="/dashboard/profileEdit">
                               Editar perfil

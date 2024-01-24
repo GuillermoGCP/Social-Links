@@ -2,6 +2,8 @@ import useProfileEdit from "../hooks/useProfileEdit";
 import TextInput from "../components/TextInput";
 import EmailInput from "../components/EmailInput";
 import Button from "../components/Button";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProfileUserEdit = () => {
   const {
@@ -14,8 +16,14 @@ const ProfileUserEdit = () => {
     biography,
     setBio,
     handleProfileEditSubmit,
+    tokenState,
   } = useProfileEdit();
-
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    if (!tokenState) {
+      navigate("/");
+    }
+  }, [tokenState, navigate]);
   return (
     <div className="bg-cover bg-center min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 shadow-md rounded-md max-w-md w-full">

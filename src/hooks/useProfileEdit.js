@@ -49,6 +49,7 @@ const useProfileEdit = () => {
     biography,
     setBio,
     handleProfileEditSubmit,
+    tokenState,
   };
 };
 
