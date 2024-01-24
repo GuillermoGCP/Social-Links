@@ -1,4 +1,4 @@
-import logoImage from "../assets/logoLinksWorld3Cobete.png";
+import logoImage from "../assets/logoLinksWorld5Reflejos.png";
 
 const LogoComponent = () => {
   return (
