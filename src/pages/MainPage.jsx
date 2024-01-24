@@ -1,15 +1,15 @@
 import React from "react";
-import useMainPage from "../hooks/useMainPage";
 import OneLink from "../components/OneLink";
 import { useNavigate } from "react-router-dom";
 import PostLink from "../components/PostLink";
 import useSearch from "../hooks/useSearch";
 import Search from "../components/Search";
 import Button from "../components/Button";
+import useAllLinks from "../hooks/useAlllinks";
 
 const MainPage = () => {
   //Fetch para traer los links:
-  const { state, tokenState, addNewLink } = useMainPage();
+  const { state, tokenState, addNewLink } = useAllLinks();
   //Se los paso al search y me los devuelve filtrados:
   const { filteredLinks, searchHandler } = useSearch(state);
 
