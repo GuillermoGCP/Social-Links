@@ -3,14 +3,15 @@ import React from "react";
 import { toast } from "react-toastify";
 import { tokenContext } from "../contexs/tokenContext";
 
-const useVoteLink = (linkId) => {
+const useVoteLink = ({ link, changeRating }) => {
   const [voteState, setVoteState] = React.useState("0");
   const { fetchData } = useApiRequest();
-  const url = import.meta.env.VITE_SERVER_URL + `/links/${linkId}`;
+  const url = import.meta.env.VITE_SERVER_URL + `/links/${link.id}`;
   const [tokenState] = React.useContext(tokenContext);
 
   const onSuccess = (data) => {
-    toast.success(data.data.message);
+    toast.success(data.message);
+    changeRating(link.id, data.data.rating);
   };
 
   const onError = (error) => {

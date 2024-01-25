@@ -9,7 +9,8 @@ import Button from "../components/Button";
 import useAllLinks from "../hooks/useAlllinks";
 
 const MainPage = () => {
-  const { state, tokenState, addNewLink } = useAllLinks();
+  const { state, tokenState, addNewLink, changeRating } = useAllLinks();
+
   const { filteredLinks, searchHandler } = useSearch(state);
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ const MainPage = () => {
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
     return b.id - a.id;
   });
-  console.log(orderFilteredLinks);
+
   return (
     <section className="max-w-2xl mx-auto mt-8 p-4">
       <PostLink addNewLink={addNewLink} />
@@ -36,14 +37,14 @@ const MainPage = () => {
       <ul>
         {orderFilteredLinks.map((link) => (
           <div key={link.id} className="p-4 border-2 border-x-slate-200">
-            <OneLink key={link.id} link={link} />
+            <OneLink key={link.id} link={link} changeRating={changeRating} />
             <div className="p-5 max-w-xs mx-auto">
               <Button
                 handler={() => {
                   goToLinkDetails(link.id);
                 }}
               >
-                Ve al post
+                Ve al Post
               </Button>
             </div>
           </div>
