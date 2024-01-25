@@ -2,6 +2,7 @@ import TextInput from "./TextInput";
 import UrlInput from "./UrlInput";
 import Button from "./Button";
 import useCreateLink from "../hooks/useCreateLink";
+import PropTypes from "prop-types";
 
 const PostLink = ({ addNewLink }) => {
   const {
@@ -45,5 +46,7 @@ const PostLink = ({ addNewLink }) => {
     </article>
   );
 };
-
+PostLink.propTypes = {
+  addNewLink: PropTypes.func,
+};
 export default PostLink;
