@@ -9,17 +9,15 @@ import Search from "../components/Search";
 import useSearch from "../hooks/useSearch";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
   const [tokenState, , profileInfo] = React.useContext(tokenContext);
-  const { state, updateState } = useAllLinks();
-
-  const { filteredLinks, searchHandler } = useSearch(state);
+  const navigate = useNavigate();
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");
     }
   }, [tokenState, navigate]);
-  console.log(state);
+  const { state, updateState } = useAllLinks();
+  const { filteredLinks, searchHandler } = useSearch(state);
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
     return b.id - a.id;
   });
