@@ -12,6 +12,12 @@ const useAllLinks = () => {
   const addNewLink = (newLink) => {
     setState([...state, newLink]);
   };
+  const updateState = (link) => {
+    let newArray = state.filter((newLink) => {
+      return newLink.id !== link.id;
+    });
+    setState(newArray);
+  };
   const onSuccess = (data) => {
     setState(data.data.links);
   };
@@ -33,6 +39,6 @@ const useAllLinks = () => {
     };
     fetchData(url, urlData, onSuccess, onError);
   }, []);
-  return { state, tokenState, setState, addNewLink };
+  return { state, tokenState, setState, addNewLink, updateState };
 };
 export default useAllLinks;

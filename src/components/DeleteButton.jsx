@@ -11,11 +11,7 @@ const DeleteButton = ({ linkId, updateState }) => {
 
   const onSuccess = (data) => {
     toast.success(data.message);
-    // if (onDeleteSuccess) {
-    //   onDeleteSuccess();
-    // }
     updateState(data.link);
-    console.log(data.link);
   };
 
   const onError = (error) => {
@@ -51,6 +47,6 @@ const DeleteButton = ({ linkId, updateState }) => {
 };
 DeleteButton.propTypes = {
   linkId: PropTypes.node,
-  onDeleteSuccess: PropTypes.func,
+  updateState: PropTypes.func,
 };
 export default DeleteButton;
