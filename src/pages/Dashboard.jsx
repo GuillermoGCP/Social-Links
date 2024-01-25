@@ -9,19 +9,21 @@ import Search from "../components/Search";
 import useSearch from "../hooks/useSearch";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
   const [tokenState, , profileInfo] = React.useContext(tokenContext);
-
-  const { state } = useAllLinks();
-  const { filteredLinks, searchHandler } = useSearch(state);
-
+  const navigate = useNavigate();
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");
     }
   }, [tokenState, navigate]);
-
-  const ownLinks = filteredLinks.filter((id) => id.ownerId === profileInfo.id);
+  const { state, deleteLink } = useAllLinks();
+  const { filteredLinks, searchHandler } = useSearch(state);
+  const orderFilteredLinks = filteredLinks.sort((a, b) => {
+    return b.id - a.id;
+  });
+  const newOwnLinks = orderFilteredLinks.filter(
+    (id) => id.ownerId === profileInfo.id
+  );
 
   return (
     <>
@@ -31,14 +33,17 @@ const Dashboard = () => {
       </article>
       <Search handler={searchHandler} placeholder="Buscador" />
       <article className="max-w-3xl mx-auto my-8 p-6 bg-white shadow-md rounded-md text-center">
-        {ownLinks ? (
+        {newOwnLinks.length !== 0 ? (
           <h2 className="text-xl font-bold mb-4">Links que has compartido</h2>
         ) : null}
         <div className="h-[50vh] overflow-y-auto mb-8">
-          {ownLinks ? (
+          {newOwnLinks.length !== 0 ? (
             <ul>
-              {ownLinks.map((link) => (
-                <article key={link.id} className="mb-4">
+              {newOwnLinks.map((link) => (
+                <article
+                  key={link.id}
+                  className="p-4 border-2 border-x-slate-200"
+                >
                   <li className="mb-2">
                     <h1 className="text-lg font-semibold">{link.title}</h1>
                     <a href={link.url} className="text-blue-500">
@@ -47,7 +52,7 @@ const Dashboard = () => {
                     <p className="text-gray-700">{link.description}</p>
                   </li>
                   <div className="text-right p-4">
-                    <DeleteButton linkId={link.id} />
+                    <DeleteButton linkId={link.id} deleteLink={deleteLink} />
                   </div>
                 </article>
               ))}
