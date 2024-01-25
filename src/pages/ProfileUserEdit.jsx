@@ -1,6 +1,7 @@
 import useProfileEdit from "../hooks/useProfileEdit";
 import TextInput from "../components/TextInput";
 import EmailInput from "../components/EmailInput";
+import PasswordInput from "../components/PasswordInput";
 import Button from "../components/Button";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +12,8 @@ const ProfileUserEdit = () => {
     setName,
     email,
     setEmail,
+    password,
+    setPassword,
     profilePicture,
     setProfilePicture,
     biography,
@@ -36,6 +39,11 @@ const ProfileUserEdit = () => {
             email={email}
             setEmail={setEmail}
             placeholder={"Correo electrónico"}
+          />
+          <PasswordInput
+            password={password}
+            setPassword={setPassword}
+            placeholder={"contraseña"}
           />
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
