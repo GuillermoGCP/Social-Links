@@ -12,6 +12,14 @@ const useAllLinks = () => {
   const addNewLink = (newLink) => {
     setState([...state, newLink]);
   };
+
+  const updateState = (link) => {
+    let newArray = state.filter((newLink) => {
+      return newLink.id !== link.id;
+    });
+    setState(newArray);
+  };
+
   
   const changeRating = (id,rating) => {
     const foundLink=state.find((link)=>{
@@ -20,6 +28,7 @@ const useAllLinks = () => {
     foundLink.rating=rating
     setState([...state]) 
   };
+
 
   const onSuccess = (data) => {
     setState(data.data.links);
@@ -42,6 +51,8 @@ const useAllLinks = () => {
     };
     fetchData(url, urlData, onSuccess, onError);
   }, []);
-  return { state, tokenState, setState, addNewLink, changeRating };
+
+ 
+  return { state, tokenState, setState, addNewLink, changeRating, updateState };
 };
 export default useAllLinks;
