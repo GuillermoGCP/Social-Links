@@ -7,15 +7,24 @@ const useProfileEdit = () => {
   const { fetchData } = useApiRequest();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [biography, setBio] = useState("");
-  const [tokenState] = useContext(tokenContext);
+  const [tokenState, , profileInfo, , editProfile] = useContext(tokenContext);
 
   const url = import.meta.env.VITE_SERVER_URL + `/profile`;
 
   const onSuccess = (data) => {
+    editProfile(
+      data.data.userId,
+      data.data.name,
+      data.data.email,
+      data.data.biography,
+      data.data.profilePicture
+    );
     toast.success(data.data.message);
-    console.log(data);
+    // console.log(data);
+    console.log(profileInfo);
   };
 
   const onError = (error) => {
@@ -26,6 +35,7 @@ const useProfileEdit = () => {
   const formData = new FormData();
   name ? formData.append("name", name) : null;
   email ? formData.append("email", email) : null;
+  password ? formData.append("password", password) : null;
   profilePicture ? formData.append("profilePicture", profilePicture) : null;
   biography ? formData.append("biography", biography) : null;
 
@@ -44,6 +54,8 @@ const useProfileEdit = () => {
     setName,
     email,
     setEmail,
+    password,
+    setPassword,
     profilePicture,
     setProfilePicture,
     biography,
