@@ -1,9 +1,9 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function ProfileCard({ profileInfo }) {
   return (
@@ -19,9 +19,11 @@ export default function ProfileCard({ profileInfo }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Editar mis datos
-        </Button>
+        <Link to="/dashboard/profileEdit">
+          <Button size="small" color="primary">
+            Editar mis datos
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

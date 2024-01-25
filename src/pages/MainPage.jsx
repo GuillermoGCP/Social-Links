@@ -27,7 +27,7 @@ const MainPage = () => {
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
     return b.id - a.id;
   });
-  console.log(orderFilteredLinks);
+
   return (
     <section className="max-w-2xl mx-auto mt-8 p-4">
       <PostLink addNewLink={addNewLink} />
