@@ -7,19 +7,23 @@ const useMainPage = () => {
   const navigate = useNavigate();
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [state, setState] = React.useState([]);
-  const [rating, setRating] = React.useState(0);
   const [tokenState] = React.useContext(tokenContext);
   const addNewLink = (newLink) => {
     setState([...state, newLink]);
   };
   
-  const changeRating = (newRating) => {
-    setRating(newRating);
-    console.log(rating);
+  const changeRating = (id,rating) => {
+    const foundLink=state.find((link)=>{
+      return link.id===id
+    })   
+    foundLink.rating=rating
+    setState([...state]) 
   };
+
   const onSuccess = (data) => {
     setState(data.data.links);
   };
+  
   const onError = (error) => {
     console.error(error.error);
   };

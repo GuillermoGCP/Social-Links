@@ -38,7 +38,7 @@ const MainPage = () => {
       <ul>
         {orderFilteredLinks.map((link) => (
           <div key={link.id} className="p-4 border-2 border-x-slate-200">
-            <OneLink key={link.id} link={link} chaingRating={changeRating} />
+            <OneLink key={link.id} link={link} changeRating={changeRating} />
             <div className="p-5 max-w-xs mx-auto">
               <Button
                 handler={() => {

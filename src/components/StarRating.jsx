@@ -1,16 +1,16 @@
 const EmptyStars = () => {
-  return <span className="text-gray-400">&#9813;</span>;
+  return <span className="text-gray-400">&#9734;</span>;
 };
 
 const FullStars = () => {
-  return <span className="text-indigo-600">&#9819;</span>;
+  return <span className="text-indigo-600">&#9733;</span>;
 };
 
 const StarRating = (link) => {
   const roundRating = Math.round(parseInt(link.link.rating));
 
   return (
-    <p>
+    <>
       {[...new Array(10)].map((star, index) => {
         return index < roundRating ? (
           <FullStars key={index}></FullStars>
@@ -18,7 +18,7 @@ const StarRating = (link) => {
           <EmptyStars key={index}></EmptyStars>
         );
       })}
-    </p>
+    </>
   );
 };
 

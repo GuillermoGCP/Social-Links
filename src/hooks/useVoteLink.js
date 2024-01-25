@@ -11,10 +11,7 @@ const useVoteLink = ({ link, changeRating }) => {
 
   const onSuccess = (data) => {
     toast.success(data.message);
-
-    changeRating(5);
-    console.log(data.data.rating);
-    
+    changeRating(link.id, data.data.rating);
   };
 
   const onError = (error) => {
