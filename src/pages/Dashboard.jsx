@@ -16,7 +16,7 @@ const Dashboard = () => {
       navigate("/");
     }
   }, [tokenState, navigate]);
-  const { state, updateState } = useAllLinks();
+  const { state, deleteLink } = useAllLinks();
   const { filteredLinks, searchHandler } = useSearch(state);
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
     return b.id - a.id;
@@ -52,7 +52,7 @@ const Dashboard = () => {
                     <p className="text-gray-700">{link.description}</p>
                   </li>
                   <div className="text-right p-4">
-                    <DeleteButton linkId={link.id} updateState={updateState} />
+                    <DeleteButton linkId={link.id} deleteLink={deleteLink} />
                   </div>
                 </article>
               ))}

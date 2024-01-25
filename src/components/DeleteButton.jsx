@@ -4,14 +4,14 @@ import { toast } from "react-toastify";
 import useApiRequest from "../hooks/useApiRequest";
 import PropTypes from "prop-types";
 
-const DeleteButton = ({ linkId, updateState }) => {
+const DeleteButton = ({ linkId, deleteLink }) => {
   const url = import.meta.env.VITE_SERVER_URL + `/links/${linkId}`;
   const [tokenState] = React.useContext(tokenContext);
   const { fetchData } = useApiRequest();
 
   const onSuccess = (data) => {
     toast.success(data.message);
-    updateState(data.link);
+    deleteLink(data.link);
   };
 
   const onError = (error) => {
@@ -47,6 +47,6 @@ const DeleteButton = ({ linkId, updateState }) => {
 };
 DeleteButton.propTypes = {
   linkId: PropTypes.node,
-  updateState: PropTypes.func,
+  deleteLink: PropTypes.func,
 };
 export default DeleteButton;

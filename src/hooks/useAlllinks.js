@@ -9,31 +9,30 @@ const useAllLinks = () => {
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [state, setState] = React.useState([]);
   const [tokenState] = React.useContext(tokenContext);
+
   const addNewLink = (newLink) => {
     setState([...state, newLink]);
   };
 
-  const updateState = (link) => {
+  const deleteLink = (link) => {
     let newArray = state.filter((newLink) => {
       return newLink.id !== link.id;
     });
     setState(newArray);
   };
 
-  
-  const changeRating = (id,rating) => {
-    const foundLink=state.find((link)=>{
-      return link.id===id
-    })   
-    foundLink.rating=rating
-    setState([...state]) 
+  const changeRating = (id, rating) => {
+    const foundLink = state.find((link) => {
+      return link.id === id;
+    });
+    foundLink.rating = rating;
+    setState([...state]);
   };
-
 
   const onSuccess = (data) => {
     setState(data.data.links);
   };
-  
+
   const onError = (error) => {
     console.error(error.error);
   };
@@ -52,7 +51,13 @@ const useAllLinks = () => {
     fetchData(url, urlData, onSuccess, onError);
   }, []);
 
- 
-  return { state, tokenState, setState, addNewLink, changeRating, updateState };
+  return {
+    state,
+    tokenState,
+    setState,
+    addNewLink,
+    changeRating,
+    deleteLink,
+  };
 };
 export default useAllLinks;
