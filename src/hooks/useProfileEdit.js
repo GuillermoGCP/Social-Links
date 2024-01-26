@@ -23,8 +23,8 @@ const useProfileEdit = () => {
       data.data.profilePicture
     );
     toast.success(data.data.message);
-    // console.log(data);
-    console.log(profileInfo);
+
+    // console.log("Desde use", profileInfo);
   };
 
   const onError = (error) => {

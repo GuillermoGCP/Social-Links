@@ -102,7 +102,7 @@ const ProfileBox = () => {
                           <MenuItem onClick={handleClose}>
                             <Link to="/dashboard">Mi perfil</Link>
                           </MenuItem>
-                          <MenuItem>
+                          <MenuItem onClick={handleClose}>
                             <Link to="/dashboard/profileEdit">
                               Editar perfil
                             </Link>

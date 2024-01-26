@@ -1,5 +1,6 @@
 import useVoteLink from "../hooks/useVoteLink";
 import Button from "./Button";
+
 import SelectInput from "./SelectInput";
 import PropTypes from "prop-types";
 
@@ -13,7 +14,7 @@ const VoteBox = ({ link, changeRating }) => {
     <>
       <form>
         <SelectInput value={voteState} onChange={onChange}>
-          Tu calificación{" "}
+          Vota
         </SelectInput>
         <Button handler={voteHandler}>Vota</Button>
       </form>

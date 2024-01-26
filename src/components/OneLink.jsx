@@ -1,7 +1,7 @@
 import StarRating from "./StarRating";
 import VoteBox from "./VoteBox";
 import PropTypes from "prop-types";
-
+import OwnRatingBox from "./OwnRatingBox";
 const OneLink = ({ link, changeRating }) => {
   return (
     <article className="max-4/5 rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-indigo-300 ">
@@ -27,11 +27,12 @@ const OneLink = ({ link, changeRating }) => {
           Compartido por: {link.name}
         </p>
         <p className="px-6 py-4 flex">
-          Puntuación: {Math.round(link.rating)} <StarRating link={link} />
+          Puntuación media: {Math.round(link.rating)} <StarRating link={link} />
         </p>
         <VoteBox link={link} changeRating={changeRating}>
           Vota este Post
         </VoteBox>
+        <OwnRatingBox link={link} />
       </div>
     </article>
   );
