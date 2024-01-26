@@ -1,43 +1,54 @@
 import StarRating from "./StarRating";
 import VoteBox from "./VoteBox";
+import OwnRatingBox from "./OwnRatingBox";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { tokenContext } from "../contexs/tokenContext";
+import LinkDetailPost from "./LinkDetailPost";
 
 const OneLink = ({ link, changeRating }) => {
+  const [, , profileInfo] = useContext(tokenContext);
+  const urlImage =
+    import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
+
   return (
-    <article className="max-4/5 rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-indigo-300 ">
-      <div className="px-6 py-4">
-        <p className="font-bold text-xl mb-2">{link.title}</p>
+    <article className="max-w-4/5 mx-auto rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-indigo-300 p-4">
+      <LinkDetailPost link={link} />
 
-        <p className="text-gray-700 text-base mt-2">
-          <a
-            className="text-indigo-600 underline"
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {link.url}
-          </a>
-        </p>
+      <div className="mt-4 flex items-center">
+        {link.ownerId !== profileInfo.id && (
+          <p className="text-gray-700 text-base mr-4">{link.name}</p>
+        )}
 
-        <p className="text-gray-700 text-base mt-2">{link.description}</p>
+        <img
+          className="w-16 h-16 rounded-full"
+          src={urlImage}
+          alt={link.name}
+        />
+
+        {link.ownerId !== profileInfo.id && (
+          <div className="ml-auto">
+            <VoteBox link={link} changeRating={changeRating}>
+              Vota este Post
+            </VoteBox>
+          </div>
+        )}
       </div>
 
-      <div className="px-6 py-4">
-        <p className="text-gray-700 text-base mt-2">
-          Compartido por: {link.name}
+      <div className="flex mt-4 justify-between">
+        <p className="flex items-center text-gray-700 text-base mr-4 ">
+          Puntuación media: {Math.round(link.rating)} <StarRating link={link} />
         </p>
-        <p className="px-6 py-4 flex">
-          Puntuación: {Math.round(link.rating)} <StarRating link={link} />
-        </p>
-        <VoteBox link={link} changeRating={changeRating}>
-          Vota este Post
-        </VoteBox>
+
+        <OwnRatingBox link={link} />
       </div>
     </article>
   );
 };
+
 OneLink.propTypes = {
   link: PropTypes.object,
   changeRating: PropTypes.func,
 };
+
 export default OneLink;

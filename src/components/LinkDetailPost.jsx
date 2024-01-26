@@ -1,23 +1,19 @@
-const LinkDetailPost = (link) => {
-  const url =
-    import.meta.env.VITE_SERVER_URL + `/uploads/${link.link.profilePicture}`;
+import PropTypes from "prop-types";
 
+const LinkDetailPost = ({ link }) => {
   return (
-    <>
-      <article>
-        <h1>{`Título: ${link.link.title}`}</h1>
-        <h2>{`URL: ${link.link.url}`}</h2>
-        <p>{`Descripción: ${link.link.description}`}</p>
-        <p>{`Compartido por: ${link.link.name}`}</p>
-        {link.link.profilePicture ? (
-          <img
-            className="w-11"
-            src={url}
-            alt="Imagen de perfil del creador del link"
-          />
-        ) : null}
-      </article>
-    </>
+    <article className="max-w-4/5 mx-auto rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-indigo-300 p-4 text-center">
+      <h1 className="text-2xl font-bold mb-4">{`Título: ${link.title}`}</h1>
+      <a href={link.url} className="text-indigo-600 underline block mb-2">
+        <h2 className="text-lg">{`URL: ${link.url}`}</h2>
+      </a>
+      <p className="text-gray-700">{`Descripción: ${link.description}`}</p>
+    </article>
   );
 };
+
+LinkDetailPost.propTypes = {
+  link: PropTypes.object,
+};
+
 export default LinkDetailPost;
