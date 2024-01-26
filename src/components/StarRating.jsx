@@ -1,9 +1,9 @@
 const EmptyStars = () => {
-  return <span className="text-gray-400">&#9734;</span>;
+  return <span className="text-gray-400 text-lg">&#9734;</span>;
 };
 
 const FullStars = () => {
-  return <span className="text-indigo-600">&#9733;</span>;
+  return <span className="text-indigo-600 text-lg">&#9733;</span>;
 };
 
 const StarRating = (link) => {

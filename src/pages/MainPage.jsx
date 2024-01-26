@@ -10,8 +10,7 @@ import useAllLinks from "../hooks/useAlllinks";
 
 const MainPage = () => {
   const { state, tokenState, addNewLink, changeRating } = useAllLinks();
-
-  const { filteredLinks, searchHandler } = useSearch(state);
+  const { filteredLinks, searchHandler, setSearchParams } = useSearch(state);
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -21,6 +20,7 @@ const MainPage = () => {
   }, [tokenState, navigate]);
 
   const goToLinkDetails = (id) => {
+    setSearchParams({ q: "" });
     navigate(`/${id}`, { state: { mainPageState: state } });
   };
 
