@@ -10,16 +10,16 @@ const SelectInput = ({ children, value, onChange }) => {
         value={value}
         onChange={onChange}
       >
-        <option value="1">1 Punto/s</option>
-        <option value="2">2 Punto/s</option>
-        <option value="3">3 Punto/s</option>
-        <option value="4">4 Punto/s</option>
-        <option value="5">5 Punto/s</option>
-        <option value="6">6 Punto/s</option>
-        <option value="7">7 Punto/s</option>
-        <option value="8">8 Punto/s</option>
-        <option value="9">9 Punto/s</option>
-        <option value="10">10 Punto/s</option>
+        <option value="1">1 Estrellas/s</option>
+        <option value="2">2 Estrellas/s</option>
+        <option value="3">3 Estrellas/s</option>
+        <option value="4">4 Estrellas/s</option>
+        <option value="5">5 Estrellas/s</option>
+        <option value="6">6 Estrellas/s</option>
+        <option value="7">7 Estrellas/s</option>
+        <option value="8">8 Estrellas/s</option>
+        <option value="9">9 Estrellas/s</option>
+        <option value="10">10 Estrellas/s</option>
       </select>
     </>
   );

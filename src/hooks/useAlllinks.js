@@ -8,7 +8,6 @@ const useAllLinks = () => {
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [state, setState] = React.useState([]);
   const [tokenState, , profileInfo] = React.useContext(tokenContext);
-  console.log(state);
   const addNewLink = (newLink) => {
     setState([...state, newLink]);
   };
@@ -31,6 +30,7 @@ const useAllLinks = () => {
               voterUserIds: [...link.voterUserIds, profileInfo.id],
               individualRatings: [...link.individualRatings, userVote],
               rating: rating,
+              votedByLoggedUser: 1,
             };
           } else {
             const index = link.voterUserIds.findIndex(
@@ -43,6 +43,7 @@ const useAllLinks = () => {
               ...link,
               individualRatings: updatedIndividualRatings,
               rating: rating,
+              votedByLoggedUser: 1,
             };
           }
         }
