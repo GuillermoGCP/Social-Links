@@ -20,7 +20,6 @@ const MainPage = () => {
   }, [tokenState, navigate]);
 
   const goToLinkDetails = (id) => {
-    setSearchParams({ q: "" });
     navigate(`/${id}`, { state: { mainPageState: state } });
   };
 
@@ -33,6 +32,13 @@ const MainPage = () => {
     <section className="max-w-2xl mx-auto mt-8 p-4">
       <PostLink addNewLink={addNewLink} />
       <Search handler={searchHandler} placeholder="Buscador" />
+      <Button
+        handler={() => {
+          setSearchParams({ q: "" });
+        }}
+      >
+        Reset
+      </Button>
 
       <ul>
         {orderFilteredLinks.map((link) => (
