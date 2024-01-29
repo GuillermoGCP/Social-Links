@@ -7,6 +7,7 @@ import Search from "../components/Search";
 import Button from "../components/Button";
 
 import useAllLinks from "../hooks/useAlllinks";
+import NoLinksToday from "../components/NoLinksToday";
 
 const MainPage = () => {
   const { state, tokenState, addNewLink, changeRating } = useAllLinks();
@@ -41,20 +42,24 @@ const MainPage = () => {
       </Button>
 
       <ul>
-        {orderFilteredLinks.map((link) => (
-          <div key={link.id} className="p-4 border-2 border-x-slate-200">
-            <OneLink key={link.id} link={link} changeRating={changeRating} />
-            <div className="p-5 max-w-xs mx-auto">
-              <Button
-                handler={() => {
-                  goToLinkDetails(link.id);
-                }}
-              >
-                Ve al Post
-              </Button>
+        {orderFilteredLinks ? (
+          orderFilteredLinks.map((link) => (
+            <div key={link.id} className="p-4 border-2 border-x-slate-200">
+              <OneLink key={link.id} link={link} changeRating={changeRating} />
+              <div className="p-5 max-w-xs mx-auto">
+                <Button
+                  handler={() => {
+                    goToLinkDetails(link.id);
+                  }}
+                >
+                  Ve al Post
+                </Button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <NoLinksToday />
+        )}
       </ul>
     </section>
   );

@@ -10,7 +10,7 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
   const [, , profileInfo] = useContext(tokenContext);
   const urlImage =
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
-
+  console.log(link);
   return (
     <article className="max-w-4/5 mx-auto rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-indigo-300 p-4">
       <LinkDetailPost link={link} />
@@ -38,11 +38,11 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
           </div>
         )}
       </div>
-
       <div className="flex mt-4 justify-between">
         <p className="flex items-center text-gray-700 text-base mr-4 ">
           Puntuación media: <StarRating link={link} />
         </p>
+        <p>{`${link.individualRatings.length} Votos`}</p>
 
         <OwnRatingBox link={link} />
       </div>
