@@ -58,7 +58,7 @@ const Register = () => {
             password={password}
             setPassword={setPassword}
           />
-          <Button handler={handleRegisterSubmit}>Regístrate</Button>
+          <Button>Regístrate</Button>
         </form>
         <p className="text-center mt-6 text-slate-500">
           ¿Ya tienes cuenta?{" "}

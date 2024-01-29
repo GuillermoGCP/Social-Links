@@ -13,7 +13,6 @@ import { TokenProvider } from "./contexs/tokenContext";
 import MainPage from "./pages/MainPage";
 import LinkDetailsPage from "./pages/LinkDetailsPage";
 import ProfileUserEdit from "./pages/ProfileUserEdit";
-
 const router = createBrowserRouter([
   { path: "", element: <Login /> },
   { path: "register", element: <Register /> },

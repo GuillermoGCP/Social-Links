@@ -9,7 +9,7 @@ const TokenProvider = ({ children }) => {
   const [tokenState, setTokenState] = useLocalStorage("tokenInLocalStorage");
 
   const [profileInfo, setProfileInfo] = React.useState({});
-  // console.log("desde tokenState", profileInfo);
+
   const editProfile = (id, user, email, biography, profilePicture) => {
     if (profileInfo.id === id) {
       (profileInfo.id = id),
