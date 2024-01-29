@@ -3,7 +3,7 @@ import sadFaceImage from "../assets/globo3.gif";
 const NoLinksToday = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center h-full">
-      <p>No hay enlaces hoy</p>
+      <p>¡Vaya!, no hay enlaces compartidos</p>
       <img
         src={sadFaceImage}
         alt="Logo de la aplicación"
