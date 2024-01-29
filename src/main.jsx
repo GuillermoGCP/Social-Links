@@ -13,6 +13,8 @@ import { TokenProvider } from "./contexs/tokenContext";
 import MainPage from "./pages/MainPage";
 import LinkDetailsPage from "./pages/LinkDetailsPage";
 import ProfileUserEdit from "./pages/ProfileUserEdit";
+import LinksToday from "./components/LinksToday";
+
 const router = createBrowserRouter([
   { path: "", element: <Login /> },
   { path: "register", element: <Register /> },
@@ -23,6 +25,7 @@ const router = createBrowserRouter([
       { path: "dashboard", element: <Dashboard /> },
       { path: "dashboard/profileEdit", element: <ProfileUserEdit /> },
       { path: "main", element: <MainPage /> },
+      { path: "linksToday", element: <LinksToday /> },
       { path: "/:id", element: <LinkDetailsPage /> },
       { path: "*", element: <PageNotFound /> },
     ],

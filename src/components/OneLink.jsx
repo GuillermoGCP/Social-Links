@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { tokenContext } from "../contexs/tokenContext";
 import LinkDetailPost from "./LinkDetailPost";
 
-const OneLink = ({ link, changeRating }) => {
+const OneLink = ({ link, changeRating, changeRating2 }) => {
   const [, , profileInfo] = useContext(tokenContext);
   const urlImage =
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
@@ -28,7 +28,11 @@ const OneLink = ({ link, changeRating }) => {
 
         {link.ownerId !== profileInfo.id && (
           <div className="ml-auto">
-            <VoteBox link={link} changeRating={changeRating}>
+            <VoteBox
+              link={link}
+              changeRating={changeRating}
+              changeRating2={changeRating2}
+            >
               Vota este Post
             </VoteBox>
           </div>
@@ -49,6 +53,7 @@ const OneLink = ({ link, changeRating }) => {
 OneLink.propTypes = {
   link: PropTypes.object,
   changeRating: PropTypes.func,
+  changeRating2: PropTypes.func,
 };
 
 export default OneLink;

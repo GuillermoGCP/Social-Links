@@ -10,6 +10,12 @@ const Navigation = () => {
         >
           Inicio
         </Link>
+        <Link
+          to="/linksToday"
+          className="text-gray-800 text-lg font-semibold hover:text-gray-600 mr-4"
+        >
+          Links Hoy
+        </Link>
         <div className="flex items-center space-x-4">
           <Link
             to="/register"

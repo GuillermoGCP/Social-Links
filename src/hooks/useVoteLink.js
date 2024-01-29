@@ -2,7 +2,8 @@ import useApiRequest from "../hooks/useApiRequest";
 import React from "react";
 import { toast } from "react-toastify";
 import { tokenContext } from "../contexs/tokenContext";
-const useVoteLink = ({ link, changeRating = () => {} }) => {
+
+const useVoteLink = ({ link, changeRating2, changeRating = () => {} }) => {
   const [voteState, setVoteState] = React.useState();
   const { fetchData } = useApiRequest();
   const url = import.meta.env.VITE_SERVER_URL + `/links/${link.id}`;
@@ -10,7 +11,10 @@ const useVoteLink = ({ link, changeRating = () => {} }) => {
 
   const onSuccess = (data) => {
     toast.success(data.message);
-    changeRating(link.id, data.data.rating, data.rating);
+    changeRating ? changeRating(link.id, data.data.rating, data.rating) : null;
+    changeRating2
+      ? changeRating2(link.id, data.data.rating, data.rating)
+      : null;
   };
 
   const onError = (error) => {

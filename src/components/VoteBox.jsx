@@ -3,10 +3,11 @@ import Button from "./Button";
 import SelectInput from "./SelectInput";
 import PropTypes from "prop-types";
 
-const VoteBox = ({ link, changeRating }) => {
+const VoteBox = ({ link, changeRating, changeRating2 }) => {
   const { voteState, onChange, voteHandler } = useVoteLink({
     link,
     changeRating,
+    changeRating2,
   });
 
   return (
@@ -25,6 +26,7 @@ const VoteBox = ({ link, changeRating }) => {
 VoteBox.propTypes = {
   link: PropTypes.object,
   changeRating: PropTypes.func,
+  changeRating2: PropTypes.func,
 };
 
 export default VoteBox;
