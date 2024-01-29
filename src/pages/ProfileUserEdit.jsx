@@ -21,7 +21,9 @@ const ProfileUserEdit = () => {
     handleProfileEditSubmit,
     tokenState,
   } = useProfileEdit();
+
   const navigate = useNavigate();
+
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");

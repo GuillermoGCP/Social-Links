@@ -10,7 +10,7 @@ const useProfileEdit = () => {
   const [password, setPassword] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [biography, setBio] = useState("");
-  const [tokenState, , profileInfo, , editProfile] = useContext(tokenContext);
+  const [tokenState, , , , editProfile] = useContext(tokenContext);
 
   const url = import.meta.env.VITE_SERVER_URL + `/profile`;
 
@@ -23,8 +23,10 @@ const useProfileEdit = () => {
       data.data.profilePicture
     );
     toast.success(data.data.message);
-
-    // console.log("Desde use", profileInfo);
+    setName("");
+    setEmail("");
+    setPassword("");
+    setProfilePicture(null);
   };
 
   const onError = (error) => {

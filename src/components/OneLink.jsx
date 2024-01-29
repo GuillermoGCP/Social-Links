@@ -37,7 +37,7 @@ const OneLink = ({ link, changeRating }) => {
 
       <div className="flex mt-4 justify-between">
         <p className="flex items-center text-gray-700 text-base mr-4 ">
-          Puntuación media: {Math.round(link.rating)} <StarRating link={link} />
+          Puntuación media: <StarRating link={link} />
         </p>
 
         <OwnRatingBox link={link} />

@@ -20,16 +20,13 @@ export default function OwnRatingBox({ link }) {
   const { votedByLoggedUser, individualRatings, voterUserIds } = link;
   const [, , profileInfo] = React.useContext(tokenContext);
 
-  const userIdIndex = voterUserIds?.findIndex((id) => {
+  let userIdIndex;
+  let userVote;
+
+  userIdIndex = voterUserIds.findIndex((id) => {
     return id === profileInfo.id;
   });
-  let userVote;
-  if (userIdIndex && userIdIndex !== -1) {
-    userVote = individualRatings[userIdIndex];
-  } else {
-    userVote = 1;
-  }
-
+  userVote = individualRatings[userIdIndex];
   return (
     <div className="flex items-center">
       {link.ownerId !== profileInfo.id ? (

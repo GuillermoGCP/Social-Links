@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { tokenContext } from "../contexs/tokenContext";
 import Button from "@mui/material/Button";
@@ -12,7 +12,7 @@ import useCloseSesion from "../hooks/useCloseSesion";
 
 const ProfileBox = () => {
   const { closeSesionHandler } = useCloseSesion();
-  const [, , profileInfo] = useContext(tokenContext);
+  const [, , profileInfo] = React.useContext(tokenContext);
   const urlImage =
     import.meta.env.VITE_SERVER_URL + `/uploads/${profileInfo?.profilePicture}`;
 
@@ -38,14 +38,6 @@ const ProfileBox = () => {
       setOpen(false);
     }
   }
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-
-    prevOpen.current = open;
-  }, [open]);
 
   return (
     <header className="bg-indigo-600 p-4 text-white mr-5 rounded-2xl">

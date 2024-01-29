@@ -9,9 +9,7 @@ const Login = () => {
 
   return (
     <>
-
       <article className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gray-100">
-
         <div className="lg:w-1/2 mb-8 lg:mb-0 text-center">
           <h1 className="text-5xl font-extrabold mb-2 mt-4 text-indigo-700">
             Links World
@@ -24,9 +22,7 @@ const Login = () => {
         <div className="lg:w-1/2 bg-white p-8 lg:p-12 shadow-md rounded-md max-w-md w-full lg:ml-4">
           <h2 className="text-3xl font-semibold mb-6 text-center"></h2>
           <form className="space-y-4" onSubmit={loginHandler}>
-            <Button handler={loginHandler} className="mb-7 h-16">
-              Iniciar sesión
-            </Button>
+            <Button className="mb-7 h-16">Iniciar sesión</Button>
             <EmailInput
               email={email}
               setEmail={setEmail}
@@ -44,7 +40,6 @@ const Login = () => {
             </Link>
           </form>
         </div>
-
       </article>
 
       <footer className="mt-8 text-gray-600 text-sm text-center mb-8">
