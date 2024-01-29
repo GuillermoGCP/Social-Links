@@ -23,6 +23,10 @@ const useProfileEdit = () => {
       data.data.profilePicture
     );
     toast.success(data.data.message);
+    setName("");
+    setEmail("");
+    setPassword("");
+    setProfilePicture(null);
   };
 
   const onError = (error) => {

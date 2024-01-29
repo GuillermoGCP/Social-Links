@@ -22,15 +22,6 @@ export default function OwnRatingBox({ link }) {
 
   let userIdIndex;
   let userVote;
-  // if (!votedByLoggedUser) {
-  //   console.log("NO, Tiene", userVote);
-  // } else {
-  //   userIdIndex = voterUserIds.findIndex((id) => {
-  //     return id === profileInfo.id;
-  //   });
-  //   userVote = individualRatings[userIdIndex];
-  //   console.log("Tiene", userVote);
-  // }
 
   userIdIndex = voterUserIds.findIndex((id) => {
     return id === profileInfo.id;
