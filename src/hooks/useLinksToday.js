@@ -44,7 +44,7 @@ const useLinksToday = () => {
   };
 
   const onSuccess = (data) => {
-    const modifiedData = data.data.links.map((link) => {
+    const modifiedData = data.data.links?.map((link) => {
       const modifiedLink = { ...link };
 
       if (
