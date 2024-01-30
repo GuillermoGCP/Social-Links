@@ -6,11 +6,15 @@ import { tokenContext } from "../contexs/tokenContext.jsx";
 const useProfileEdit = () => {
   const [tokenState, , profileInfo, , editProfile] = useContext(tokenContext);
   const { fetchData } = useApiRequest();
-  const [name, setName] = useState(profileInfo.user || "");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [biography, setBio] = useState("");
+
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
   useEffect(() => {
     if (!profileInfo.id) {
       return;
@@ -19,6 +23,7 @@ const useProfileEdit = () => {
     setEmail(profileInfo.email);
     setBio(profileInfo.biography || "");
   }, [profileInfo]);
+
   const url = import.meta.env.VITE_SERVER_URL + `/profile`;
 
   const onSuccess = (body) => {
@@ -29,6 +34,7 @@ const useProfileEdit = () => {
       email,
       profilePicture,
     } = body.data;
+
     editProfile({ id, user, biography, email, profilePicture });
     toast.success(body.data.message);
     setName("");
@@ -59,6 +65,25 @@ const useProfileEdit = () => {
     fetchData(url, urlData, onSuccess, onError);
   };
 
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError("Las contraseñas no coinciden.");
+      return;
+    }
+
+    const urlData = {
+      method: "PATCH",
+      headers: { Authorization: `Bearer ${tokenState}` },
+      body: formData,
+    };
+    fetchData(url, urlData, onSuccess, onError);
+    setPassword("");
+    setConfirmPassword("");
+    setError("");
+  };
+
   return {
     name,
     setName,
@@ -71,7 +96,12 @@ const useProfileEdit = () => {
     biography,
     setBio,
     handleProfileEditSubmit,
+    handlePasswordSubmit,
+    setConfirmPassword,
+    confirmPassword,
+    setError,
     tokenState,
+    error,
   };
 };
 
