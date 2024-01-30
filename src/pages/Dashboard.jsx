@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   return (
     <main>
-      <article className="max-w-3xl mx-auto my-8 p-6 bg-white shadow-md rounded-md flex space-between items-center justify-around gap-5">
+      <article className="max-w-3xl mx-auto my-8 p-6 bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 shadow-md rounded-md flex space-between items-center justify-around gap-5">
         <AvatarComponent profileInfo={profileInfo} />
         <ProfileCard profileInfo={profileInfo} />
       </article>
