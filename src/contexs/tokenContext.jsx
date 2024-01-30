@@ -9,7 +9,7 @@ const TokenProvider = ({ children }) => {
   const [tokenState, setTokenState] = useLocalStorage("tokenInLocalStorage");
 
   const [profileInfo, setProfileInfo] = React.useState({});
-  console.log(profileInfo);
+
   const editProfile = (newData) => {
     setProfileInfo({ ...profileInfo, ...newData });
   };
