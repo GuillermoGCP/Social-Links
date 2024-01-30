@@ -8,6 +8,7 @@ import AvatarComponent from "../components/AvatarComponent";
 import Search from "../components/Search";
 import useSearch from "../hooks/useSearch";
 import LinkDetailPost from "../components/LinkDetailPost";
+import NoLinksToday from "../components/NoLinksToday";
 
 const Dashboard = () => {
   const [tokenState, , profileInfo] = React.useContext(tokenContext);
@@ -51,7 +52,9 @@ const Dashboard = () => {
               ))}
             </ul>
           ) : (
-            <p>No hay enlaces compartidos.</p>
+            <>
+              <NoLinksToday />
+            </>
           )}
         </div>
       </article>
