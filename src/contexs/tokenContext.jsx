@@ -9,17 +9,9 @@ const TokenProvider = ({ children }) => {
   const [tokenState, setTokenState] = useLocalStorage("tokenInLocalStorage");
 
   const [profileInfo, setProfileInfo] = React.useState({});
-
-  const editProfile = (id, user, email, biography, profilePicture) => {
-    if (profileInfo.id === id) {
-      (profileInfo.id = id),
-        (profileInfo.user = user),
-        (profileInfo.email = email),
-        (profileInfo.biography = biography),
-        (profileInfo.profilePicture = profilePicture);
-    }
-
-    setProfileInfo(profileInfo);
+  console.log(profileInfo);
+  const editProfile = (newData) => {
+    setProfileInfo({ ...profileInfo, ...newData });
   };
   const { fetchData } = useApiRequest();
 

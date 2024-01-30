@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   return (
     <main>
-      <article className="max-w-3xl mx-auto my-8 p-6 bg-white shadow-md rounded-md flex space-between items-center justify-around">
+      <article className="max-w-3xl mx-auto my-8 p-6 bg-white shadow-md rounded-md flex space-between items-center justify-around gap-5">
         <AvatarComponent profileInfo={profileInfo} />
         <ProfileCard profileInfo={profileInfo} />
       </article>

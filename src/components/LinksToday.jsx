@@ -1,10 +1,18 @@
+import React, { useContext } from "react";
 import useLinksToday from "../hooks/useLinksToday";
 import NoLinksToday from "./NoLinksToday";
 import OneLink from "./OneLink";
-
+import { tokenContext } from "../contexs/tokenContext";
+import { useNavigate } from "react-router-dom";
 const LinksToday = () => {
+  const [tokenState] = useContext(tokenContext);
+  const navigate = useNavigate();
   const { today, changeRating2 } = useLinksToday();
-
+  React.useEffect(() => {
+    if (!tokenState) {
+      navigate("/");
+    }
+  }, [tokenState, navigate]);
   return (
     <section className="max-w-2xl mx-auto mt-8 p-4">
       <ul>
