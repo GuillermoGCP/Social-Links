@@ -51,7 +51,7 @@ const ProfileBox = () => {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   return (
-    <header className="bg-indigo-600 p-4 text-white mr-5 rounded-2xl">
+    <header className="bg-indigo-600 p-4 text-indigo-100 mr-5 rounded-2xl">
       {profileInfo && Object.values(profileInfo).length > 0 && (
         <div className="flex items-center space-x-4">
           <img
@@ -72,10 +72,13 @@ const ProfileBox = () => {
                 onClick={handleToggle}
                 size="small"
                 variant="none"
-                className="mt-1 truncate"
+                className="mt-1 truncate transition-colors duration-300"
               >
                 {!isSmallScreen && (
-                  <span className="text-lg font-bold truncate">
+                  <span
+                    className="text-lg font-bold truncate hover:text-white"
+                    style={{ textShadow: "0.5px 0.5px 0.5px rgba(0,0,0,0.4)" }}
+                  >
                     {profileInfo.user}
                   </span>
                 )}

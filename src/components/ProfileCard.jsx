@@ -7,10 +7,19 @@ import { Link } from "react-router-dom";
 
 export default function ProfileCard({ profileInfo }) {
   return (
-    <Card sx={{ maxWidth: 400 }}>
+    <Card
+      sx={{ maxWidth: 400 }}
+      className="bg-gradient-to-r from-indigo-400 via-indigo-400 to-indigo-500"
+    >
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="h3" component="div">
+          <Typography
+            gutterBottom
+            variant="h4"
+            component="div"
+            className="text-white"
+            style={{ textShadow: "0.5px 0.5px 0.5px rgba(0,0,0,0.4)" }}
+          >
             {profileInfo.user}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -20,7 +29,13 @@ export default function ProfileCard({ profileInfo }) {
       </CardActionArea>
       <CardActions>
         <Link to="/dashboard/profileEdit">
-          <Button size="small" color="primary">
+          <Button
+            size="small"
+            className="text-indigo-800 hover:text-indigo-100"
+            style={{
+              textShadow: "0.5px 0.5px 0.5px rgba(0,0,0,0.4)",
+            }}
+          >
             Editar mis datos
           </Button>
         </Link>
@@ -28,6 +43,7 @@ export default function ProfileCard({ profileInfo }) {
     </Card>
   );
 }
+
 ProfileCard.propTypes = {
   profileInfo: PropTypes.object,
 };
