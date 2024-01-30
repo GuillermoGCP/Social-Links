@@ -24,8 +24,16 @@ const ProfileBox = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
+  const handleImageClick = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
   const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+    if (
+      anchorRef.current &&
+      anchorRef.current.contains(event.target) &&
+      event.target.id !== "profileImage"
+    ) {
       return;
     }
     setOpen(false);
@@ -47,9 +55,11 @@ const ProfileBox = () => {
       {profileInfo && Object.values(profileInfo).length > 0 && (
         <div className="flex items-center space-x-4">
           <img
-            className="w-12 h-12 rounded-full"
+            id="profileImage"
+            className="w-12 h-12 rounded-full object-cover cursor-pointer"
             src={urlImage}
             alt={profileInfo.user}
+            onClick={handleImageClick}
           />
           <div className="relative flex flex-col items-start">
             <div className="relative">
