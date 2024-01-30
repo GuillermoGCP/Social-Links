@@ -1,28 +1,36 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import useApiRequest from "./useApiRequest.js";
 import { toast } from "react-toastify";
 import { tokenContext } from "../contexs/tokenContext.jsx";
 
 const useProfileEdit = () => {
+  const [tokenState, , profileInfo, , editProfile] = useContext(tokenContext);
   const { fetchData } = useApiRequest();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(profileInfo.user || "");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [biography, setBio] = useState("");
-  const [tokenState, , , , editProfile] = useContext(tokenContext);
-
+  useEffect(() => {
+    if (!profileInfo.id) {
+      return;
+    }
+    setName(profileInfo.user);
+    setEmail(profileInfo.email);
+    setBio(profileInfo.biography || "");
+  }, [profileInfo]);
   const url = import.meta.env.VITE_SERVER_URL + `/profile`;
 
-  const onSuccess = (data) => {
-    editProfile(
-      data.data.userId,
-      data.data.name,
-      data.data.email,
-      data.data.biography,
-      data.data.profilePicture
-    );
-    toast.success(data.data.message);
+  const onSuccess = (body) => {
+    const {
+      userId: id,
+      name: user,
+      biography,
+      email,
+      profilePicture,
+    } = body.data;
+    editProfile({ id, user, biography, email, profilePicture });
+    toast.success(body.data.message);
     setName("");
     setEmail("");
     setPassword("");
