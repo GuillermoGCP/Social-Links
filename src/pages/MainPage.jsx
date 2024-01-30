@@ -33,13 +33,15 @@ const MainPage = () => {
     <section className="max-w-2xl mx-auto mt-8 p-4">
       <PostLink addNewLink={addNewLink} />
       <Search handler={searchHandler} placeholder="Buscador" />
-      <Button
-        handler={() => {
-          setSearchParams({ q: "" });
-        }}
-      >
-        Reset
-      </Button>
+      <div className="p-5 max-w-44 mx-auto">
+        <Button
+          handler={() => {
+            setSearchParams({ q: "" });
+          }}
+        >
+          Reiniciar búsqueda
+        </Button>
+      </div>
 
       <ul>
         {orderFilteredLinks ? (

@@ -9,6 +9,7 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import useCloseSesion from "../hooks/useCloseSesion";
+import { useMediaQuery } from "@mui/material";
 
 const ProfileBox = () => {
   const { closeSesionHandler } = useCloseSesion();
@@ -39,6 +40,8 @@ const ProfileBox = () => {
     }
   }
 
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+
   return (
     <header className="bg-indigo-600 p-4 text-white mr-5 rounded-2xl">
       {profileInfo && Object.values(profileInfo).length > 0 && (
@@ -61,9 +64,11 @@ const ProfileBox = () => {
                 variant="none"
                 className="mt-1 truncate"
               >
-                <span className="text-lg font-bold truncate">
-                  {profileInfo.user}
-                </span>
+                {!isSmallScreen && (
+                  <span className="text-lg font-bold truncate">
+                    {profileInfo.user}
+                  </span>
+                )}
               </Button>
               <Popper
                 open={open}

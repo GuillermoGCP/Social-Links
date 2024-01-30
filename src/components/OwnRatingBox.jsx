@@ -23,10 +23,12 @@ export default function OwnRatingBox({ link }) {
   let userIdIndex;
   let userVote;
 
-  userIdIndex = voterUserIds.findIndex((id) => {
-    return id === profileInfo.id;
-  });
-  userVote = individualRatings[userIdIndex];
+  userIdIndex = voterUserIds
+    ? voterUserIds.findIndex((id) => {
+        return id === profileInfo.id;
+      })
+    : null;
+  userVote = individualRatings ? individualRatings[userIdIndex] : null;
   return (
     <div className="flex items-center">
       {link.ownerId !== profileInfo.id ? (

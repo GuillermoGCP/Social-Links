@@ -12,7 +12,7 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
   console.log(link);
   return (
-    <article className="max-w-4/5 mx-auto rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-indigo-300 p-4">
+    <article className="max-w-4/5 mx-auto rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-indigo-300 p-4 ">
       <LinkDetailPost link={link} />
 
       <div className="mt-4 flex items-center">

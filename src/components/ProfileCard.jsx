@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 
 export default function ProfileCard({ profileInfo }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 400 }}>
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="h2" component="div">
+          <Typography gutterBottom variant="h3" component="div">
             {profileInfo.user}
           </Typography>
           <Typography variant="body2" color="text.secondary">
