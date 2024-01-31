@@ -42,7 +42,7 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
         <p className="flex items-center text-gray-700 text-base mr-4 ">
           Puntuación media: <StarRating link={link} />
         </p>
-        <p>{`${link.individualRatings.length} Votos`}</p>
+        <p>{`${link.individualRatings?.length} Votos`}</p>
 
         <OwnRatingBox link={link} />
       </div>
