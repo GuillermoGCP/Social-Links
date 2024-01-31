@@ -33,13 +33,11 @@ const ProfileUserEdit = () => {
       navigate("/");
     }
   }, [tokenState, navigate]);
-
   return (
-    <div className=" bg-cover bg-center min-h-screen flex flex-col items-center justify-center bg-gray-100 relative">
+    <div className="h-screen p-10 mt-10">
       <div className="bg-white p-8 shadow-md rounded-md max-w-md w-full mx-auto">
-        {" "}
         <h2 className="text-3xl font-semibold mb-6 text-center text-slate-700">
-          Editar Perfil
+          Edita tus datos
         </h2>
         <form className="space-y-4" onSubmit={handleProfileEditSubmit}>
           <TextInput name={name} setName={setName} placeholder={"Nombre"} />
@@ -80,7 +78,9 @@ const ProfileUserEdit = () => {
               placeholder="Escribe tu biografía aquí..."
             />
           </div>
-          <Button handler={handleProfileEditSubmit}>Guardar Cambios</Button>
+          <div className="hover:scale-95">
+            <Button handler={handleProfileEditSubmit}>Guardar Cambios</Button>
+          </div>
         </form>
         <hr className="my-8 border-t border-gray-300" />
         <form onSubmit={handlePasswordSubmit}>
@@ -103,7 +103,9 @@ const ProfileUserEdit = () => {
             />
           </div>
           {error && <div className="text-red-500">{error}</div>}
-          <Button>Resetear contraseña</Button>
+          <div className="hover:scale-95">
+            <Button>Resetear contraseña</Button>
+          </div>
         </form>
       </div>
     </div>

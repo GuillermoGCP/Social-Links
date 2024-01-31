@@ -28,7 +28,9 @@ const Login = () => {
         <div className="lg:w-1/2 bg-white p-8 lg:p-12 shadow-md rounded-md max-w-md w-full lg:ml-4">
           <h2 className="text-3xl font-semibold mb-6 text-center"></h2>
           <form className="space-y-4" onSubmit={loginHandler}>
-            <Button className="mb-7 h-16">Iniciar sesión</Button>
+            <div className="hover:scale-105 transition-transform">
+              <Button className="mb-7 h-16">Iniciar sesión</Button>
+            </div>
             <EmailInput
               email={email}
               setEmail={setEmail}
@@ -40,7 +42,7 @@ const Login = () => {
               placeholder="Contraseña"
             />
             <Link to="/register">
-              <p className="block w-2/3 mx-auto rounded-md bg-green-500 px-4 py-3 text-center text-lg font-semibold text-white shadow-sm hover:bg-green-400 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-200 mt-7">
+              <p className="block w-2/3 mx-auto rounded-md bg-green-500 px-4 py-3 text-center text-lg font-semibold text-white shadow-sm hover:bg-green-400 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-200 mt-7 hover:scale-105 transition-transform">
                 Crea una cuenta nueva
               </p>
             </Link>

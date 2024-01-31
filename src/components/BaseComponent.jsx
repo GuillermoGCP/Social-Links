@@ -4,9 +4,9 @@ import Footer from "./Footer";
 import Navigation from "./Navigation";
 import PropTypes from "prop-types";
 
-const BaseComponent = ({ children }) => {
+const BaseComponent = () => {
   const url = import.meta.env.VITE_FRONT_URL + `/clouds.jpg`;
-  console.log(url);
+
   const backImage = {
     backgroundImage: `url(${url})`,
     backgroundSize: "cover",
