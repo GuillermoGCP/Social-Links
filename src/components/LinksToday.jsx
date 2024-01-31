@@ -14,7 +14,7 @@ const LinksToday = () => {
     }
   }, [tokenState, navigate]);
   return (
-    <section className="max-w-2xl h-screen mx-auto mt-8 p-4">
+    <section className="max-w-2xl min-h-screen mx-auto mt-8 p-4">
       <ul>
         {today ? (
           today.map((link) => (
