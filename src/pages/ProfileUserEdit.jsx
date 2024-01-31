@@ -35,8 +35,9 @@ const ProfileUserEdit = () => {
   }, [tokenState, navigate]);
 
   return (
-    <div className="bg-cover bg-center min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 shadow-md rounded-md max-w-md w-full">
+    <div className=" bg-cover bg-center min-h-screen flex flex-col items-center justify-center bg-gray-100 relative">
+      <div className="bg-white p-8 shadow-md rounded-md max-w-md w-full mx-auto">
+        {" "}
         <h2 className="text-3xl font-semibold mb-6 text-center text-slate-700">
           Editar Perfil
         </h2>
@@ -81,9 +82,7 @@ const ProfileUserEdit = () => {
           </div>
           <Button handler={handleProfileEditSubmit}>Guardar Cambios</Button>
         </form>
-
         <hr className="my-8 border-t border-gray-300" />
-
         <form onSubmit={handlePasswordSubmit}>
           <div className="mb-4">
             <PasswordInput
@@ -100,7 +99,7 @@ const ProfileUserEdit = () => {
               placeholder="Confirmar contraseña"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="mt-1 form-input rounded-md shadow-sm block w-full"
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
             />
           </div>
           {error && <div className="text-red-500">{error}</div>}
