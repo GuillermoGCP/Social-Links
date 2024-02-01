@@ -1,7 +1,7 @@
+import useLogin from "../hooks/useLogin";
 import EmailInput from "../components/EmailInput";
 import PasswordInput from "../components/PasswordInput";
 import Button from "../components/Button";
-import useLogin from "../hooks/useLogin";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -41,6 +41,11 @@ const Login = () => {
               setPassword={setPassword}
               placeholder="Contraseña"
             />
+            <Link to="/reset-password">
+              <p className="text-sm text-gray-500 text-center underline">
+                ¿Olvidaste tu contraseña?
+              </p>
+            </Link>
             <Link to="/register">
               <p className="block w-2/3 mx-auto rounded-md bg-green-500 px-4 py-3 text-center text-lg font-semibold text-white shadow-sm hover:bg-green-400 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-200 mt-7 hover:scale-105 transition-transform">
                 Crea una cuenta nueva
