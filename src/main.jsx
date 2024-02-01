@@ -8,16 +8,21 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
+import ResetPassword from "./pages/ResetPassword";  
 import "./index.css";
 import { TokenProvider } from "./contexs/tokenContext";
 import MainPage from "./pages/MainPage";
 import LinkDetailsPage from "./pages/LinkDetailsPage";
 import ProfileUserEdit from "./pages/ProfileUserEdit";
 import LinksToday from "./components/LinksToday";
+import NewPass from "./components/NewPass";
 
 const router = createBrowserRouter([
   { path: "", element: <Login /> },
   { path: "register", element: <Register /> },
+  { path: "reset-password", element: <ResetPassword /> },
+  { path: "newPass", element: <NewPass /> },
+  
   {
     path: "",
     element: <BaseComponent />,
