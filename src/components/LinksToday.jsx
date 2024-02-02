@@ -14,11 +14,14 @@ const LinksToday = () => {
     }
   }, [tokenState, navigate]);
   return (
-    <section className="max-w-2xl mx-auto mt-8 p-4">
+    <section className="max-w-2xl min-h-screen mx-auto mt-8 p-4">
       <ul>
         {today ? (
           today.map((link) => (
-            <div key={link.id} className="p-4 border-2 border-x-slate-200">
+            <div
+              key={link.id}
+              className="p-4 hover:scale-95 transition-transform"
+            >
               <OneLink
                 key={link.id}
                 link={link}

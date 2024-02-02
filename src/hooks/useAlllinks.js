@@ -11,7 +11,7 @@ const useAllLinks = () => {
   const addNewLink = (newLink) => {
     setState([...state, newLink]);
   };
-  console.log(state);
+
   const deleteLink = (link) => {
     let newArray = state.filter((newLink) => {
       return newLink.id !== link.id;

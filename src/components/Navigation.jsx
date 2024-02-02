@@ -21,7 +21,7 @@ const Navigation = () => {
             to="/register"
             className="text-gray-800 text-lg font-semibold hover:text-gray-600 mr-4"
           >
-            Registrarse
+            Añadir cuenta
           </Link>
         </div>
       </div>

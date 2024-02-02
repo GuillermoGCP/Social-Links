@@ -58,7 +58,9 @@ const Register = () => {
             password={password}
             setPassword={setPassword}
           />
-          <Button>Regístrate</Button>
+          <div className="hover:scale-105 transition-transform">
+            <Button>Regístrate</Button>
+          </div>
         </form>
         <p className="text-center mt-6 text-slate-500">
           ¿Ya tienes cuenta?{" "}

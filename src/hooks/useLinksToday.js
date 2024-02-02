@@ -9,8 +9,6 @@ const useLinksToday = () => {
   const [today, setToday] = React.useState([]);
   const [tokenState, , profileInfo] = React.useContext(tokenContext);
 
-  console.log(today);
-
   const changeRating2 = (id, rating, userVote) => {
     setToday((prevState) => {
       return prevState.map((link) => {
@@ -73,13 +71,13 @@ const useLinksToday = () => {
     });
 
     setToday(modifiedData);
-    console.log(data);
   };
 
   const onError = (error) => {
     console.error(error.error);
   };
   const { fetchData } = useApiRequest();
+
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");
@@ -92,7 +90,7 @@ const useLinksToday = () => {
       },
     };
     fetchData(url, urlData, onSuccess, onError);
-  }, []);
+  }, [tokenState]);
 
   return {
     today,
