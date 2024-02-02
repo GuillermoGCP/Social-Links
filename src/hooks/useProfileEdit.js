@@ -14,7 +14,7 @@ const useProfileEdit = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-
+  const [mainButton, SetmainButton] = useState(false);
   useEffect(() => {
     if (!profileInfo.id) {
       return;
@@ -27,6 +27,7 @@ const useProfileEdit = () => {
   const url = import.meta.env.VITE_SERVER_URL + `/profile`;
 
   const onSuccess = (body) => {
+    SetmainButton(true);
     const {
       userId: id,
       name: user,
@@ -102,6 +103,7 @@ const useProfileEdit = () => {
     setError,
     tokenState,
     error,
+    mainButton,
   };
 };
 
