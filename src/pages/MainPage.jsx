@@ -30,40 +30,57 @@ const MainPage = () => {
   });
 
   return (
-    <section className="max-w-2xl mx-auto mt-8 p-4">
-      <PostLink addNewLink={addNewLink} />
-      <Search handler={searchHandler} placeholder="Buscador" />
-      <div className="p-5 max-w-44 mx-auto">
-        <Button
-          handler={() => {
-            setSearchParams({ q: "" });
-          }}
-        >
-          Reiniciar búsqueda
-        </Button>
-      </div>
+    <main
+      className="bg-cover bg-center min-h-screen"
+      style={{ backgroundImage: 'url("/clouds2.jpg")' }}
+    >
+      <section className="max-w-2xl mx-auto mt-8 p-4">
+        <PostLink addNewLink={addNewLink} />
+      </section>
 
-      <ul>
-        {orderFilteredLinks ? (
-          orderFilteredLinks.map((link) => (
-            <div key={link.id} className="p-4 border-2 border-x-slate-200">
-              <OneLink key={link.id} link={link} changeRating={changeRating} />
-              <div className="p-5 max-w-xs mx-auto">
-                <Button
-                  handler={() => {
-                    goToLinkDetails(link.id);
-                  }}
-                >
-                  Ve al Post
-                </Button>
-              </div>
-            </div>
-          ))
-        ) : (
-          <NoLinksToday />
-        )}
-      </ul>
-    </section>
+      <section className="max-w-2xl mx-auto mt-8 p-4">
+        <Search handler={searchHandler} placeholder="Buscador" />
+        <div className="p-5 max-w-44 mx-auto">
+          <Button
+            handler={() => {
+              setSearchParams({ q: "" });
+            }}
+          >
+            Reiniciar búsqueda
+          </Button>
+        </div>
+      </section>
+
+      <section className="w-screen flex justify-center">
+        <ul className="flex flex-wrap justify-center">
+          {orderFilteredLinks ? (
+            orderFilteredLinks.map((link) => (
+              <li
+                key={link.id}
+                className="list-none w-96 m-4 p-4 rounded-xl shadow-lg hover:shadow-2xl border-gray-400 border-solid border hover:scale-95 transition-transform"
+              >
+                <OneLink
+                  key={link.id}
+                  link={link}
+                  changeRating={changeRating}
+                />
+                <div className="mt-10">
+                  <Button
+                    handler={() => {
+                      goToLinkDetails(link.id);
+                    }}
+                  >
+                    Ve al Post
+                  </Button>
+                </div>
+              </li>
+            ))
+          ) : (
+            <NoLinksToday />
+          )}
+        </ul>
+      </section>
+    </main>
   );
 };
 
