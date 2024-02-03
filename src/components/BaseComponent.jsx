@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 import PropTypes from "prop-types";
 
 const BaseComponent = () => {
-  const url = import.meta.env.VITE_FRONT_URL + `/clouds.jpg`;
+  const url = import.meta.env.VITE_FRONT_URL + `/clouds2.jpg`;
 
   const backImage = {
     backgroundImage: `url(${url})`,

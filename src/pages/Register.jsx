@@ -20,7 +20,7 @@ const Register = () => {
     <article
       className="bg-cover bg-center min-h-screen flex flex-col items-center justify-center bg-gray-100 relative"
       style={{
-        backgroundImage: 'url("woman.jpg")',
+        backgroundImage: 'url("woman3.jpg")',
         minHeight: "100vh",
       }}
     >
