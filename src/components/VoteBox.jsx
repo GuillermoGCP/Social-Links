@@ -11,14 +11,12 @@ const VoteBox = ({ link, changeRating, changeRating2 }) => {
   });
 
   return (
-    <form className="text-center m-4">
+    <form className=" text center">
       <SelectInput value={voteState} onChange={onChange} />
-      <div className="p-4">
-        {" "}
-        <Button handler={voteHandler} size="small" className="mt-2">
-          Vota
-        </Button>
-      </div>
+
+      <Button style={{ with: "40px" }} handler={voteHandler}>
+        Vota
+      </Button>
     </form>
   );
 };
