@@ -20,7 +20,7 @@ const Register = () => {
     <article
       className="bg-cover bg-center min-h-screen flex flex-col items-center justify-center bg-gray-100 relative"
       style={{
-        backgroundImage: 'url("woman.jpg")',
+        backgroundImage: 'url("woman3.jpg")',
         minHeight: "100vh",
       }}
     >
@@ -58,7 +58,9 @@ const Register = () => {
             password={password}
             setPassword={setPassword}
           />
-          <Button>Regístrate</Button>
+          <div className="hover:scale-105 transition-transform">
+            <Button>Regístrate</Button>
+          </div>
         </form>
         <p className="text-center mt-6 text-slate-500">
           ¿Ya tienes cuenta?{" "}

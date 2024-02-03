@@ -11,6 +11,7 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
   const urlImage =
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
 
+
   return (
     <>
       <div className="ml-20">

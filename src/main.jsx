@@ -8,16 +8,25 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
+import ResetPasswordBox from "./pages/ResetPasswordBox";
+import ResetPassword from "./pages/ResetPassword";
 import "./index.css";
 import { TokenProvider } from "./contexs/tokenContext";
 import MainPage from "./pages/MainPage";
 import LinkDetailsPage from "./pages/LinkDetailsPage";
 import ProfileUserEdit from "./pages/ProfileUserEdit";
 import LinksToday from "./components/LinksToday";
+import NewPass from "./components/NewPass";
+import ReactModal from "react-modal";
+
+ReactModal.setAppElement("#root");
 
 const router = createBrowserRouter([
   { path: "", element: <Login /> },
   { path: "register", element: <Register /> },
+  { path: "newPass", element: <NewPass /> },
+  { path: "resetPassword/:token", element: <ResetPassword /> },
+
   {
     path: "",
     element: <BaseComponent />,

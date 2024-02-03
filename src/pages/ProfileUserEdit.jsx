@@ -19,7 +19,11 @@ const ProfileUserEdit = () => {
     biography,
     setBio,
     handleProfileEditSubmit,
+    handlePasswordSubmit,
+    setConfirmPassword,
+    error,
     tokenState,
+    confirmPassword,
   } = useProfileEdit();
 
   const navigate = useNavigate();
@@ -30,10 +34,10 @@ const ProfileUserEdit = () => {
     }
   }, [tokenState, navigate]);
   return (
-    <div className="bg-cover bg-center min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 shadow-md rounded-md max-w-md w-full">
+    <div className="min-h-screen p-10 mt-10">
+      <div className="bg-white p-8 shadow-md rounded-md max-w-md w-full mx-auto">
         <h2 className="text-3xl font-semibold mb-6 text-center text-slate-700">
-          Editar Perfil
+          Edita tus datos
         </h2>
         <form className="space-y-4" onSubmit={handleProfileEditSubmit}>
           <TextInput name={name} setName={setName} placeholder={"Nombre"} />
@@ -42,11 +46,7 @@ const ProfileUserEdit = () => {
             setEmail={setEmail}
             placeholder={"Correo electrónico"}
           />
-          <PasswordInput
-            password={password}
-            setPassword={setPassword}
-            placeholder={"contraseña"}
-          />
+
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               Foto de Perfil
@@ -55,6 +55,7 @@ const ProfileUserEdit = () => {
               type="file"
               accept="image/*"
               onChange={(e) => setProfilePicture(e.target.files[0])}
+              className="mt-1"
             />
             {profilePicture && (
               <img
@@ -77,7 +78,34 @@ const ProfileUserEdit = () => {
               placeholder="Escribe tu biografía aquí..."
             />
           </div>
-          <Button handler={handleProfileEditSubmit}>Guardar Cambios</Button>
+          <div className="hover:scale-95">
+            <Button handler={handleProfileEditSubmit}>Guardar Cambios</Button>
+          </div>
+        </form>
+        <hr className="my-8 border-t border-gray-300" />
+        <form onSubmit={handlePasswordSubmit}>
+          <div className="mb-4">
+            <PasswordInput
+              password={password}
+              setPassword={setPassword}
+              placeholder={"Nueva contraseña"}
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-semibold text-gray-700"></label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirmar contraseña"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+            />
+          </div>
+          {error && <div className="text-red-500">{error}</div>}
+          <div className="hover:scale-95">
+            <Button>Resetear contraseña</Button>
+          </div>
         </form>
       </div>
     </div>
