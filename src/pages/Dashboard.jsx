@@ -9,6 +9,7 @@ import Search from "../components/Search";
 import useSearch from "../hooks/useSearch";
 import LinkDetailPost from "../components/LinkDetailPost";
 import NoLinksToday from "../components/NoLinksToday";
+import Button from "../components/Button";
 
 const Dashboard = () => {
   const [tokenState, , profileInfo] = React.useContext(tokenContext);
@@ -19,7 +20,13 @@ const Dashboard = () => {
     }
   }, [tokenState, navigate]);
   const { state, deleteLink } = useAllLinks();
-  const { filteredLinks, searchHandler } = useSearch(state);
+  const {
+    filteredLinks,
+    searchHandler,
+    inputValue,
+    setInputValue,
+    setSearchParams,
+  } = useSearch(state);
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
     return b.id - a.id;
   });
@@ -35,7 +42,21 @@ const Dashboard = () => {
       </article>
 
       <article className="max-w-3xl mx-auto my-8 p-6 bg-white shadow-md rounded-md text-center">
-        <Search handler={searchHandler} placeholder="Buscador" />
+        <Search
+          handler={searchHandler}
+          inputValue={inputValue}
+          placeholder="Buscador"
+        />
+        <div className="p-5 max-w-44 mx-auto">
+          <Button
+            handler={() => {
+              setInputValue("");
+              setSearchParams({ q: "" });
+            }}
+          >
+            Reiniciar búsqueda
+          </Button>
+        </div>
         {newOwnLinks.length !== 0 ? (
           <h2 className="text-xl font-bold mb-4">Links que has compartido</h2>
         ) : null}

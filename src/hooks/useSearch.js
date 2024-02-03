@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 const useSearch = (state) => {
   let [searchParams, setSearchParams] = useSearchParams();
+  const [inputValue, setInputValue] = useState();
+
   const q = searchParams.get("q") ?? "";
 
   const searchHandler = (e) => {
     e.preventDefault();
+    setInputValue(e.target.value);
     const info = e.target.value;
     const queryData = {
       q: info,
@@ -19,6 +23,12 @@ const useSearch = (state) => {
       link.url.toLowerCase().includes(q.toLocaleLowerCase())
     );
   });
-  return { filteredLinks, searchHandler, setSearchParams };
+  return {
+    filteredLinks,
+    searchHandler,
+    setSearchParams,
+    inputValue,
+    setInputValue,
+  };
 };
 export default useSearch;

@@ -9,20 +9,12 @@ const LinkDetailsPage = () => {
   const dataLink = location?.state?.mainPageState || [];
   const { id } = useParams();
   const link = dataLink.find((p) => p.id === Number(id));
-  HEAD;
 
   if (!link) return <PageNotFound />;
 
   return (
     <main className=" m-20 bg-gray-100">
       <section className="flex p-4 ">
-        {/* <article className=" bg-white p-4 rounded shadow-md h-140 items-center w-80">
-        {/* <h1>{link.title}</h1>
-          <img src={url} className="h-80"  />
-          <p>{link.url}</p>
-          <p>{link.description}</p>
-        </article> */}
-
         <DropDown link={link} />
 
         <div className="ml-4 bg-white p-16 rounded shadow-md flex items-center overflow-hidden">

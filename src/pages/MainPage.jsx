@@ -11,7 +11,13 @@ import NoLinksToday from "../components/NoLinksToday";
 
 const MainPage = () => {
   const { state, tokenState, addNewLink, changeRating } = useAllLinks();
-  const { filteredLinks, searchHandler, setSearchParams } = useSearch(state);
+  const {
+    filteredLinks,
+    searchHandler,
+    setSearchParams,
+    inputValue,
+    setInputValue,
+  } = useSearch(state);
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -32,10 +38,15 @@ const MainPage = () => {
   return (
     <section className="max-w-2xl mx-auto mt-8 p-4">
       <PostLink addNewLink={addNewLink} />
-      <Search handler={searchHandler} placeholder="Buscador" />
+      <Search
+        handler={searchHandler}
+        inputValue={inputValue}
+        placeholder="Buscador"
+      />
       <div className="p-5 max-w-44 mx-auto">
         <Button
           handler={() => {
+            setInputValue("");
             setSearchParams({ q: "" });
           }}
         >
