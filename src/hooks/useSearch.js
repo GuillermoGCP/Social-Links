@@ -16,7 +16,7 @@ const useSearch = (state) => {
     setSearchParams(queryData);
   };
 
-  const filteredLinks = state.filter((link) => {
+  const filteredLinks = state?.filter((link) => {
     return (
       link.title.toLowerCase().includes(q.toLowerCase()) ||
       link.description.toLowerCase().includes(q.toLowerCase()) ||

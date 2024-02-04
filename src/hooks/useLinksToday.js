@@ -76,7 +76,7 @@ const useLinksToday = () => {
   const onError = (error) => {
     console.error(error.error);
   };
-  const { fetchData } = useApiRequest();
+  const { fetchData, loading } = useApiRequest();
 
   React.useEffect(() => {
     if (!tokenState) {
@@ -97,6 +97,7 @@ const useLinksToday = () => {
     tokenState,
     setToday,
     changeRating2,
+    loading,
   };
 };
 export default useLinksToday;
