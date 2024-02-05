@@ -1,41 +1,24 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-// import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-// import { red } from "@mui/material/colors";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
-// import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PropTypes from "prop-types";
 
-const ExpandMore = styled((props) => {
-  const { ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 export default function RecipeReviewCard({ link }) {
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
   const url =
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
+
+  const date = new Date(link.createdAt);
+  const formatedDateObject = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const formatedDate = date.toLocaleString("es-ES", formatedDateObject);
+  console.log(formatedDateObject);
 
   return (
     <div className="w-80 m-10">
@@ -47,7 +30,9 @@ export default function RecipeReviewCard({ link }) {
             </Avatar>
           }
           title={link.name}
-          subheader={link.createdAt.toLocaleString()}
+
+          subheader={formatedDate}
+
         />
 
         <h2 className="text-center">{link.title}</h2>
@@ -55,24 +40,14 @@ export default function RecipeReviewCard({ link }) {
           <Typography variant="body2" color="text.secondary">
             Descripción:
           </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
+          <div
+            className="overflow-y-auto h-56 "
+            style={{ maxHeight: "200px", overflowY: "auto" }}
           >
-            <ExpandMoreIcon />
-          </ExpandMore>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph variant="body2" color="text.secondary">
-              {link.description}
-            </Typography>
-          </CardContent>
-        </Collapse>
+            {link.description}
+          </div>
+        </CardContent>
+
       </Card>
     </div>
   );
