@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Search = ({ handler, children, placeholder }) => {
+const Search = ({ handler, children, placeholder, inputValue }) => {
   return (
     <form className="mb-4 max-w-xl mx-auto">
       <label
@@ -15,6 +15,7 @@ const Search = ({ handler, children, placeholder }) => {
         id="search"
         type="text"
         onChange={handler}
+        value={inputValue}
       />
     </form>
   );
@@ -24,6 +25,7 @@ Search.propTypes = {
   handler: PropTypes.func,
   children: PropTypes.node,
   placeholder: PropTypes.string,
+  inputValue: PropTypes.string,
 };
 
 export default Search;

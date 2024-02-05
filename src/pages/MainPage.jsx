@@ -8,10 +8,18 @@ import Button from "../components/Button";
 
 import useAllLinks from "../hooks/useAlllinks";
 import NoLinksToday from "../components/NoLinksToday";
+import { ClockLoader } from "react-spinners";
 
 const MainPage = () => {
-  const { state, tokenState, addNewLink, changeRating } = useAllLinks();
-  const { filteredLinks, searchHandler, setSearchParams } = useSearch(state);
+  const { state, tokenState, addNewLink, changeRating, loading } =
+    useAllLinks();
+  const {
+    filteredLinks,
+    searchHandler,
+    setSearchParams,
+    inputValue,
+    setInputValue,
+  } = useSearch(state);
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -30,40 +38,72 @@ const MainPage = () => {
   });
 
   return (
-    <section className="max-w-2xl mx-auto mt-8 p-4">
-      <PostLink addNewLink={addNewLink} />
-      <Search handler={searchHandler} placeholder="Buscador" />
-      <div className="p-5 max-w-44 mx-auto">
-        <Button
-          handler={() => {
-            setSearchParams({ q: "" });
-          }}
-        >
-          Reiniciar búsqueda
-        </Button>
-      </div>
+    <main>
+      <section className="max-w-2xl mx-auto mt-8 p-4">
+        <PostLink addNewLink={addNewLink} />
+      </section>
 
-      <ul>
-        {orderFilteredLinks ? (
-          orderFilteredLinks.map((link) => (
-            <div key={link.id} className="p-4 border-2 border-x-slate-200">
-              <OneLink key={link.id} link={link} changeRating={changeRating} />
-              <div className="p-5 max-w-xs mx-auto">
-                <Button
-                  handler={() => {
-                    goToLinkDetails(link.id);
-                  }}
-                >
-                  Ve al Post
-                </Button>
-              </div>
+      <section className="max-w-2xl mx-auto mt-8 p-4">
+        <Search
+          handler={searchHandler}
+          inputValue={inputValue}
+          placeholder="Buscador"
+        />
+        {loading ? (
+          <>
+            <p className="text-2xl font-bold text-center text-gray-700 mb-4 mt-14">
+              Cargando enlaces
+            </p>
+            <div className="flex justify-center items-center">
+              <ClockLoader color="#4f46e5" size={50} />
             </div>
-          ))
+          </>
         ) : (
-          <NoLinksToday />
+          <>
+            <div className="p-5 max-w-44 mx-auto">
+              <Button
+                handler={() => {
+                  setInputValue("");
+                  setSearchParams({ q: "" });
+                }}
+              >
+                Reiniciar búsqueda
+              </Button>
+            </div>
+          </>
         )}
-      </ul>
-    </section>
+      </section>
+
+      <section className="w-screen flex justify-center">
+        <ul className="flex flex-wrap justify-center">
+          {orderFilteredLinks ? (
+            orderFilteredLinks.map((link) => (
+              <li
+                key={link.id}
+                className="list-none w-96 m-4 p-4 rounded-xl shadow-lg hover:shadow-2xl bg-slate-100/40 border hover:scale-95 transition-transform"
+              >
+                <OneLink
+                  key={link.id}
+                  link={link}
+                  changeRating={changeRating}
+                />
+                <div className="mt-10">
+                  <Button
+                    handler={() => {
+                      goToLinkDetails(link.id);
+                    }}
+                  >
+                    Ve al Post
+                  </Button>
+                </div>
+              </li>
+            ))
+          ) : (
+            <NoLinksToday />
+          )}
+        </ul>
+      </section>
+    </main>
   );
 };
 

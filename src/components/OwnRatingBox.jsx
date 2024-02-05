@@ -30,30 +30,32 @@ export default function OwnRatingBox({ link }) {
     : null;
   userVote = individualRatings ? individualRatings[userIdIndex] : null;
   return (
-    <div className="flex items-center">
+    <div className="row-span-3 text-center">
       {link.ownerId !== profileInfo.id ? (
         <>
           {votedByLoggedUser ? (
-            <div className="flex items-center gap-2">
+            <div className="pt-1 ">
+              <p className="font-medium text-slate-600">Tu votación</p>
               <IconButton aria-label="cart">
                 <StyledBadge badgeContent={userVote} color="secondary">
-                  <StarBorderIcon />
+                  <StarBorderIcon style={{ fontSize: 40 }} />
                 </StyledBadge>
               </IconButton>
-              <p className="text-center">Tu votación</p>
             </div>
           ) : (
-            <p className="text-center">Aún no has votado este link</p>
+            <p className="text-center mt-6 font-medium text-slate-600">
+              Vota este link
+            </p>
           )}
         </>
       ) : (
         <>
+          <p className="font-medium text-slate-600">Tu link</p>
           <IconButton aria-label="cart">
             <StyledBadge>
-              <VerifiedIcon />
+              <VerifiedIcon style={{ fontSize: 40 }} />
             </StyledBadge>
           </IconButton>
-          <p className="text-center">Tu link</p>
         </>
       )}
     </div>

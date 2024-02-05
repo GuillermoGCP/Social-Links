@@ -1,6 +1,9 @@
+import React from "react";
 import { toast } from "react-toastify";
 
 const useApiRequest = () => {
+  const [loading, setLoading] = React.useState(true);
+
   const fetchData = async (
     url,
     urlData = {},
@@ -13,6 +16,7 @@ const useApiRequest = () => {
 
       if (res.ok) {
         onSuccess(body);
+        setLoading(false);
       } else {
         onError(body);
       }
@@ -22,7 +26,7 @@ const useApiRequest = () => {
     }
   };
 
-  return { fetchData };
+  return { fetchData, loading };
 };
 
 export default useApiRequest;

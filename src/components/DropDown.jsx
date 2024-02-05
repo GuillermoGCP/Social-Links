@@ -5,6 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 
+
 export default function RecipeReviewCard({ link }) {
   const url =
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
@@ -29,7 +30,9 @@ export default function RecipeReviewCard({ link }) {
             </Avatar>
           }
           title={link.name}
+
           subheader={formatedDate}
+
         />
 
         <h2 className="text-center">{link.title}</h2>
@@ -44,6 +47,7 @@ export default function RecipeReviewCard({ link }) {
             {link.description}
           </div>
         </CardContent>
+
       </Card>
     </div>
   );

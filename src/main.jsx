@@ -8,7 +8,6 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
-import ResetPasswordBox from "./pages/ResetPasswordBox";
 import ResetPassword from "./pages/ResetPassword";
 import "./index.css";
 import { TokenProvider } from "./contexs/tokenContext";

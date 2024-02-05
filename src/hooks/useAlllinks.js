@@ -88,7 +88,7 @@ const useAllLinks = () => {
   const onError = (error) => {
     console.error(error.error);
   };
-  const { fetchData } = useApiRequest();
+  const { fetchData, loading } = useApiRequest();
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");
@@ -110,6 +110,7 @@ const useAllLinks = () => {
     addNewLink,
     changeRating,
     deleteLink,
+    loading,
   };
 };
 export default useAllLinks;

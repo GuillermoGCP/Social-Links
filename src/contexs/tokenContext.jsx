@@ -13,7 +13,7 @@ const TokenProvider = ({ children }) => {
   const editProfile = (newData) => {
     setProfileInfo({ ...profileInfo, ...newData });
   };
-  const { fetchData } = useApiRequest();
+  const { fetchData, loading } = useApiRequest();
 
   const onSuccess = (data) => {
     toast.success(data.message);
@@ -42,6 +42,7 @@ const TokenProvider = ({ children }) => {
         profileInfo,
         setProfileInfo,
         editProfile,
+        loading,
       ]}
     >
       {children}
