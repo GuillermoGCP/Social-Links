@@ -17,7 +17,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PropTypes from "prop-types";
 
 const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
+  const { ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
@@ -37,59 +37,45 @@ export default function RecipeReviewCard({ link }) {
   const url =
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
 
-  console.log(link);
   return (
     <div className="w-80 m-10">
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar>
-            <img src={url} alt="" />
-          </Avatar>
-        }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
+      <Card sx={{ maxWidth: 345 }}>
+        <CardHeader
+          avatar={
+            <Avatar>
+              <img src={url} alt="" />
+            </Avatar>
+          }
+          title={link.name}
+          subheader={link.createdAt.toLocaleString()}
+        />
 
-        title={link.name}
-        subheader={link.createdAt.toLocaleString()}
-      />
-
-      <h2 className="text-center">{link.title}</h2>
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Descripción:
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        {/* <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton> */}
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <h2 className="text-center">{link.title}</h2>
         <CardContent>
-          <Typography paragraph variant="body2" color="text.secondary">
-            {link.description}
+          <Typography variant="body2" color="text.secondary">
+            Descripción:
           </Typography>
         </CardContent>
-      </Collapse>
-    </Card>
+        <CardActions disableSpacing>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph variant="body2" color="text.secondary">
+              {link.description}
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
     </div>
   );
-  
 }
 
-RecipeReviewCard.propTypes={link:PropTypes.object}
+RecipeReviewCard.propTypes = { link: PropTypes.object };
