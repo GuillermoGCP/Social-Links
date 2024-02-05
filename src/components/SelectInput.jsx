@@ -4,22 +4,22 @@ const SelectInput = ({ children, value, onChange }) => {
     <>
       <label htmlFor="select">{children}</label>
       <select
-        className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+        className="rounded-md mb-2 border-0 bg-transparent bg-none font-medium text-slate-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 block w-2/3 mx-auto"
         id="ratingSelect"
         name="ratingSelect"
         value={value}
         onChange={onChange}
       >
-        <option value="1">1 Estrellas/s</option>
-        <option value="2">2 Estrellas/s</option>
-        <option value="3">3 Estrellas/s</option>
-        <option value="4">4 Estrellas/s</option>
-        <option value="5">5 Estrellas/s</option>
-        <option value="6">6 Estrellas/s</option>
-        <option value="7">7 Estrellas/s</option>
-        <option value="8">8 Estrellas/s</option>
-        <option value="9">9 Estrellas/s</option>
-        <option value="10">10 Estrellas/s</option>
+        <option value="1">1 Estrella/s</option>
+        <option value="2">2 Estrella/s</option>
+        <option value="3">3 Estrella/s</option>
+        <option value="4">4 Estrella/s</option>
+        <option value="5">5 Estrella/s</option>
+        <option value="6">6 Estrella/s</option>
+        <option value="7">7 Estrella/s</option>
+        <option value="8">8 Estrella/s</option>
+        <option value="9">9 Estrella/s</option>
+        <option value="10">10 Estrella/s</option>
       </select>
     </>
   );

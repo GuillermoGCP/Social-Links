@@ -11,42 +11,50 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
   const urlImage =
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
 
+
   return (
-    <article className="max-w-4/5 mx-auto rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-indigo-300 p-4 ">
-      <LinkDetailPost link={link} />
-
-      <div className="mt-4 flex items-center">
-        {link.ownerId !== profileInfo.id && (
-          <p className="text-gray-700 text-base mr-4">{link.name}</p>
+    <>
+      <div className="ml-20">
+        {link.ownerId !== profileInfo.id ? (
+          <p className="font-medium text-slate-600">{`${link.name}`}</p>
+        ) : (
+          <p className="text-transparent">Tu Link</p>
         )}
+      </div>
 
+      <div style={{ marginTop: "-30px" }}>
         <img
-          className="w-16 h-16 rounded-full"
+          className="w-16 h-16 rounded-full object-cover object-center bg-transparent border-4 border-indigo-600"
           src={urlImage}
           alt={link.name}
         />
 
+        <LinkDetailPost link={link} />
+      </div>
+
+      <p className="text-center mt-4 mb-1 font-medium text-slate-600">
+        Rating
+        <StarRating link={link} />
+      </p>
+
+      {link.individualRatings ? (
+        <p className="text-right mr-6 font-medium text-slate-600">{`${link.individualRatings?.length} voto/s`}</p>
+      ) : (
+        <p className="font-medium text-slate-600">0 votos </p>
+      )}
+
+      <div className="p-4 mt-8 flex items-center justify-around">
+        <OwnRatingBox link={link} />
+
         {link.ownerId !== profileInfo.id && (
-          <div className="ml-auto">
-            <VoteBox
-              link={link}
-              changeRating={changeRating}
-              changeRating2={changeRating2}
-            >
-              Vota este Post
-            </VoteBox>
-          </div>
+          <VoteBox
+            link={link}
+            changeRating={changeRating}
+            changeRating2={changeRating2}
+          />
         )}
       </div>
-      <div className="flex mt-4 justify-between">
-        <p className="flex items-center text-gray-700 text-base mr-4 ">
-          Puntuación media: <StarRating link={link} />
-        </p>
-        <p>{`${link.individualRatings?.length} Votos`}</p>
-
-        <OwnRatingBox link={link} />
-      </div>
-    </article>
+    </>
   );
 };
 
@@ -57,3 +65,9 @@ OneLink.propTypes = {
 };
 
 export default OneLink;
+
+<div>
+  <div>1</div>
+  <p>2</p>
+  <form>3</form>
+</div>;
