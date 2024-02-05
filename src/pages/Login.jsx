@@ -13,7 +13,7 @@ const Login = () => {
       <article
         className="bg-cover min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gray-100"
         style={{
-          backgroundImage: 'url("clouds.jpg")',
+          backgroundImage: 'url("clouds2.jpg")',
           minHeight: "100vh",
         }}
       >
