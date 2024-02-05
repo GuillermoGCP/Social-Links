@@ -38,7 +38,6 @@ const MainPage = () => {
   });
 
   return (
-
     <main
       className="bg-cover bg-center min-h-screen"
       style={{ backgroundImage: 'url("/clouds2.jpg")' }}
@@ -48,26 +47,34 @@ const MainPage = () => {
       </section>
 
       <section className="max-w-2xl mx-auto mt-8 p-4">
-        <Search handler={searchHandler} placeholder="Buscador" />
-           {loading ? (
-        <>
-          <p className="text-2xl font-bold text-center text-gray-700 mb-4 mt-14">
-            Cargando enlaces
-          </p>
-          <div className="flex justify-center items-center">
-            <ClockLoader color="#4f46e5" size={50} />
-          </div>
-        </>
-      ) : (
-        <><div className="p-5 max-w-44 mx-auto">
-          <Button
-            handler={() => {
-              setSearchParams({ q: "" });
-            }}
-          >
-            Reiniciar búsqueda
-          </Button>
-        </div>
+        <Search
+          handler={searchHandler}
+          inputValue={inputValue}
+          placeholder="Buscador"
+        />
+        {loading ? (
+          <>
+            <p className="text-2xl font-bold text-center text-gray-700 mb-4 mt-14">
+              Cargando enlaces
+            </p>
+            <div className="flex justify-center items-center">
+              <ClockLoader color="#4f46e5" size={50} />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="p-5 max-w-44 mx-auto">
+              <Button
+                handler={() => {
+                  setInputValue("");
+                  setSearchParams({ q: "" });
+                }}
+              >
+                Reiniciar búsqueda
+              </Button>
+            </div>
+          </>
+        )}
       </section>
 
       <section className="w-screen flex justify-center">
@@ -97,7 +104,7 @@ const MainPage = () => {
           ) : (
             <NoLinksToday />
           )}
-        </ul></>
+        </ul>
       </section>
     </main>
   );
