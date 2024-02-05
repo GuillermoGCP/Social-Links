@@ -5,7 +5,7 @@ const EmbeddedPage = ({ link }) => {
   return (
     <>
       {
-        <LinkPreview
+        <LinkPreview className="object-cover "
           url={link.url}
           fetcher={async (url) => {
             const response = await fetch(
@@ -14,6 +14,7 @@ const EmbeddedPage = ({ link }) => {
             const json = await response.json();
             return json.metadata;
           }}
+          fallback={<p className="mr-80 font-medium text-slate-600 text-2xl">No hay vista previa</p>}
         />
       }
     </>
