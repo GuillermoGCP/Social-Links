@@ -10,7 +10,7 @@ const AvatarComponent = ({ profileInfo, loading }) => {
       </div>
     ) : (
       <img
-        className="min-w-40 h-40 rounded-full "
+        className="h-40 w-40 border-8 object-cover rounded-full"
         src={urlImage}
         alt={profileInfo.user}
       />

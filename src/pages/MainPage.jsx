@@ -38,10 +38,7 @@ const MainPage = () => {
   });
 
   return (
-    <main
-      className="bg-cover bg-center min-h-screen"
-      style={{ backgroundImage: 'url("/clouds2.jpg")' }}
-    >
+    <main>
       <section className="max-w-2xl mx-auto mt-8 p-4">
         <PostLink addNewLink={addNewLink} />
       </section>
@@ -83,7 +80,7 @@ const MainPage = () => {
             orderFilteredLinks.map((link) => (
               <li
                 key={link.id}
-                className="list-none w-96 m-4 p-4 rounded-xl shadow-lg hover:shadow-2xl border-gray-400 border-solid border hover:scale-95 transition-transform"
+                className="list-none w-96 m-4 p-4 rounded-xl shadow-lg hover:shadow-2xl bg-slate-100/40 border hover:scale-95 transition-transform"
               >
                 <OneLink
                   key={link.id}
