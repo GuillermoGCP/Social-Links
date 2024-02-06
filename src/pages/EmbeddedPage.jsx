@@ -1,9 +1,19 @@
 import PropTypes from "prop-types";
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
+import { useState } from "react";
+import { ClockLoader } from "react-spinners";
 
 const EmbeddedPage = ({ link }) => {
+  const [loading, setLoading] = useState(true);
   return (
     <>
+      {loading && (
+        <>
+          <div className="mt-72 mr-6"> 
+            <ClockLoader color="#4f46e5" size={70} />
+          </div>
+        </>
+      )}
       {
         <LinkPreview
           url={link.url}
@@ -12,10 +22,11 @@ const EmbeddedPage = ({ link }) => {
               `https://og-proxy-hab.vercel.app/v2/?url=${url}`
             );
             const json = await response.json();
+            setLoading(false);
             return json.metadata;
           }}
           fallback={
-            <p className="mt-40 ml-40 font-medium text-slate-600 text-2xl">
+            <p className=" font-medium text-slate-600 text-2xl">
               No hay vista previa
             </p>
           }
@@ -23,6 +34,7 @@ const EmbeddedPage = ({ link }) => {
       }
     </>
   );
+
 };
 
 EmbeddedPage.propTypes = {
