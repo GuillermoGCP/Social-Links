@@ -105,11 +105,9 @@ const Dashboard = () => {
             ))}
           </ul>
         </section>
-      ) : (
-        <>
-          <NoLinksToday />
-        </>
-      )}
+      ) : !loading ? (
+        <NoLinksToday />
+      ) : null}
     </main>
   );
 };
