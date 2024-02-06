@@ -38,7 +38,7 @@ const MainPage = () => {
   });
 
   return (
-    <main>
+    <main className="min-h-screen">
       <section className="max-w-2xl mx-auto mt-8 p-4">
         <PostLink addNewLink={addNewLink} />
       </section>
@@ -74,13 +74,14 @@ const MainPage = () => {
         )}
       </section>
 
-      <section className="w-screen flex justify-center">
-        <ul className="flex flex-wrap justify-center">
+      <section className="flex justify-center">
+        <ul className="w-5/6 flex flex-wrap justify-center items-start">
           {orderFilteredLinks ? (
             orderFilteredLinks.map((link) => (
               <li
                 key={link.id}
-                className="list-none w-96 m-4 p-4 rounded-xl shadow-lg hover:shadow-2xl bg-slate-100/40 border hover:scale-95 transition-transform"
+                style={{ width: "370px" }}
+                className="m-4 p-4 rounded-xl shadow-lg hover:shadow-2xl bg-slate-100/40 hover:scale-95 transition-transform"
               >
                 <OneLink
                   key={link.id}

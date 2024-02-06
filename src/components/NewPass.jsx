@@ -27,7 +27,7 @@ const NewPass = () => {
     <div
       className="bg-cover bg-center min-h-screen flex flex-col items-center justify-center bg-gray-100 relative"
       style={{
-        backgroundImage: 'url("clouds.jpg")',
+        backgroundImage: 'url("clouds2.jpg")',
         minHeight: "100vh",
       }}
     >
