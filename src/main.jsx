@@ -17,7 +17,6 @@ import ProfileUserEdit from "./pages/ProfileUserEdit";
 import LinksToday from "./components/LinksToday";
 import NewPass from "./components/NewPass";
 import ReactModal from "react-modal";
-
 ReactModal.setAppElement("#root");
 
 const router = createBrowserRouter([
