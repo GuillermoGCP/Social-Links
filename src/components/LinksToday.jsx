@@ -20,6 +20,10 @@ const LinksToday = () => {
     setInputValue,
   } = useSearch(today);
 
+  const goToLinkDetails = (id) => {
+    navigate(`/${id}`, { state: { mainPageState: today } });
+  };
+
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");
@@ -70,6 +74,15 @@ const LinksToday = () => {
                         link={link}
                         changeRating2={changeRating2}
                       />
+                      <div className="mt-10">
+                        <Button
+                          handler={() => {
+                            goToLinkDetails(link.id);
+                          }}
+                        >
+                          Ve al Post
+                        </Button>
+                      </div>
                     </li>
                   ))
                 ) : (

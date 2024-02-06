@@ -89,7 +89,7 @@ const Dashboard = () => {
           <h2 className="text-2xl text-center text-slate-600 font-bold p-4 mb-4">
             Links que has compartido
           </h2>
-          <ul className="max-w-2xl mx-auto ">
+          <ul className="max-w-xl mx-auto ">
             {newOwnLinks.map((link) => (
               <li
                 key={link.id}
@@ -105,11 +105,9 @@ const Dashboard = () => {
             ))}
           </ul>
         </section>
-      ) : (
-        <>
-          <NoLinksToday />
-        </>
-      )}
+      ) : !loading ? (
+        <NoLinksToday />
+      ) : null}
     </main>
   );
 };
