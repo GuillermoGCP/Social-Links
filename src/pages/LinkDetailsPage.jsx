@@ -4,6 +4,7 @@ import PageNotFound from "./PageNotFound";
 import EmbeddedPage from "./EmbeddedPage";
 import DropDown from "../components/DropDown";
 import { useMediaQuery } from "@mui/material";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
 
 const LinkDetailsPage = () => {
   const location = useLocation();
@@ -11,11 +12,14 @@ const LinkDetailsPage = () => {
   const { id } = useParams();
   const link = dataLink.find((p) => p.id === Number(id));
 
+
+
   if (!link) return <PageNotFound />;
 
   const isSmallScreen = useMediaQuery("(max-width: 780px)");
 
   return (
+
     <main className="min-h-screen flex justify-center items-start ">
       {isSmallScreen ? (
         <section className="flex flex-col  items-center justify-stretch bg-slate-100/50 max-w-2xl gap-4 mt-20 shadow-md rounded-3xl">
