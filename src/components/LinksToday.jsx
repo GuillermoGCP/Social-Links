@@ -56,25 +56,27 @@ const LinksToday = () => {
                 Reiniciar búsqueda
               </Button>
             </div>
-
-            <ul className="w-screen flex flex-wrap justify-center">
-              {filteredLinks ? (
-                filteredLinks.map((link) => (
-                  <li
-                    key={link.id}
-                    className="p-4 hover:scale-95 transition-transform m-4 rounded-xl shadow-lg hover:shadow-2xl bg-slate-100/40"
-                  >
-                    <OneLink
+            <section className="flex justify-center">
+              <ul className="w-5/6 flex flex-wrap justify-center items-start">
+                {filteredLinks ? (
+                  filteredLinks.map((link) => (
+                    <li
                       key={link.id}
-                      link={link}
-                      changeRating2={changeRating2}
-                    />
-                  </li>
-                ))
-              ) : (
-                <NoLinksToday />
-              )}
-            </ul>
+                      style={{ width: "370px" }}
+                      className="p-4 hover:scale-95 transition-transform m-4 rounded-xl shadow-lg hover:shadow-2xl bg-slate-100/40"
+                    >
+                      <OneLink
+                        key={link.id}
+                        link={link}
+                        changeRating2={changeRating2}
+                      />
+                    </li>
+                  ))
+                ) : (
+                  <NoLinksToday />
+                )}
+              </ul>
+            </section>
           </>
         )}
       </section>

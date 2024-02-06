@@ -13,14 +13,11 @@ const LinkDetailsPage = () => {
   if (!link) return <PageNotFound />;
 
   return (
-
     <main className="min-h-screen">
-      <section className="flex items-center m-20 p-4 shadow-md rounded-3xl bg-slate-100/40 ">
-        <div className="flex-1">
-          <DropDown link={link} />
-        </div>
-        <div className="mr-10 ">
+      <section className="flex justify-center items-stretch m-20 p-4 shadow-md rounded-3xl bg-slate-100/40 ">
+        <DropDown link={link} />
 
+        <div className="">
           <EmbeddedPage link={link} />
         </div>
       </section>
