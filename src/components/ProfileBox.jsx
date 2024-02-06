@@ -81,7 +81,7 @@ const ProfileBox = () => {
               >
                 {!isSmallScreen && (
                   <span
-                    className="text-sm font-bold truncate hover:scale-110"
+                    className="text-sm font-bold truncate hover:scale-110 transition-transform"
                     style={{ textShadow: "0.5px 0.5px 0.5px rgba(0,0,0,0.4)" }}
                   >
                     {profileInfo.user}

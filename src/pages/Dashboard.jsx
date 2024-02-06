@@ -42,7 +42,7 @@ const Dashboard = () => {
       <article className="max-w-3xl mx-auto my-8 p-6 shadow-md rounded-3xl flex space-between items-center justify-around gap-5 bg-slate-100/40">
         {!isSmallScreen && (
           <>
-            <div className="h-80 w-64 rounded-3xl bg-indigo-600"></div>
+            <div className="h-80 w-64 rounded-3xl bg-gradient-to-r from-indigo-500  to-indigo-600"></div>
             <div style={{ marginLeft: "-100px" }}>
               <AvatarComponent profileInfo={profileInfo} loading={loading} />
             </div>

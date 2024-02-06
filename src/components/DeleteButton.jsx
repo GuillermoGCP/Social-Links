@@ -37,7 +37,7 @@ const DeleteButton = ({ linkId, deleteLink }) => {
   return (
     <>
       <button
-        className="block w-1/3 mx-auto rounded-md bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring focus:border-indigo-500 focus:ring-indigo-200 "
+        className="block w-1/3 mx-auto rounded-md bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 active:bg-red-300 focus:outline-none focus:ring focus:border-red-400 focus:ring-indigo-200 transition-colors duration-300"
         onClick={deleteHandler}
       >
         Eliminar link
