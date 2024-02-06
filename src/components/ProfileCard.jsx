@@ -50,7 +50,7 @@ export default function ProfileCard({ profileInfo, loading, isSmallScreen }) {
           <Link to="/dashboard/profileEdit">
             <Button
               size="small"
-              className="text-indigo-800 hover:text-indigo-100"
+              className="text-indigo-800 hover:text-green-500"
               style={{
                 textShadow: "0.5px 0.5px 0.5px rgba(0,0,0,0.4)",
               }}

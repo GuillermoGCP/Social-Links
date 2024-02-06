@@ -13,7 +13,7 @@ const LinkDetailPost = ({ link }) => {
       </h1>
       <a
         href={link.url}
-        className="text-slate-100 text-lg underline block hover:text-green-300"
+        className="text-slate-300 text-lg underline block hover:text-green-300"
       >
         {link.url}
       </a>

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import PageNotFound from "./PageNotFound";
 import EmbeddedPage from "./EmbeddedPage";
 import DropDown from "../components/DropDown";
+import { useMediaQuery } from "@mui/material";
 
 const LinkDetailsPage = () => {
   const location = useLocation();
@@ -12,15 +13,27 @@ const LinkDetailsPage = () => {
 
   if (!link) return <PageNotFound />;
 
-  return (
-    <main className="min-h-screen">
-      <section className="flex justify-center items-stretch m-20 p-4 shadow-md rounded-3xl bg-slate-100/40 ">
-        <DropDown link={link} />
+  const isSmallScreen = useMediaQuery("(max-width: 780px)");
 
-        <div className="">
-          <EmbeddedPage link={link} />
-        </div>
-      </section>
+  return (
+    <main className="min-h-screen flex justify-center items-start ">
+      {isSmallScreen ? (
+        <section className="flex flex-col  items-center justify-stretch bg-slate-100/50 max-w-2xl gap-4 mt-20 shadow-md rounded-3xl">
+          <div className="mt-10 w-auto">
+            <DropDown link={link} />
+          </div>
+          <div className="mb-10">
+            <EmbeddedPage link={link} />
+          </div>
+        </section>
+      ) : (
+        <section className="flex justify-center items-center m-20 p-4 shadow-md rounded-3xl bg-slate-100/50 max-w-6xl">
+          <DropDown link={link} />
+          <div className="">
+            <EmbeddedPage link={link} />
+          </div>
+        </section>
+      )}
     </main>
   );
 };

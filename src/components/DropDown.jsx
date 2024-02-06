@@ -19,7 +19,7 @@ export default function RecipeReviewCard({ link }) {
   console.log(formatedDateObject);
 
   return (
-    <div className="w-80 mr-5 bg-slate-100/60 rounded-xl p-4">
+    <div className="w-80 mr-5 bg-slate-100/60 rounded-lg p-4 border-solid border- border border-slate-300 ">
       <CardHeader
         avatar={
           <Avatar className="shadow-lg">
