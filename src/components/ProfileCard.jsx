@@ -48,13 +48,7 @@ export default function ProfileCard({ profileInfo, loading, isSmallScreen }) {
         </CardActionArea>
         <CardActions>
           <Link to="/dashboard/profileEdit">
-            <Button
-              size="small"
-              className="text-indigo-800 hover:text-indigo-100"
-              style={{
-                textShadow: "0.5px 0.5px 0.5px rgba(0,0,0,0.4)",
-              }}
-            >
+            <Button size="small" className=" hover:text-green-500">
               Editar mis datos
             </Button>
           </Link>
