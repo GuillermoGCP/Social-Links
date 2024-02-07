@@ -1,12 +1,21 @@
 import useLogin from "../hooks/useLogin";
 import EmailInput from "../components/EmailInput";
-import PasswordInput from "../components/PasswordInput";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import Popup from "../components/Popup";
+import Eye from "../components/Eye";
+import ClosedEye from "../components/ClosedEye";
 
 const Login = () => {
-  const { email, setEmail, password, setPassword, loginHandler } = useLogin();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    loginHandler,
+    showPassword,
+    togglePasword,
+  } = useLogin();
 
   return (
     <>
@@ -37,11 +46,24 @@ const Login = () => {
               setEmail={setEmail}
               placeholder="Correo electrónico"
             />
-            <PasswordInput
-              password={password}
-              setPassword={setPassword}
-              placeholder="Contraseña"
-            />
+            <div className="flex ">
+              <input
+                placeholder={"Contraseña"}
+                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+                type={showPassword ? "text" : "password"}
+                id="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+              <div style={{ marginLeft: "-30px", marginTop: "12px" }}>
+                <button onClick={togglePasword}>
+                  {showPassword ? <Eye /> : <ClosedEye />}
+                </button>
+              </div>
+            </div>
+
             <div className="text-sm text-gray-500 text-center underline">
               <Popup />
             </div>
