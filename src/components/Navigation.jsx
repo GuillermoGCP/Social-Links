@@ -1,52 +1,43 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
-  const [activeLink, setActiveLink] = useState('');
-  const location = useLocation();
+  const [activeLink, setActiveLink] = useState("");
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
   };
 
-  useEffect(() => {
-    const validRoutes = ['/main', '/linksToday', '/register'];
-
-    if (!validRoutes.includes(location.pathname)) {
-      setActiveLink('');
-    }
-  }, [location.pathname]);
-
   return (
-    <nav className="bg-gray-200 p-4">
+    <nav className="bg-gradient-to-r from-gray-200 via-gray-250 to-gray-300 p-4 shadow-md">
       <div className="flex items-center justify-around">
         <Link
           to="/main"
-          onClick={() => handleLinkClick('main')}
+          onClick={() => handleLinkClick("main")}
           className={`text-lg font-semibold hover:text-blue-700 mr-4 ${
-            activeLink === 'main' ? 'text-blue-500' : 'text-gray-800'
+            activeLink === "main" ? "text-blue-500" : "text-gray-800"
           }`}
         >
-          Inicio
+          Home
         </Link>
         <Link
           to="/linksToday"
-          onClick={() => handleLinkClick('linksToday')}
+          onClick={() => handleLinkClick("linksToday")}
           className={`text-lg font-semibold hover:text-blue-700 mr-4 ${
-            activeLink === 'linksToday' ? 'text-blue-500' : 'text-gray-800'
+            activeLink === "linksToday" ? "text-blue-500" : "text-gray-800"
           }`}
         >
-          Links Hoy
+          Today
         </Link>
         <div className="flex items-center space-x-4">
           <Link
             to="/register"
-            onClick={() => handleLinkClick('register')}
+            onClick={() => handleLinkClick("register")}
             className={`text-lg font-semibold hover:text-blue-700 mr-4 ${
-              activeLink === 'register' ? 'text-blue-500' : 'text-gray-800'
+              activeLink === "register" ? "text-blue-500" : "text-gray-800"
             }`}
           >
-            Añadir cuenta
+            Add
           </Link>
         </div>
       </div>
