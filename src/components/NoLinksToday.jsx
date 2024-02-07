@@ -15,7 +15,7 @@ const NoLinksToday = () => {
       <img
         src={sadFaceImage}
         alt="Logo de la aplicación"
-        className="w-1/3 h-1/3 object-contain mx-auto my-auto"
+        className="max-w-40 object-contain mx-auto my-auto"
       />
     </div>
   );

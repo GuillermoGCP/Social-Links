@@ -77,7 +77,7 @@ const MainPage = () => {
       </section>
 
       <section className="flex justify-center">
-        <ul className="w-5/6 flex flex-wrap justify-center items-start">
+        <ul className="w-11/12 flex flex-wrap justify-center items-start">
           {orderFilteredLinks ? (
             orderFilteredLinks.map((link) => (
               <li
