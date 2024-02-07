@@ -10,7 +10,9 @@ const LinkDetailsPage = () => {
   const dataLink = location?.state?.mainPageState || [];
   const { id } = useParams();
   const link = dataLink.find((p) => p.id === Number(id));
-  const isSmallScreen = useMediaQuery("(max-width: 780px)");
+
+  const isSmallScreen = useMediaQuery("(max-width: 740px)");
+
   if (!link) return <PageNotFound />;
 
   return (

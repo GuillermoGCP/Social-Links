@@ -50,7 +50,7 @@ const LinksToday = () => {
           </>
         ) : (
           <>
-            <div className="p-5 max-w-44 mx-auto">
+            <div className="max-w-60 mb-8 mx-auto">
               <Button
                 handler={() => {
                   setInputValue("");
