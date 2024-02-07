@@ -8,6 +8,7 @@ import useSearch from "../hooks/useSearch";
 import Search from "./Search";
 import Button from "./Button";
 import { ClockLoader } from "react-spinners";
+
 const LinksToday = () => {
   const [tokenState] = useContext(tokenContext);
   const navigate = useNavigate();
@@ -65,7 +66,7 @@ const LinksToday = () => {
               </Button>
             </div>
             <section className="flex justify-center">
-              <ul className="w-5/6 flex flex-wrap justify-center items-start">
+              <ul className="w-11/12 flex flex-wrap justify-center items-start">
                 {filteredLinks ? (
                   filteredLinks.map((link) => (
                     <li
