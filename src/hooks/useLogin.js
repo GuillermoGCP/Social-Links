@@ -10,6 +10,13 @@ const useLogin = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [, setTokenState] = React.useContext(tokenContext);
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const togglePasword = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setShowPassword(!showPassword);
+  };
 
   const onSuccess = (data) => {
     toast.success(data.message);
@@ -35,6 +42,14 @@ const useLogin = () => {
     };
     fetchData(url, urlData, onSuccess, onError);
   };
-  return { email, setEmail, password, setPassword, loginHandler };
+  return {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    loginHandler,
+    showPassword,
+    togglePasword,
+  };
 };
 export default useLogin;
