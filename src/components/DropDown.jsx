@@ -18,7 +18,7 @@ export default function RecipeReviewCard({ link }) {
   const formatedDate = date.toLocaleString("es-ES", formatedDateObject);
 
   return (
-    <div className="w-80  bg-slate-100/60 rounded-lg p-4 border-solid border- border border-slate-300 ">
+    <div className="w-80  bg-slate-100/60 rounded-lg p-4 border-solid border border-slate-300 ">
       <CardHeader
         avatar={
           <Avatar className="shadow-lg">
