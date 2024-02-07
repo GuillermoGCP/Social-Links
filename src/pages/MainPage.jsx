@@ -1,11 +1,10 @@
 import React from "react";
 import OneLink from "../components/OneLink";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PostLink from "../components/PostLink";
 import useSearch from "../hooks/useSearch";
 import Search from "../components/Search";
 import Button from "../components/Button";
-
 import useAllLinks from "../hooks/useAlllinks";
 import NoLinksToday from "../components/NoLinksToday";
 import { ClockLoader } from "react-spinners";
@@ -32,7 +31,10 @@ const MainPage = () => {
     navigate(`/${id}`, { state: { mainPageState: state } });
   };
 
-  //Ordeno los id de mayor a menor para que aparezpan arriba los últimos creados
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
     return b.id - a.id;
   });
@@ -104,7 +106,12 @@ const MainPage = () => {
           )}
         </ul>
       </section>
-      <Link to = {""} />
+      <div
+      onClick={scrollToTop}
+      className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
+    >
+        ↑
+      </div>
     </main>
   );
 };
