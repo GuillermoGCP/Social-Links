@@ -15,7 +15,7 @@ export default function ProfileCard({ profileInfo, loading, isSmallScreen }) {
         <ClockLoader color="#ccc" size={50} />
       </div>
     ) : (
-      <div className="max-w-96">
+      <div className="w-96">
         {isSmallScreen && (
           <>
             <div className="flex justify-center">

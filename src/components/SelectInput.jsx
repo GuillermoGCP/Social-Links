@@ -10,6 +10,7 @@ const SelectInput = ({ children, value, onChange }) => {
         value={value}
         onChange={onChange}
       >
+        <option value="0">0 Estrella/s</option>
         <option value="1">1 Estrella/s</option>
         <option value="2">2 Estrella/s</option>
         <option value="3">3 Estrella/s</option>

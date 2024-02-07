@@ -21,23 +21,23 @@ const PostLink = ({ addNewLink }) => {
         <UrlInput
           urlState={urlState}
           setUrlState={setUrlState}
-          placeholder="Escribe tu url favorita"
+          placeholder="https://..."
         >
           Url
         </UrlInput>
         <TextInput
           name={titleState}
           setName={setTitleState}
-          placeholder="Título"
+          placeholder="Máximo 24 caracteres"
         >
-          Title
+          Título
         </TextInput>
         <TextInput
           name={descriptionState}
           setName={setDescriptionState}
           placeholder="Describe el sitio web"
         >
-          Description
+          Descripción
         </TextInput>
         <div className="p-4">
           <Button handler={linkHandler}>Comparte tu link</Button>

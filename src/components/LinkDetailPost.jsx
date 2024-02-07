@@ -5,9 +5,12 @@ import ExpandButton from "./ExpandButton";
 const LinkDetailPost = ({ link }) => {
   return (
     <div
-      style={{ marginTop: "-35px" }}
-      className="rounded-xl overflow-hidden shadow-lg bg-indigo-600 pt-4 pr-4 pl-4 text-center "
-    >
+  style={{
+    marginTop: "-35px",
+    background: "linear-gradient(to bottom, #4F46E5, #4338CA, #3A2F9E)",
+  }}
+  className="rounded-xl overflow-hidden shadow-lg pt-4 pr-4 pl-4 text-center"
+>
       <h1 className="text-2xl font-bold mt-6 mb-3 text-slate-100">
         {link.title}
       </h1>

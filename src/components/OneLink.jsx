@@ -23,7 +23,7 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
 
       <div style={{ marginTop: "-30px" }}>
         <img
-          className="w-16 h-16 rounded-full object-cover object-center border-4 border-indigo-300"
+          className="w-16 h-16 rounded-full object-cover object-center border-4 border-indigo-500"
           src={urlImage}
           alt={link.name}
         />
