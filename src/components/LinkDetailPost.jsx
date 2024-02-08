@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
-
 import ExpandButton from "./ExpandButton";
 import useShortUrl from "../hooks/useShortUrl";
 
 const LinkDetailPost = ({ link }) => {
   const { shortUrl } = useShortUrl(link.url);
-  console.log(shortUrl);
+
+  const formatDate = (date) => {
+    const options = { year: "numeric", month: "numeric", day: "numeric" };
+    return new Date(date).toLocaleDateString(undefined, options);
+  };
 
   return (
     <div
@@ -24,14 +27,26 @@ const LinkDetailPost = ({ link }) => {
       >
         {shortUrl}
       </a>
-
       <ExpandButton description={link.description} />
+      {link.createdAt && (
+        <p className="text-slate-400 text-sm mt-2">
+          {formatDate(link.createdAt)}
+        </p>
+      )}
     </div>
   );
 };
 
 LinkDetailPost.propTypes = {
-  link: PropTypes.object,
+  link: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    createdAt: PropTypes.oneOfType([
+      PropTypes.instanceOf(Date),
+      PropTypes.string,
+    ]), 
+    description: PropTypes.string.isRequired,
+  }),
 };
 
 export default LinkDetailPost;
