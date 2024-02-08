@@ -55,8 +55,8 @@ const ProfileUserEdit = () => {
               type="file"
               accept="image/*"
               onChange={(e) => setProfilePicture(e.target.files[0])}
-              className="mt-1"
-              style={{width: "155px"}}
+              className="mt-1 text-transparent"
+              style={{ width: "155px" }}
             />
             {profilePicture && (
               <img
