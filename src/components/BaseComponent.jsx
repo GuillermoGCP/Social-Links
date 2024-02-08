@@ -11,7 +11,7 @@ const BaseComponent = () => {
     backgroundImage: `url(${url})`,
     backgroundSize: "cover",
     backgroundAttachment: "fixed",
-    width: "100vw",
+    width: "100%",
     height: "100%",
   };
   return (
