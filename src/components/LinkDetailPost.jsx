@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import ExpandButton from "./ExpandButton";
 import useShortUrl from "../hooks/useShortUrl";
+import PostDaysCounter from "./PostDaysCounter";
 
 const LinkDetailPost = ({ link }) => {
   const { shortUrl } = useShortUrl(link.url);
@@ -30,9 +31,15 @@ const LinkDetailPost = ({ link }) => {
       <ExpandButton description={link.description} />
 
       {link.createdAt && (
-        <p className="text-slate-400 text-right text-sm mr-2 mt-2">
-          Creado {formatDate(link.createdAt)}
-        </p>
+        <>
+          <div className="text-slate-400 text-right text-sm mr-2 mt-2">
+            <PostDaysCounter createdAt={link.createdAt} />
+          </div>
+        </>
+
+        // <p className="text-slate-400 text-right text-sm mr-2 mt-2">
+        //   Creado {formatDate(link.createdAt)}
+        // </p>
       )}
     </div>
   );

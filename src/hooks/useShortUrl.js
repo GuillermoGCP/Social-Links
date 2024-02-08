@@ -24,7 +24,11 @@ const useShortUrl = (longUrl) => {
         onError();
       }
     };
-    fetchShortUrl();
+    if (longUrl.length > 40) {
+      fetchShortUrl();
+    } else {
+      setShortUrl(longUrl);
+    }
   }, [longUrl]);
   return { shortUrl };
 };
