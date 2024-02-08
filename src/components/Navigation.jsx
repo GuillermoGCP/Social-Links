@@ -1,12 +1,21 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [activeLink, setActiveLink] = useState("");
+  const location = useLocation();
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
   };
+
+  useEffect(() => {
+    const validRoutes = ["/main", "/linksToday", "/register"];
+
+    if (!validRoutes.includes(location.pathname)) {
+      setActiveLink("");
+    }
+  }, [location.pathname]);
 
   return (
     <nav className="bg-gradient-to-r from-gray-200 via-gray-250 to-gray-300 p-4 shadow-md">
