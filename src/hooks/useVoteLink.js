@@ -34,7 +34,6 @@ const useVoteLink = ({ link, changeRating2, changeRating = () => {} }) => {
   };
   const onChange = (e) => {
     setVoteState(e.target.value);
-    console.log("onchange", e.target.value);
   };
   return { voteState, onChange, voteHandler };
 };

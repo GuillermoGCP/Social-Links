@@ -18,21 +18,21 @@ const LinkDetailsPage = () => {
   return (
     <main className="min-h-screen flex justify-center items-start ">
       {isSmallScreen ? (
-        <section className="flex flex-col  items-center  bg-slate-100/50 max-w-2xl mt-20 shadow-md rounded-3xl">
-          <div className="mt-10 w-auto">
+        <section className="flex flex-col  items-center  bg-slate-100/50 w-5/6 mt-20 shadow-md rounded-3xl">
+          <div className="mt-4">
             <DropDown link={link} />
           </div>
-          <div className="mb-10">
+          <div className="mt-4 mb-4">
             <EmbeddedPage link={link} />
           </div>
         </section>
       ) : (
-        <section className="flex justify-center items-start m-20 p-4 shadow-md rounded-3xl bg-slate-100/50 max-w-6xl">
+        <section className="flex items-start m-20 p-4 shadow-md rounded-3xl bg-slate-100/50 max-w-6xl">
           <div>
             <DropDown link={link} />
           </div>
 
-          <div className="">
+          <div className="ml-4">
             <EmbeddedPage link={link} />
           </div>
         </section>

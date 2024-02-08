@@ -28,9 +28,10 @@ const LinkDetailPost = ({ link }) => {
         {shortUrl}
       </a>
       <ExpandButton description={link.description} />
+
       {link.createdAt && (
-        <p className="text-slate-400 text-sm mt-2">
-          {formatDate(link.createdAt)}
+        <p className="text-slate-400 text-right text-sm mr-2 mt-2">
+          Creado {formatDate(link.createdAt)}
         </p>
       )}
     </div>
@@ -44,7 +45,7 @@ LinkDetailPost.propTypes = {
     createdAt: PropTypes.oneOfType([
       PropTypes.instanceOf(Date),
       PropTypes.string,
-    ]), 
+    ]),
     description: PropTypes.string.isRequired,
   }),
 };
