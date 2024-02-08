@@ -6,11 +6,6 @@ import PostDaysCounter from "./PostDaysCounter";
 const LinkDetailPost = ({ link }) => {
   const { shortUrl } = useShortUrl(link.url);
 
-  const formatDate = (date) => {
-    const options = { year: "numeric", month: "numeric", day: "numeric" };
-    return new Date(date).toLocaleDateString(undefined, options);
-  };
-
   return (
     <div
       style={{
@@ -36,10 +31,6 @@ const LinkDetailPost = ({ link }) => {
             <PostDaysCounter createdAt={link.createdAt} />
           </div>
         </>
-
-        // <p className="text-slate-400 text-right text-sm mr-2 mt-2">
-        //   Creado {formatDate(link.createdAt)}
-        // </p>
       )}
     </div>
   );
