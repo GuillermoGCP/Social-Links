@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PropTypes from "prop-types";
 
@@ -41,9 +41,9 @@ export default function ExpandButton({ description }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography>
+          <div>
             <p className="text-slate-100 text-left">{description}</p>
-          </Typography>
+          </div>
         </CardContent>
       </Collapse>
     </div>

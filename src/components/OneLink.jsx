@@ -39,7 +39,7 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
       {link.individualRatings ? (
         <p className="text-right mr-6 font-medium text-slate-600">{`${link.individualRatings?.length} voto/s`}</p>
       ) : (
-        <p className="font-medium text-slate-600">0 votos </p>
+        <p className="text-right mr-6 font-medium text-slate-600">0 votos </p>
       )}
 
       <div className="p-4 mt-8 flex items-center justify-around">
