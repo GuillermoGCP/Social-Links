@@ -61,7 +61,7 @@ const ProfileBox = () => {
         <div className="flex items-center space-x-4">
           <img
             id="profileImage"
-            className="w-12 h-12 rounded-full object-cover cursor-pointer"
+            className="w-12 h-12 rounded-full object-cover cursor-pointer shadow-lg"
             src={urlImage}
             alt={profileInfo.user}
             onClick={handleImageClick}

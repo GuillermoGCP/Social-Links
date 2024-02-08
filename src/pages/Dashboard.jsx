@@ -44,10 +44,10 @@ const Dashboard = () => {
 
   return (
     <main className="min-h-screen">
-      <article className="max-w-3xl mx-auto my-8 p-6 shadow-md rounded-3xl flex space-between items-center justify-around gap-5 bg-slate-100/40">
+      <article className="max-w-3xl mx-auto my-8 p-6 shadow-xl rounded-3xl flex space-between items-center justify-around gap-5 bg-slate-100/60">
         {!isSmallScreen && (
           <>
-            <div className="h-80 w-64 rounded-3xl bg-gradient-to-r from-indigo-500  to-indigo-600"></div>
+            <div className="h-80 w-64 rounded-3xl bg-gradient-to-br from-indigo-500 via-indigo-500 to-indigo-800 shadow-lg"></div>
             <div style={{ marginLeft: "-100px" }}>
               <AvatarComponent profileInfo={profileInfo} loading={loading} />
             </div>

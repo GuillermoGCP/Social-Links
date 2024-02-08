@@ -20,14 +20,14 @@ export default function ProfileCard({ profileInfo, loading, isSmallScreen }) {
           <>
             <div className="flex justify-center">
               <img
-                className="w-28 h-28 border-4  rounded-full object-cover object-center"
+                className="w-28 h-28 border-4  rounded-full object-cover object-center shadow-xl"
                 src={url}
                 alt={profileInfo.user}
               />
             </div>
             <div
               style={{ marginTop: "-60px" }}
-              className="h-24 w-42 rounded-3xl bg-indigo-600"
+              className="h-24 w-42 rounded-3xl bg-gradient-to-r from-indigo-500 via-indigo-500 to-indigo-700"
             ></div>
           </>
         )}
@@ -48,7 +48,6 @@ export default function ProfileCard({ profileInfo, loading, isSmallScreen }) {
         </CardActionArea>
         <CardActions>
           <Link to="/dashboard/profileEdit">
-
             <Button size="small" className=" hover:text-green-500">
               Editar mis datos
             </Button>
