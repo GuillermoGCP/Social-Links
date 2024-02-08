@@ -13,7 +13,7 @@ const EmbeddedPage = ({ link }) => {
         return json.metadata;
       }}
       fallback={
-        <p className=" font-medium text-slate-600 text-2xl">
+        <p className=" font-medium text-slate-600 mx-10 mt-44 mb-40 text-xl">
           No hay vista previa
         </p>
       }

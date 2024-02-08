@@ -10,6 +10,9 @@ const BaseComponent = () => {
   const backImage = {
     backgroundImage: `url(${url})`,
     backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    width: "100vw",
+    height: "100%",
   };
   return (
     <>
