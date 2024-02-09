@@ -12,12 +12,6 @@ const useLogin = () => {
   const [, setTokenState] = React.useContext(tokenContext);
   const [showPassword, setShowPassword] = React.useState(false);
 
-  const togglePasword = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setShowPassword(!showPassword);
-  };
-
   const onSuccess = (data) => {
     toast.success(data.message);
     setTokenState(data.data.token);
@@ -49,7 +43,7 @@ const useLogin = () => {
     setPassword,
     loginHandler,
     showPassword,
-    togglePasword,
+    setShowPassword,
   };
 };
 export default useLogin;
