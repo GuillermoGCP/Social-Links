@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const PostDaysCounter = ({ createdAt }) => {
+const PostCounter = ({ createdAt }) => {
   const [minutesSincePost, setMinutesSincePost] = React.useState(0);
   const [hoursSincePost, setHoursSincePost] = React.useState(0);
   const [daysSincePost, setDaysSincePost] = React.useState(0);
@@ -44,27 +44,31 @@ const PostDaysCounter = ({ createdAt }) => {
 
   return (
     <div>
-      {daysSincePost < 1 &&
-        hoursSincePost < 1 &&
+      {minutesSincePost >= 0 &&
+        minutesSincePost < 60 &&
         `Hace ${minutesSincePost} minuto/s`}
 
-      {daysSincePost < 1 &&
-        minutesSincePost > 60 &&
+      {hoursSincePost >= 1 &&
+        hoursSincePost < 24 &&
         `Hace ${hoursSincePost} horas/s`}
 
-      {daysSincePost > 1 && `Hace ${daysSincePost} dias/s`}
+      {daysSincePost >= 1 &&
+        daysSincePost < 30 &&
+        `Hace ${daysSincePost} dias/s`}
 
-      {monthsSincePost > 1 && `Hace ${monthsSincePost} meses/s`}
+      {monthsSincePost >= 1 &&
+        monthsSincePost < 12 &&
+        `Hace ${monthsSincePost} meses/s`}
 
-      {yearsSincePost > 1 && `Hace ${yearsSincePost} años/s`}
+      {yearsSincePost >= 1 && `Hace ${yearsSincePost} años/s`}
     </div>
   );
 };
-PostDaysCounter.propTypes = {
+PostCounter.propTypes = {
   createdAt: PropTypes.oneOfType([
     PropTypes.instanceOf(Date),
     PropTypes.string,
   ]),
 };
 
-export default PostDaysCounter;
+export default PostCounter;

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import ExpandButton from "./ExpandButton";
 import useShortUrl from "../hooks/useShortUrl";
-import PostDaysCounter from "./PostDaysCounter";
+import PostCounter from "./PostCounter";
 
 const LinkDetailPost = ({ link }) => {
   const { shortUrl } = useShortUrl(link.url);
@@ -28,7 +28,7 @@ const LinkDetailPost = ({ link }) => {
       {link.createdAt && (
         <>
           <div className="text-slate-400 text-right text-sm mr-2 mt-2">
-            <PostDaysCounter createdAt={link.createdAt} />
+            <PostCounter createdAt={link.createdAt} />
           </div>
         </>
       )}
