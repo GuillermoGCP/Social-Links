@@ -14,7 +14,7 @@ const Login = () => {
     setPassword,
     loginHandler,
     showPassword,
-    togglePasword,
+    setShowPassword,
   } = useLogin();
 
   return (
@@ -58,7 +58,10 @@ const Login = () => {
                 }}
               />
               <div style={{ marginLeft: "-30px", marginTop: "12px" }}>
-                <button onClick={togglePasword}>
+                <button
+                  onMouseDown={() => setShowPassword(true)}
+                  onMouseUp={() => setShowPassword(false)}
+                >
                   {showPassword ? <Eye /> : <ClosedEye />}
                 </button>
               </div>
