@@ -10,7 +10,7 @@ const ResetPassword = () => {
   const { token } = useParams();
 
   //Guardo el token en el estado para poder acceder temporalmente a la página de resetear contraseña:
-  const [, setTokenState] = useContext(tokenContext);
+  const { setTokenState } = useContext(tokenContext);
   useEffect(() => {
     setTokenState(token);
   }, [setTokenState, token]);

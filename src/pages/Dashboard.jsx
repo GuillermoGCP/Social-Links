@@ -14,7 +14,7 @@ import { ClockLoader } from "react-spinners";
 import { useMediaQuery } from "@mui/material";
 
 const Dashboard = () => {
-  const [tokenState, , profileInfo] = React.useContext(tokenContext);
+  const { tokenState, profileInfo } = React.useContext(tokenContext);
   const navigate = useNavigate();
   React.useEffect(() => {
     if (!tokenState) {
@@ -37,9 +37,9 @@ const Dashboard = () => {
   );
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  
+
   const isSmallScreen = useMediaQuery("(max-width: 740px)");
 
   return (
@@ -113,10 +113,10 @@ const Dashboard = () => {
       ) : !loading ? (
         <NoLinksToday />
       ) : null}
-       <div
-      onClick={scrollToTop}
-      className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
-    >
+      <div
+        onClick={scrollToTop}
+        className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
+      >
         ↑
       </div>
     </main>

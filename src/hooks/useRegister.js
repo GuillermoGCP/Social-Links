@@ -10,7 +10,7 @@ const useRegister = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const { fetchData } = useApiRequest();
-  const [, setTokenState] = React.useContext(tokenContext);
+  const { setTokenState } = React.useContext(tokenContext);
 
   //Dentro del onSuccess del register hago login con los datos de usuario registrado y redirijo a main:
   const onSuccess = (data) => {

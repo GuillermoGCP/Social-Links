@@ -7,7 +7,7 @@ const useAllLinks = () => {
   const navigate = useNavigate();
   const url = import.meta.env.VITE_SERVER_URL + "/links";
   const [state, setState] = React.useState([]);
-  const [tokenState, , profileInfo] = React.useContext(tokenContext);
+  const { tokenState, profileInfo } = React.useContext(tokenContext);
   const addNewLink = (newLink) => {
     setState([...state, newLink]);
   };

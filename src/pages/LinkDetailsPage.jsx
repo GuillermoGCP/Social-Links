@@ -4,6 +4,8 @@ import PageNotFound from "./PageNotFound";
 import EmbeddedPage from "./EmbeddedPage";
 import DropDown from "../components/DropDown";
 import { useMediaQuery } from "@mui/material";
+import CommentBox from "../components/CommentBox";
+import CommentListComponent from "../components/CommentListComponent";
 
 const LinkDetailsPage = () => {
   const location = useLocation();
@@ -16,27 +18,37 @@ const LinkDetailsPage = () => {
   if (!link) return <PageNotFound />;
 
   return (
-    <main className="min-h-screen flex justify-center items-start ">
-      {isSmallScreen ? (
-        <section className="flex flex-col  items-center  bg-slate-100/50 w-5/6 mt-20 shadow-md rounded-3xl">
-          <div className="mt-4">
-            <DropDown link={link} />
-          </div>
-          <div className="mt-4 mb-4">
-            <EmbeddedPage link={link} />
-          </div>
-        </section>
-      ) : (
-        <section className="flex items-start m-20 p-4 shadow-md rounded-3xl bg-slate-100/50 max-w-6xl">
-          <div>
-            <DropDown link={link} />
-          </div>
+    <main className="flex flex-col">
+      <section className=" flex justify-center items-start ">
+        {isSmallScreen ? (
+          <article className="flex flex-col  items-center  bg-slate-100/50 w-5/6 mt-20 shadow-md rounded-3xl">
+            <div className="mt-4">
+              <DropDown link={link} />
+            </div>
+            <div className="mt-4 mb-4">
+              <EmbeddedPage link={link} />
+            </div>
+          </article>
+        ) : (
+          <>
+            <section className="flex items-start m-20 p-4 shadow-md rounded-3xl bg-slate-100/50 max-w-6xl">
+              <div>
+                <DropDown link={link} />
+              </div>
 
-          <div className="ml-4">
-            <EmbeddedPage link={link} />
-          </div>
-        </section>
-      )}
+              <div className="ml-4">
+                <EmbeddedPage link={link} />
+              </div>
+            </section>
+          </>
+        )}
+      </section>
+      <div>
+        <CommentBox link={link} />
+      </div>
+      <div className="flex justify-center">
+        <CommentListComponent linkId={link.id} />
+      </div>
     </main>
   );
 };

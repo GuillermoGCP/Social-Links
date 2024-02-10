@@ -7,7 +7,7 @@ const useVoteLink = ({ link, changeRating2, changeRating = () => {} }) => {
   const [voteState, setVoteState] = React.useState();
   const { fetchData } = useApiRequest();
   const url = import.meta.env.VITE_SERVER_URL + `/links/${link.id}`;
-  const [tokenState] = React.useContext(tokenContext);
+  const { tokenState } = React.useContext(tokenContext);
 
   const onSuccess = (data) => {
     toast.success(data.message);

@@ -14,7 +14,7 @@ import { ClockLoader } from "react-spinners";
 
 const ProfileBox = () => {
   const { closeSesionHandler } = useCloseSesion();
-  const [, , profileInfo, , , loading] = React.useContext(tokenContext);
+  const { profileInfo, loading } = React.useContext(tokenContext);
   const urlImage =
     import.meta.env.VITE_SERVER_URL + `/uploads/${profileInfo?.profilePicture}`;
 

@@ -10,7 +10,7 @@ import Button from "./Button";
 import { ClockLoader } from "react-spinners";
 
 const LinksToday = () => {
-  const [tokenState] = useContext(tokenContext);
+  const { tokenState } = useContext(tokenContext);
   const navigate = useNavigate();
   const { today, changeRating2, loading } = useLinksToday();
   const {
@@ -26,7 +26,7 @@ const LinksToday = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   React.useEffect(() => {
@@ -99,9 +99,9 @@ const LinksToday = () => {
         )}
       </section>
       <div
-      onClick={scrollToTop}
-      className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
-    >
+        onClick={scrollToTop}
+        className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
+      >
         ↑
       </div>
     </main>

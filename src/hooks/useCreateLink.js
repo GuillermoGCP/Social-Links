@@ -5,7 +5,7 @@ import { tokenContext } from "../contexs/tokenContext";
 
 const useCreateLink = (addNewLink) => {
   const url = import.meta.env.VITE_SERVER_URL + "/links";
-  const [tokenState] = React.useContext(tokenContext);
+  const { tokenState } = React.useContext(tokenContext);
   const [urlState, setUrlState] = React.useState("");
   const [titleState, setTitleState] = React.useState("");
   const [descriptionState, setDescriptionState] = React.useState("");

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 const DeleteButton = ({ linkId, deleteLink }) => {
   const url = import.meta.env.VITE_SERVER_URL + `/links/${linkId}`;
-  const [tokenState] = React.useContext(tokenContext);
+  const { tokenState } = React.useContext(tokenContext);
   const { fetchData } = useApiRequest();
 
   const onSuccess = (data) => {

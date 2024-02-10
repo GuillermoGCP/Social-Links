@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { tokenContext } from "../contexs/tokenContext.jsx";
 
 const useProfileEdit = () => {
-  const [tokenState, , profileInfo, , editProfile] = useContext(tokenContext);
+  const { tokenState, profileInfo, editProfile } = useContext(tokenContext);
   const { fetchData } = useApiRequest();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
