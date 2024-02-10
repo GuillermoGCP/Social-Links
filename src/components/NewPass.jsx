@@ -7,7 +7,7 @@ import { tokenContext } from "../contexs/tokenContext";
 
 const NewPass = () => {
   const navigate = useNavigate();
-  const [tokenState] = useContext(tokenContext);
+  const { tokenState } = useContext(tokenContext);
   React.useEffect(() => {
     if (!tokenState) {
       navigate("/");

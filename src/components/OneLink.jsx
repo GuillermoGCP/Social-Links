@@ -7,7 +7,7 @@ import { tokenContext } from "../contexs/tokenContext";
 import LinkDetailPost from "./LinkDetailPost";
 
 const OneLink = ({ link, changeRating, changeRating2 }) => {
-  const [, , profileInfo] = useContext(tokenContext);
+  const { profileInfo } = useContext(tokenContext);
   const urlImage =
     import.meta.env.VITE_SERVER_URL + `/uploads/${link.profilePicture}`;
 

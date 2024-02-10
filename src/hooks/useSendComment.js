@@ -5,12 +5,13 @@ import { tokenContext } from "../contexs/tokenContext";
 
 const useSendComment = (link) => {
   const url = import.meta.env.VITE_SERVER_URL + "/comments";
-  const [tokenState] = React.useContext(tokenContext);
+  const { tokenState, addComment } = React.useContext(tokenContext);
   const [comment, setComment] = React.useState("");
   const { fetchData } = useApiRequest();
 
-  const onSuccess = (data) => {
-    toast.success(data.message);
+  const onSuccess = (body) => {
+    toast.success(body.message);
+    addComment(body.data);
     setComment("");
   };
 
@@ -31,7 +32,8 @@ const useSendComment = (link) => {
         comment: comment,
       }),
     };
-    fetchData(url, urlData, onSuccess, onError);
+
+    comment ? fetchData(url, urlData, onSuccess, onError) : null;
   };
   return {
     commentHandler,

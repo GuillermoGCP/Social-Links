@@ -6,13 +6,16 @@ import { toast } from "react-toastify";
 const tokenContext = React.createContext();
 
 const TokenProvider = ({ children }) => {
+  //Estado del token:
   const [tokenState, setTokenState] = useLocalStorage("tokenInLocalStorage");
 
+  //Estado de la info del usuario logueado:
   const [profileInfo, setProfileInfo] = React.useState({});
 
   const editProfile = (newData) => {
     setProfileInfo({ ...profileInfo, ...newData });
   };
+
   const { fetchData, loading } = useApiRequest();
 
   const onSuccess = (data) => {
@@ -32,18 +35,27 @@ const TokenProvider = ({ children }) => {
     };
 
     fetchData(url, urlData, onSuccess, onError);
-  }, [tokenState]);
+  }, [tokenState, fetchData]);
+
+  //Estado de los commentarios de los links:
+  const [commentList, setCommentList] = React.useState("");
+  const addComment = (newComment) => {
+    setCommentList([...commentList, newComment]);
+  };
 
   return (
     <tokenContext.Provider
-      value={[
+      value={{
         tokenState,
         setTokenState,
         profileInfo,
         setProfileInfo,
         editProfile,
         loading,
-      ]}
+        commentList,
+        setCommentList,
+        addComment,
+      }}
     >
       {children}
     </tokenContext.Provider>

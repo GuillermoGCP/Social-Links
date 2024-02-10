@@ -9,7 +9,7 @@ const useLogin = () => {
   const url = import.meta.env.VITE_SERVER_URL + "/login";
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [, setTokenState] = React.useContext(tokenContext);
+  const { setTokenState } = React.useContext(tokenContext);
   const [showPassword, setShowPassword] = React.useState(false);
 
   const onSuccess = (data) => {

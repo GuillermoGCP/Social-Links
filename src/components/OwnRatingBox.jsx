@@ -18,7 +18,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function OwnRatingBox({ link }) {
   const { votedByLoggedUser, individualRatings, voterUserIds } = link;
-  const [, , profileInfo] = React.useContext(tokenContext);
+  const { profileInfo } = React.useContext(tokenContext);
 
   let userIdIndex;
   let userVote;

@@ -5,6 +5,7 @@ import EmbeddedPage from "./EmbeddedPage";
 import DropDown from "../components/DropDown";
 import { useMediaQuery } from "@mui/material";
 import CommentBox from "../components/CommentBox";
+import CommentListComponent from "../components/CommentListComponent";
 
 const LinkDetailsPage = () => {
   const location = useLocation();
@@ -44,6 +45,9 @@ const LinkDetailsPage = () => {
       </section>
       <div>
         <CommentBox link={link} />
+      </div>
+      <div className="flex justify-center">
+        <CommentListComponent linkId={link.id} />
       </div>
     </main>
   );

@@ -11,7 +11,7 @@ const CommentBox = ({ link }) => {
       </h2>
       <form onSubmit={commentHandler}>
         <textarea
-          className="border rounded-2xl p-2 w-3x1 mb-4"
+          className="border rounded-2xl p-2 w-3x1 mb-4 w-96"
           value={comment}
           onChange={(e) => {
             setComment(e.target.value);
@@ -20,8 +20,8 @@ const CommentBox = ({ link }) => {
           rows={4}
           cols={50}
         />
-        <div className="max-w-72 mx-auto">
-          <Button>Enviar</Button>
+        <div className="max-w-72 mx-auto ">
+          <Button>Comentar</Button>
         </div>
       </form>
     </article>
@@ -29,7 +29,7 @@ const CommentBox = ({ link }) => {
 };
 
 CommentBox.propTypes = {
-  link: PropTypes.string,
+  link: PropTypes.object,
 };
 
 export default CommentBox;
