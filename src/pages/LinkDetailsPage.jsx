@@ -6,6 +6,7 @@ import DropDown from "../components/DropDown";
 import { useMediaQuery } from "@mui/material";
 import CommentBox from "../components/CommentBox";
 import CommentListComponent from "../components/CommentListComponent";
+import { useEffect } from "react";
 
 const LinkDetailsPage = () => {
   const location = useLocation();
@@ -14,6 +15,18 @@ const LinkDetailsPage = () => {
   const link = dataLink.find((p) => p.id === Number(id));
 
   const isSmallScreen = useMediaQuery("(max-width: 740px)");
+
+  // Esto es para que aparezca arriba de todo en la página, sin esto aparecía en el último comentario
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Este es el botón para hacer scroll desde abajo
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   if (!link) return <PageNotFound />;
 
@@ -48,6 +61,12 @@ const LinkDetailsPage = () => {
       </div>
       <div className="flex justify-center">
         <CommentListComponent linkId={link.id} />
+      </div>
+      <div
+        onClick={scrollToTop}
+        className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
+      >
+        ↑
       </div>
     </main>
   );
