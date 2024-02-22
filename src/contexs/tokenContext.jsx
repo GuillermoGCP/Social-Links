@@ -3,6 +3,7 @@ import React from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useApiRequest from "../hooks/useApiRequest";
 import { toast } from "react-toastify";
+import { comment } from "postcss";
 const tokenContext = React.createContext();
 
 const TokenProvider = ({ children }) => {
@@ -35,12 +36,15 @@ const TokenProvider = ({ children }) => {
     };
 
     fetchData(url, urlData, onSuccess, onError);
-  }, [tokenState, fetchData]);
+  }, []);
 
   //Estado de los commentarios de los links:
   const [commentList, setCommentList] = React.useState("");
   const addComment = (newComment) => {
     setCommentList([...commentList, newComment]);
+  };
+  const addResponse = (comments) => {
+    setCommentList(comments);
   };
 
   return (
@@ -55,6 +59,7 @@ const TokenProvider = ({ children }) => {
         commentList,
         setCommentList,
         addComment,
+        addResponse,
       }}
     >
       {children}
