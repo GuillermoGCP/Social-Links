@@ -5,7 +5,6 @@ import { ClockLoader } from "react-spinners";
 
 const CommentListComponent = ({ linkId }) => {
   const { commentList, loading } = useGetComments(linkId);
-
   return (
     <>
       {loading ? (
@@ -21,7 +20,9 @@ const CommentListComponent = ({ linkId }) => {
             .map((comment) => {
               return (
                 <li key={comment.id}>
-                  <Comment comment={comment} />
+                  {comment.parent_comment_id === null && (
+                    <Comment comment={comment} />
+                  )}
                 </li>
               );
             })}

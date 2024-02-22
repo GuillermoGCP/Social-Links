@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import PostCounter from "./PostCounter";
+import Response from "./Response";
+import ResponseBox from "./responseBox";
 
 const Comment = ({ comment }) => {
   const pic = `${import.meta.env.VITE_SERVER_URL}/uploads/${
     comment.profilePicture
   }`;
-
   return (
     <article className="m-4 p-4 rounded-xl shadow-lg  bg-slate-100/40 w-96 flex flex-col items-center">
       <img
@@ -20,6 +21,15 @@ const Comment = ({ comment }) => {
       <p className="text-sm text-left text-slate-600 font-bold p-4 mb-4">
         {comment.comment}
       </p>
+      <ResponseBox comment={comment} />
+      {comment.responses &&
+        comment.responses.map((response) => {
+          return (
+            <div key={response.id}>
+              <Response response={response} />
+            </div>
+          );
+        })}
     </article>
   );
 };
