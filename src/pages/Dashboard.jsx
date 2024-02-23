@@ -12,6 +12,7 @@ import NoLinksToday from "../components/NoLinksToday";
 import Button from "../components/Button";
 import { ClockLoader } from "react-spinners";
 import { useMediaQuery } from "@mui/material";
+import Scroll from "../components/Scroll";
 
 const Dashboard = () => {
   const { tokenState, profileInfo } = React.useContext(tokenContext);
@@ -35,10 +36,6 @@ const Dashboard = () => {
   const newOwnLinks = orderFilteredLinks.filter(
     (id) => id.ownerId === profileInfo.id
   );
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const isSmallScreen = useMediaQuery("(max-width: 740px)");
 
@@ -113,12 +110,7 @@ const Dashboard = () => {
       ) : !loading ? (
         <NoLinksToday />
       ) : null}
-      <div
-        onClick={scrollToTop}
-        className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
-      >
-        ↑
-      </div>
+      <Scroll />
     </main>
   );
 };
