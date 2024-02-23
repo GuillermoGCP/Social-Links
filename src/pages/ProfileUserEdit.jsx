@@ -5,6 +5,8 @@ import PasswordInput from "../components/PasswordInput";
 import Button from "../components/Button";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useDeleteAccount from "../hooks/useDeleteAccount";
+import useCloseSesion from "../hooks/useCloseSesion";
 
 const ProfileUserEdit = () => {
   const {
@@ -25,6 +27,8 @@ const ProfileUserEdit = () => {
     tokenState,
     confirmPassword,
   } = useProfileEdit();
+
+  const { deleteHandler } = useDeleteAccount();
 
   const navigate = useNavigate();
 
@@ -106,6 +110,14 @@ const ProfileUserEdit = () => {
           {error && <div className="text-red-500">{error}</div>}
           <div className="hover:scale-95">
             <Button>Resetear contraseña</Button>
+          </div>
+          <div className="mt-10">
+            <button
+              className="flex w-2/3 items-center justify-center h-6 mx-auto rounded-md bg-indigo-600 px-4 py-3 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus:outline-none focus:ring focus:border-indigo-500 focus:ring-indigo-200 hover:scale-95"
+              onClick={deleteHandler}
+            >
+              Borrar cuenta
+            </button>
           </div>
         </form>
       </div>
