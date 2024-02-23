@@ -8,6 +8,7 @@ import Button from "../components/Button";
 import useAllLinks from "../hooks/useAlllinks";
 import NoLinksToday from "../components/NoLinksToday";
 import { ClockLoader } from "react-spinners";
+import Scroll from "../components/Scroll";
 
 const MainPage = () => {
   const { state, tokenState, addNewLink, changeRating, loading } =
@@ -29,10 +30,6 @@ const MainPage = () => {
 
   const goToLinkDetails = (id) => {
     navigate(`/${id}`, { state: { mainPageState: state } });
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const orderFilteredLinks = filteredLinks.sort((a, b) => {
@@ -106,12 +103,7 @@ const MainPage = () => {
           )}
         </ul>
       </section>
-      <div
-      onClick={scrollToTop}
-      className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
-    >
-        ↑
-      </div>
+      <Scroll />
     </main>
   );
 };

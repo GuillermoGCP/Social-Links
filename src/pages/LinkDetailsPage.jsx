@@ -1,32 +1,35 @@
 import { useParams, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import PageNotFound from "./PageNotFound";
+import React, { useContext } from "react";
 import EmbeddedPage from "./EmbeddedPage";
 import DropDown from "../components/DropDown";
 import { useMediaQuery } from "@mui/material";
 import CommentBox from "../components/CommentBox";
 import CommentListComponent from "../components/CommentListComponent";
 import { useEffect } from "react";
-
+import { tokenContext } from "../contexs/tokenContext";
+import { useNavigate } from "react-router-dom";
+import Scroll from "../components/Scroll";
 const LinkDetailsPage = () => {
+  const { tokenState } = useContext(tokenContext);
   const location = useLocation();
   const dataLink = location?.state?.mainPageState || [];
   const { id } = useParams();
   const link = dataLink.find((p) => p.id === Number(id));
-
+  const navigate = useNavigate();
   const isSmallScreen = useMediaQuery("(max-width: 740px)");
 
   // Esto es para que aparezca arriba de todo en la página, sin esto aparecía en el último comentario
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Este es el botón para hacer scroll desde abajo
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  React.useEffect(() => {
+    if (!tokenState) {
+      navigate("/");
+    }
+  }, [tokenState, navigate]);
 
   if (!link) return <PageNotFound />;
 
@@ -62,12 +65,7 @@ const LinkDetailsPage = () => {
       <div className="flex justify-center">
         <CommentListComponent linkId={link.id} />
       </div>
-      <div
-        onClick={scrollToTop}
-        className="mb-8 fixed bottom-8 right-8 bg-transparent text-gray-300 px-4 py-2 rounded-full shadow-md border border-gray-300 hover:bg-indigo-400 hover:text-white transition-all duration-300 cursor-pointer"
-      >
-        ↑
-      </div>
+      <Scroll />
     </main>
   );
 };
