@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import PostCounter from "./PostCounter";
 import Response from "./Response";
-import ResponseBox from "./responseBox";
+import ResponseBox from "./ResponseBox";
 
 const Comment = ({ comment }) => {
   const pic = `${import.meta.env.VITE_SERVER_URL}/uploads/${
