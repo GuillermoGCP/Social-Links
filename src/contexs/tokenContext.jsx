@@ -36,7 +36,7 @@ const TokenProvider = ({ children }) => {
     };
 
     fetchData(url, urlData, onSuccess, onError);
-  }, []);
+  }, [tokenState]);
 
   //Estado de los commentarios de los links:
   const [commentList, setCommentList] = React.useState("");
