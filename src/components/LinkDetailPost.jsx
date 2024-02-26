@@ -18,6 +18,8 @@ const LinkDetailPost = ({ link }) => {
         {link.title}
       </h1>
       <a
+        target="_blank"
+        rel="noopener noreferrer"
         href={link.url}
         className="text-slate-300 text-lg underline block hover:text-green-300"
       >

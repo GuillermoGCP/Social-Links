@@ -12,7 +12,7 @@ const Response = ({ response }) => {
         <img
           src={pic}
           alt="Foto del usuario"
-          className="rounded-full h-8 w-8 mb-2 border-slate-100/60  shadow-lg border-4"
+          className="rounded-full h-8 w-8 mb-2 border-slate-100/60  shadow-lg border-4 object-cover"
         />
         <p className="text-gray-700 ">{response.name}</p>
         <div className="text-xs text-slate-600">

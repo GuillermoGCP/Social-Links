@@ -12,7 +12,7 @@ const Comment = ({ comment }) => {
       <img
         src={pic}
         alt="Foto del usuario"
-        className="rounded-full h-16 w-16 mb-2 border-slate-100/60  shadow-lg border-4"
+        className="rounded-full h-16 w-16 mb-2 border-slate-100/60  shadow-lg border-4 object-cover"
       />
       <p className="text-gray-700">{comment.name}</p>
       <div className="text-xs text-slate-600">
@@ -22,8 +22,8 @@ const Comment = ({ comment }) => {
         {comment.comment}
       </p>
       <ResponseBox comment={comment} />
-      {comment.responses &&
-        comment.responses.map((response) => {
+      {comment.parseResponses &&
+        comment.parseResponses.map((response) => {
           return (
             <div key={response.id}>
               <Response response={response} />

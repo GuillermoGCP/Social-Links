@@ -15,12 +15,12 @@ const useSearch = (state) => {
     };
     setSearchParams(queryData);
   };
-
   const filteredLinks = state?.filter((link) => {
     return (
       link.title.toLowerCase().includes(q.toLowerCase()) ||
       link.description.toLowerCase().includes(q.toLowerCase()) ||
-      link.url.toLowerCase().includes(q.toLocaleLowerCase())
+      link.url.toLowerCase().includes(q.toLocaleLowerCase()) ||
+      link.name.toLowerCase().includes(q.toLocaleLowerCase())
     );
   });
   return {
