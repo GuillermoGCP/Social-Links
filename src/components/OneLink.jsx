@@ -42,7 +42,7 @@ const OneLink = ({ link, changeRating, changeRating2 }) => {
         <p className="text-right mr-6 font-medium text-slate-600">0 votos </p>
       )}
 
-      <div className="p-4 mt-8 flex items-center justify-around">
+      <div className="p-4 mt-8 h-28 flex items-center justify-around">
         <OwnRatingBox link={link} />
 
         {link.ownerId !== profileInfo.id && (
