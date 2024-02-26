@@ -37,7 +37,7 @@ const LinkDetailsPage = () => {
     <main className="flex flex-col">
       <section className=" flex justify-center items-start ">
         {isSmallScreen ? (
-          <article className="flex flex-col  items-center  bg-slate-100/50 w-5/6 mt-20 shadow-md rounded-3xl">
+          <article className="flex flex-col  items-center  bg-slate-100/50 w-5/6 mt-12 shadow-md rounded-3xl">
             <div className="mt-4">
               <DropDown link={link} />
             </div>
@@ -47,7 +47,7 @@ const LinkDetailsPage = () => {
           </article>
         ) : (
           <>
-            <section className="flex items-start m-20 p-4 shadow-md rounded-3xl bg-slate-100/50 max-w-6xl">
+            <section className="flex items-start mt-12 mb-20 mx-20 p-4 shadow-md rounded-3xl bg-slate-100/50 max-w-6xl">
               <div>
                 <DropDown link={link} />
               </div>

@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
+import useShortUrl from "../hooks/useShortUrl";
 
 const EmbeddedPage = ({ link }) => {
+  const { shortUrl } = useShortUrl(link.url);
   return (
     <LinkPreview
       url={link.url}
@@ -13,9 +15,19 @@ const EmbeddedPage = ({ link }) => {
         return json.metadata;
       }}
       fallback={
-        <p className=" font-medium text-slate-600 mx-10 mt-44 mb-40 text-xl">
-          No hay vista previa
-        </p>
+        <>
+          <p className=" font-medium text-slate-600 mx-10 mt-44  text-xl">
+            No hay vista previa
+          </p>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={link.url}
+            className="text-slate-600 text-lg text-center underline block hover:text-indigo-400 mb-40"
+          >
+            {shortUrl}
+          </a>
+        </>
       }
     />
   );
