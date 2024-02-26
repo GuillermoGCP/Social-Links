@@ -34,7 +34,7 @@ const LinksToday = () => {
   return (
     <main className="min-h-screen">
       <section>
-        <div className="mt-6">
+        <div className="mt-12">
           <Search
             handler={searchHandler}
             inputValue={inputValue}

@@ -6,7 +6,6 @@ import Button from "../components/Button";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useDeleteAccount from "../hooks/useDeleteAccount";
-import useCloseSesion from "../hooks/useCloseSesion";
 
 const ProfileUserEdit = () => {
   const {
@@ -38,7 +37,7 @@ const ProfileUserEdit = () => {
     }
   }, [tokenState, navigate]);
   return (
-    <div className="min-h-screen p-10 mt-10">
+    <div className="min-h-screen mt-12">
       <div className="bg-white p-8 shadow-md rounded-md max-w-md w-full mx-auto">
         <h2 className="text-3xl font-semibold mb-6 text-center text-slate-700">
           Edita tus datos
